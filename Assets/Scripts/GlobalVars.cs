@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class GlobalVars
 {
+    public const string gameName = "Touhou Adventure of Two (Pride Jam 2023)";
     public const ushort majorVersion = 0;
     public const ushort minorVersion = 1;
     public const bool isDevBuild = true;
 
 
+    public static int getGameVersion()
+    {
+        return (isDevBuild ? 0 : 1) + ((minorVersion + majorVersion * 1000) << 1);
+    }
 
 }
