@@ -15,4 +15,12 @@ public class GlobalVars
         return (isDevBuild ? 0 : 1) + ((minorVersion + majorVersion * 1000) << 1);
     }
 
+    //
+    // this data is filled in when the lobby is doing it's three second count down to gameplay
+    //
+
+    public static bool isPlayingYuki = true; //usually player one
+    public static bool isDifficultyStandard = true; //otherwise, playing on easy
+
+
 }
