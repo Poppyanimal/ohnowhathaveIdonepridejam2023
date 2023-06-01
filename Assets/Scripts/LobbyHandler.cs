@@ -127,8 +127,8 @@ public class LobbyHandler : NetworkBehaviour
 
     IEnumerator doFadeToBlack()
     {
-        float timeToFade = 2.5f;
-        float endOpacity = .8f;
+        float timeToFade = 2.9f;
+        float endOpacity = 1f;
         float startTime = Time.time;
 
         Color col = fadeToBlackOverlay.color;
