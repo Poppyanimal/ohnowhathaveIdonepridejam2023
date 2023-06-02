@@ -6,8 +6,9 @@ using Unity.Netcode;
 public class Player : NetworkBehaviour
 {
     public float baseSpeed = 5f;
-    public float shootSpeedMult = .9f;
-    public float focusSpeedMult = .5f;
+    public float shootSpeedMult = .7f; //doesnt apply if focused
+    public float focusSpeedMult = .3f;
+    public GameObject hitboxVisual;
 
 
     //Move speed slightly slower while shooting?
@@ -19,6 +20,11 @@ public class Player : NetworkBehaviour
     void Start()
     {
         thisBody = gameObject.GetComponent<Rigidbody2D>();
+
+        if(GlobalVars.isPlayingYuki == thischar is character.Yuki && hitboxVisual != null) //make hitbox visible if playing character
+        {
+            hitboxVisual.SetActive(true);
+        }
 
         if(NetworkManager.IsHost) //passes ownership over to other player if host is not playing this character
         {
@@ -75,7 +81,7 @@ public class Player : NetworkBehaviour
         bool currentlyFocusing = Input.GetButton("Focus");
         bool currentlyShooting = Input.GetButton("Shoot");
 
-        thisBody.velocity = movement * baseSpeed * (currentlyShooting ? shootSpeedMult : 1f) * (currentlyFocusing ? focusSpeedMult : 1f);
+        thisBody.velocity = movement * baseSpeed * (currentlyFocusing ? focusSpeedMult : currentlyShooting ? shootSpeedMult : 1f);
 
         //TODO
         //shooting

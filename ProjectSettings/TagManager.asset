@@ -19,8 +19,8 @@ TagManager:
   - EnemyBullet
   - EnemyHitbox
   - UI_Transition
-  - 
-  - 
+  - ignoreall
+  - PlayerHitbox
   - 
   - 
   - 
@@ -40,4 +40,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: PlayerHitbox
+    uniqueID: 1590831245
     locked: 0

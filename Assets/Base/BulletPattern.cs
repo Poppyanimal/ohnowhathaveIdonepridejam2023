@@ -20,9 +20,34 @@ public class BulletPattern : MonoBehaviour
         {
             //Debug.Log("Auto pattern called");
             float angleModifier = 0f;
-            if(patternDat.trackTarget && patternDat.targetToTrack != null)
+            if(patternDat.trackTarget != PatternData.playerToTarget.noTracking)
             {
-                angleModifier -= KiroLib.angleToTarget(patternDat.targetToTrack.position, gameObject.transform.position);
+                bool hasTargetPosition = false;
+                Vector2 targetPosition = Vector2.zero;
+
+                switch(patternDat.trackTarget)
+                {
+                    case PatternData.playerToTarget.Closest:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getCloserPlayerTo(gameObject.transform.position);
+                        break;
+                    case PatternData.playerToTarget.Yuki:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getYukiPosition();
+                        break;
+                    case PatternData.playerToTarget.Mai:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getMaiPosition();
+                        break;
+                    case PatternData.playerToTarget.SpecificRigidbody:
+                        hasTargetPosition = true;
+                        targetPosition = patternDat.customRigidbodyTarget.position;
+                        break;
+                }
+
+                if(hasTargetPosition)
+                    angleModifier -= KiroLib.angleToTarget(targetPosition, gameObject.transform.position);
+
             }
 
             Vector2 startingVelocity = patternDat.autoSettings.startingVelocity;
@@ -85,11 +110,70 @@ public class BulletPattern : MonoBehaviour
             float angleModifier = curPat.angleOffset;
             SinPatternAngleInfo sAngInfo = curPat.SinInfo.SinAngleInfo;
 
-            if(((curPat.TrackingOverrideChoice == simplePatternInfo.TrackingOverride.Ignore && patternDat.trackTarget)
-                || curPat.TrackingOverrideChoice == simplePatternInfo.TrackingOverride.Yes_Tracking) && patternDat.targetToTrack != null)
+            
+            if(patternDat.trackTarget != PatternData.playerToTarget.noTracking && curPat.TrackingOverrideChoice == simplePatternInfo.TrackingOverride.Ignore)
             {
-                angleModifier -= KiroLib.angleToTarget(patternDat.targetToTrack.position, gameObject.transform.position);
+                bool hasTargetPosition = false;
+                Vector2 targetPosition = Vector2.zero;
+
+                switch(patternDat.trackTarget)
+                {
+                    case PatternData.playerToTarget.Closest:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getCloserPlayerTo(gameObject.transform.position);
+                        break;
+                    case PatternData.playerToTarget.Yuki:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getYukiPosition();
+                        break;
+                    case PatternData.playerToTarget.Mai:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getMaiPosition();
+                        break;
+                    case PatternData.playerToTarget.SpecificRigidbody:
+                        if(patternDat.customRigidbodyTarget != null)
+                        {
+                            hasTargetPosition = true;
+                            targetPosition = patternDat.customRigidbodyTarget.position;
+                        }
+                        break;
+                }
+                
+                if(hasTargetPosition)
+                    angleModifier -= KiroLib.angleToTarget(targetPosition, gameObject.transform.position);
             }
+            else if(curPat.TrackingOverrideChoice != simplePatternInfo.TrackingOverride.Ignore)
+            {
+                bool hasTargetPosition = false;
+                Vector2 targetPosition = Vector2.zero;
+
+                switch(curPat.TrackingOverrideChoice)
+                {
+                    case simplePatternInfo.TrackingOverride.track_Closest:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getCloserPlayerTo(gameObject.transform.position);
+                        break;
+                    case simplePatternInfo.TrackingOverride.track_Yuki:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getYukiPosition();
+                        break;
+                    case simplePatternInfo.TrackingOverride.track_Mai:
+                        hasTargetPosition = true;
+                        targetPosition = StageHandler.Singleton.getMaiPosition();
+                        break;
+                    case simplePatternInfo.TrackingOverride.track_Custom_Body:
+                        if(patternDat.customRigidbodyTarget != null)
+                        {
+                            hasTargetPosition = true;
+                            targetPosition = patternDat.customRigidbodyTarget.position;
+                        }
+                        break;
+                }
+                
+                if(hasTargetPosition)
+                    angleModifier -= KiroLib.angleToTarget(targetPosition, gameObject.transform.position);
+            }
+
             if(sAngInfo.useSinAngleOffset)
             {
                 angleModifier += sAngInfo.amplitude*Mathf.Sin(curPat.SinInfo.getTimeSinceInit()/sAngInfo.period + sAngInfo.timeOffset);

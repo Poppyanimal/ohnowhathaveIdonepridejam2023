@@ -70,7 +70,7 @@ public class patternDrift
 public class simplePatternInfo
 {
     public Rigidbody2D bulletOverride = null;
-    public enum TrackingOverride {Ignore, No_Tracking, Yes_Tracking};
+    public enum TrackingOverride {Ignore, No_Tracking, track_Closest, track_Custom_Body, track_Yuki, track_Mai};
     public TrackingOverride TrackingOverrideChoice = TrackingOverride.Ignore;
     public int bulletQuantity = 12;
     public float angleBetweenBullets = 30f;
@@ -95,9 +95,11 @@ public class PatternInfo
 [System.Serializable]
 public class PatternData
 {
-    public bool trackTarget = false;
-    public Rigidbody2D targetToTrack = null;
+    public playerToTarget trackTarget = playerToTarget.noTracking;
+    public Rigidbody2D customRigidbodyTarget = null;
 
     public autoPatternInfo autoSettings = new autoPatternInfo();
     public PatternInfo patternSettings = new PatternInfo();
+
+    public enum playerToTarget { noTracking, Yuki, Mai, Closest, SpecificRigidbody }
 }

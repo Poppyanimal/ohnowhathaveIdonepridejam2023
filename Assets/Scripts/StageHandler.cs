@@ -7,14 +7,19 @@ using Unity.Netcode;
 
 public class StageHandler : NetworkBehaviour
 {
-    public StageHandler Singleton;
+    public static StageHandler Singleton;
     public SpriteRenderer backgroundDimming;
     public Image leftPanel, rightPanel;
+    public float fadeDistance;
+    public float fadeTime;
     public Rigidbody2D YukiBody, MaiBody;
 
     int currentFlag = 0;
 
     public List<stageFlag> stageFlags;
+
+    [HideInInspector]
+    public List<enemyData> enemyTable = new();
 
     //the boss fight
 
@@ -31,13 +36,24 @@ public class StageHandler : NetworkBehaviour
         //TODO
     }
 
+    void initEnemyTable() //used for generic enemies, not bosses
+    {
+        enemyTable.Clear();
+        foreach(stageFlag flag in stageFlags)
+        {
+            foreach(enemyGrouping enemyGroup in flag.enemyGroups)
+            {
+                foreach(enemySpawn enemy in enemyGroup.enemySpawns)
+                {
+                    enemyTable.Add(new enemyData());
+                }
+            }
+        }
+    }
+
 
     //TODO:
-    // -when stage loads, transition from black fade in
     // -check both players are ready, once so send signal for enemy stage logic in 3 seconds
-    // -generate table of enemies with the following info: yuki damage (shared every X damage), mai damage (shared every X damage),
-    //    isAlive (updated through RPC to all players), isActive (local only, used to handle some syncing logic like should do death efect, etc), currentObject (local, once spawned)
-    // -when an enemy is spawned, it tracks itself by it's index in this table, allowing it to udte it's entry as needed
 
     public void damageEnemy(int index, int dam)
     {
@@ -67,8 +83,6 @@ public class StageHandler : NetworkBehaviour
     {
         yield return new WaitForSeconds(.15f);
 
-        float endDistance = 800;
-        float timeToFinish = .4f;
         Vector3 leftStartPos = leftPanel.transform.position;
         Vector3 rightStartPos = rightPanel.transform.position;
 
@@ -76,17 +90,17 @@ public class StageHandler : NetworkBehaviour
         yield return new WaitUntil(delegate()
         {
             float curTime = Time.time;
-            if(curTime - startTime >= timeToFinish)
+            if(curTime - startTime >= fadeTime)
             {
-                leftPanel.transform.position = leftStartPos + Vector3.left * endDistance;
-                rightPanel.transform.position = rightStartPos + Vector3.right * endDistance;
+                leftPanel.transform.position = leftStartPos + Vector3.left * fadeDistance;
+                rightPanel.transform.position = rightStartPos + Vector3.right * fadeDistance;
                 return true;
             }
             else
             {
-                float timeRatio = (curTime - startTime) / timeToFinish;
-                leftPanel.transform.position = leftStartPos + Vector3.left * endDistance * timeRatio;
-                rightPanel.transform.position = rightStartPos + Vector3.right * endDistance * timeRatio;
+                float timeRatio = (curTime - startTime) / fadeTime;
+                leftPanel.transform.position = leftStartPos + Vector3.left * fadeDistance * timeRatio;
+                rightPanel.transform.position = rightStartPos + Vector3.right * fadeDistance * timeRatio;
                 return false;
             }
         });
@@ -115,4 +129,16 @@ public class StageHandler : NetworkBehaviour
         public Vector2 spawnLocation;
     }
 
+}
+public class enemyData
+{
+    public int damageFromYuki, damagefromMai = 0; //shared info wise every x damage done
+    public bool isAlive = true; //updated always with rpc when changed
+    public bool isActive = false; //local only
+    GameObject currentObject = null; //local only
+
+    public int getDamageTaken()
+    {
+        return damagefromMai + damageFromYuki;
+    }
 }
