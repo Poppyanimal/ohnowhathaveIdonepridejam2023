@@ -804,9 +804,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 469df4dcecc371445a6cad9e150befc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Singleton: {fileID: 0}
   backgroundDimming: {fileID: 277550760}
   leftPanel: {fileID: 1746969285}
   rightPanel: {fileID: 1795282381}
+  YukiBody: {fileID: 721170313}
+  MaiBody: {fileID: 494090047}
   stageFlags:
   - enemyGroups:
     - enemySpawns:
@@ -828,6 +831,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &494090047 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5270585943144098407, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+  m_PrefabInstance: {fileID: 1725300541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &551539763
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,6 +1029,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630826297}
   m_CullTransparentMesh: 1
+--- !u!50 &721170313 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 5270585943144098407, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+  m_PrefabInstance: {fileID: 5270585943626824493}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &743315240
 GameObject:
   m_ObjectHideFlags: 0

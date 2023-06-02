@@ -51,6 +51,15 @@ public class StageHandler : NetworkBehaviour
 
     public Vector2 getYukiPosition() { return YukiBody.position; }
     public Vector2 getMaiPosition() { return MaiBody.position; }
+    public Vector2 getCloserPlayerTo(Vector2 target)
+    {
+        float distanceToYuki = (YukiBody.position - target).magnitude;
+        float distanceToMai = (MaiBody.position - target).magnitude;
+        if(distanceToYuki <= distanceToMai)
+            return getYukiPosition();
+        else
+            return getMaiPosition();
+    }
 
 
     // for the black bar fade in effect
