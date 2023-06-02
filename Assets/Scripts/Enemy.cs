@@ -6,7 +6,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public ComplexPattern standardPattern, easyPattern;
-    public bool loopPattern;
+    public loopType loopPattern;
+    public int timesToLoop;
     [HideInInspector]
     public int spawnIndexId; //set when it is spawned, keeps track of it in stage handler
 
@@ -27,7 +28,9 @@ public class Enemy : MonoBehaviour
     IEnumerator countdownThenStartShooting()
     {
         yield return new WaitForSeconds(timeBeforeShooting);
-        
+
+        int loops = 0;
+
         ComplexPattern pat = GlobalVars.isDifficultyStandard ? standardPattern : easyPattern;
         while(true)
         {
@@ -40,8 +43,15 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(pat.timeDelayAfterFinished);
             pat.reset();
 
-            if(!loopPattern)
-                break;
+            if(loopPattern != loopType.loop_forever)
+            {
+                if(loopPattern is loopType.no_looping || (loopPattern is loopType.loop_x_times && loops >= timesToLoop))
+                    break;
+            }
+            
+            loops++;
         }
     }
+
+    public enum loopType { no_looping, loop_x_times, loop_forever }
 }

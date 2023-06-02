@@ -2424,7 +2424,8 @@ MonoBehaviour:
     simultanousPatterns:
     - timesToShoot: 1
       bPattern: {fileID: 296716187}
-  loopPattern: 1
+  loopPattern: 2
+  timesToLoop: 0
   spawnIndexId: 0
   timeBeforeShooting: 1.5
 --- !u!212 &1489138190
