@@ -14,6 +14,26 @@ public class GlobalVars
         return (isDevBuild ? 0 : 1) + ((minorVersion + majorVersion * 1000) << 1);
     }
 
+
+
+    //
+    // Player Data
+    //
+
+    public static int highScore = 0; //local highscore
+    public static float screenDim = .5f;
+
+    public static void loadPlayerDataFromFile()
+    {
+        //TODO
+    }
+    public static void savePlayerDataToFile()
+    {
+        //TODO
+    }
+
+
+
     //
     // this data is filled in when the lobby is doing it's three second count down to gameplay
     //
