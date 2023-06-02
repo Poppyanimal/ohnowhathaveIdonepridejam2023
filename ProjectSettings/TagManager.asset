@@ -11,13 +11,13 @@ TagManager:
   - 3DEnvironment
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - LevelBounds
+  - PlayerBullet
+  - PlayerBulletFake
+  - Enemy
+  - EnemyBullet
+  - EnemyHitbox
   - 
   - 
   - 

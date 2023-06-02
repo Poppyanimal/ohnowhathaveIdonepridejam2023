@@ -9,7 +9,6 @@ public class GlobalVars
     public const ushort minorVersion = 1;
     public const bool isDevBuild = true;
 
-
     public static int getGameVersion()
     {
         return (isDevBuild ? 0 : 1) + ((minorVersion + majorVersion * 1000) << 1);
