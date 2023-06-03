@@ -20,10 +20,24 @@ public class TestMainMenu : MonoBehaviour
     
     void Start()
     {
-        NetworkManager.Singleton.NetworkConfig.ConnectionData = BitConverter.GetBytes(GlobalVars.getGameVersion());
-        NetworkManager.Singleton.ConnectionApprovalCallback += ConnectionApprovalCheck;
-        NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectCallback;
+        if(!GlobalVars.mainMenuNetRegDone)
+        {
+            NetworkManager.Singleton.NetworkConfig.ConnectionData = BitConverter.GetBytes(GlobalVars.getGameVersion());
+            NetworkManager.Singleton.ConnectionApprovalCallback += ConnectionApprovalCheck;
+            NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnectCallback;
+            GlobalVars.mainMenuNetRegDone = true;
+        }
+
         versionText.text = "Version: " + GlobalVars.majorVersion + "." + GlobalVars.minorVersion + (GlobalVars.isDevBuild ? " DEV" : "");
+
+        //Debug.Log("Unexpected Closure? "+GlobalVars.connectionClosedUnexpectedly);
+
+        if(GlobalVars.connectionClosedUnexpectedly)
+        {
+            GlobalVars.connectionClosedUnexpectedly = false;
+            debugText.color = Color.red;
+            debugText.text = "Connection closed unexpectedly!";
+        }
     }
 
     
@@ -152,6 +166,7 @@ public class TestMainMenu : MonoBehaviour
         {
             Debug.LogError("port \""+portInput.text+"\" is not a valid ushort!");
             stopDebugCoro();
+            debugText.color = Color.red;
             debugText.text = "Invalid Port";
         }
     }
@@ -164,10 +179,16 @@ public class TestMainMenu : MonoBehaviour
 
     void stopDebugCoro() { if(debugTextCoro != null) StopCoroutine(debugTextCoro); }
     void startDebugCoro(string input) { stopDebugCoro(); debugTextCoro = StartCoroutine(debugCoroLoop(input)); }
-    IEnumerator debugCoroLoop(string input)
+    IEnumerator debugCoroLoop(string input, bool isError = false)
     {
         float cycleTime = 1f;
         debugText.text = input;
+
+        if(isError)
+            debugText.color = Color.red;
+        else
+            debugText.color = Color.white;
+
         while(true)
         {
             for(int count = 0; count <= 3; count++)

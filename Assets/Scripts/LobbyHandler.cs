@@ -9,7 +9,8 @@ public class LobbyHandler : NetworkBehaviour
 {
     //TODO: handle the host being able to change difficulty and who is what player
     public Image playeroneReadyImage, playertwoReadyImage, fadeToBlackOverlay;
-    public TMP_Text amPlayerOneText, amPlayerTwoText, countDownText;
+    public TMP_Text amPlayerOneText, amPlayerTwoText, countDownText, difficultyText;
+    public GameObject difficultyButton;
     bool playeroneReady, playertwoReady = false;
     Color notReadyCol = new Color(0.6981132f, 0.1045764f, 0.003292995f); Color readyCol = new Color(0.0994485f, 0.6980392f, 0.003921568f);
 
@@ -21,19 +22,45 @@ public class LobbyHandler : NetworkBehaviour
     void Start()
     {
         if(NetworkManager.Singleton.IsHost)
+        {
             amPlayerOneText.gameObject.SetActive(true);
+            difficultyButton.gameObject.SetActive(true);
+        }
         else
+        {
             amPlayerTwoText.gameObject.SetActive(true);
+            difficultyButton.gameObject.SetActive(false);
+        }
     }
 
     //
     //
     //
 
+    public void toggleDifficulty()
+    {
+        if(IsHost)
+        {
+            difficultyisStandard = !difficultyisStandard;
+            updateDifficultyTextClientRpc(difficultyisStandard);
+        }
+    }
+
+    [ClientRpc]
+    void updateDifficultyTextClientRpc(bool isStandard)
+    {
+        if(isStandard)
+            difficultyText.text = "Difficulty:\nStandard";
+        else
+            difficultyText.text = "Difficulty:\nApproachable";
+    }
+
+
     public void readyUp()
     {
         if(NetworkManager.Singleton.IsHost)
         {
+            difficultyButton.gameObject.SetActive(false);
             playeroneReady = true;
             playeroneReadyImage.color = readyCol;
             playerOneReadyClientRpc();

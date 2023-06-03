@@ -37,6 +37,13 @@ public class GlobalVars
     }
 
 
+    //
+    // Data between scenes
+    //
+
+    public static bool mainMenuNetRegDone = false;
+    public static bool connectionClosedUnexpectedly = false;
+
 
     //
     // this data is filled in when the lobby is doing it's three second count down to gameplay
