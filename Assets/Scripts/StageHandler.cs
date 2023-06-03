@@ -125,23 +125,31 @@ public class StageHandler : NetworkBehaviour
             Debug.Log("Both players are now waiting to progress");
             if(IsHost)
             {
-                Debug.Log("Is host, should now progress");
-                if(playerOneWaitingForFlag != playerTwoWaitingForFlag)
-                {
-                    Debug.LogError("Players are waiting for different flags, a desync may have occured. Attempting weak resync");
-                    attemptResyncThenProgressClientRpc(flag, currentEnemyIndex);
-                }
-                else
-                {
-                    unwaitAndProgressToFlagClientRpc(flag); 
-                }
+                Debug.Log("Is host, should now progress, starting serverrpc");
+                handleProgressionServerRpc(flag);
             }
+        }
+    }
+
+    [ServerRpc]
+    void handleProgressionServerRpc(int flag)
+    {
+        Debug.Log("server rpc started for flag progression");
+        if(playerOneWaitingForFlag != playerTwoWaitingForFlag)
+        {
+            Debug.LogError("Players are waiting for different flags, a desync may have occured. Attempting weak resync");
+            attemptResyncThenProgressClientRpc(flag, currentEnemyIndex);
+        }
+        else
+        {
+            unwaitAndProgressToFlagClientRpc(flag); 
         }
     }
 
     [ClientRpc]
     void attemptResyncThenProgressClientRpc(int flag, int curEnemyIndex)
     {
+        Debug.Log("attemp resync client rpc started");
         currentEnemyIndex = curEnemyIndex;
         playerOneWaitingForFlag = false;
         playerTwoWaitingForFlag = false;
@@ -151,6 +159,7 @@ public class StageHandler : NetworkBehaviour
     [ClientRpc]
     void unwaitAndProgressToFlagClientRpc(int flag)
     {
+        Debug.Log("unwait client rpc started");
         playerOneWaitingForFlag = false;
         playerTwoWaitingForFlag = false;
         StartCoroutine(doLogicForSequence(flag));
@@ -164,6 +173,7 @@ public class StageHandler : NetworkBehaviour
     IEnumerator doLogicForSequence(int flagIndex)
     {
         Debug.Log("new flag starting");
+        currentFlag = flagIndex;
         foreach(enemyGrouping group in stageFlags[flagIndex].enemyGroups)
         {
             foreach(enemySpawn spawn in group.enemySpawns)
