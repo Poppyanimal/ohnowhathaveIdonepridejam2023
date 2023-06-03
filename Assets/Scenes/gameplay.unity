@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1907489}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -416,7 +416,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 0, y: -25}
+  m_Offset: {x: 0, y: -22}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -817,7 +817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296716185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -915,7 +915,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 25, y: 0}
+  m_Offset: {x: 21, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -926,7 +926,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25, y: 75}
+  m_Size: {x: 25, y: 69}
   m_EdgeRadius: 0
 --- !u!1 &365582789
 GameObject:
@@ -2414,6 +2414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d4b35fdeb7bf34bbcf9a7aac8fbc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 10
   standardPattern:
     timeDelayAfterFinished: 2
     simultanousPatterns:
@@ -2424,8 +2425,33 @@ MonoBehaviour:
     simultanousPatterns:
     - timesToShoot: 1
       bPattern: {fileID: 296716187}
-  loopPattern: 2
+  shotLoopPattern: 2
   timesToLoop: 0
+  movements:
+  - timeToTake: 4
+    timeToWaitAfter: 0
+    xMovement:
+      type: 2
+      unitsMoved: 0
+      amplitude: -1
+      numOfPeaks: 3
+    yMovement:
+      type: 1
+      unitsMoved: -12
+      amplitude: 0
+      numOfPeaks: 0
+  - timeToTake: 2
+    timeToWaitAfter: 0.1
+    xMovement:
+      type: 1
+      unitsMoved: -4
+      amplitude: -1
+      numOfPeaks: 3
+    yMovement:
+      type: 1
+      unitsMoved: -4
+      amplitude: 0
+      numOfPeaks: 0
   spawnIndexId: 0
   timeBeforeShooting: 1.5
 --- !u!212 &1489138190
@@ -2488,7 +2514,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489138188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.37, y: 6.86, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2505,7 +2531,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489138188}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -2698,7 +2724,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: 0, y: 25}
+  m_Offset: {x: 0, y: 22}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3342,56 +3368,56 @@ CompositeCollider2D:
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
-  - m_Collider: {fileID: 1616417410}
-    m_ColliderPaths:
-    - - X: 125000000
-        Y: 375000000
-      - X: -125000000
-        Y: 375000000
-      - X: -125000000
-        Y: 125000000
-      - X: 125000000
-        Y: 125000000
   - m_Collider: {fileID: 302766148}
     m_ColliderPaths:
-    - - X: 375000000
-        Y: 375000000
-      - X: 125000000
-        Y: 375000000
-      - X: 125000000
-        Y: -375000000
-      - X: 375000000
-        Y: -375000000
-  - m_Collider: {fileID: 2138652078}
-    m_ColliderPaths:
-    - - X: -125000000
-        Y: 375000000
-      - X: -375000000
-        Y: 375000000
-      - X: -375000000
-        Y: -375000000
-      - X: -125000000
-        Y: -375000000
+    - - X: 335000000
+        Y: 345000000
+      - X: 85000000
+        Y: 345000000
+      - X: 85000000
+        Y: -345000000
+      - X: 335000000
+        Y: -345000000
   - m_Collider: {fileID: 220449155}
     m_ColliderPaths:
     - - X: 125000000
-        Y: -125000000
+        Y: -95000000
       - X: -125000000
-        Y: -125000000
+        Y: -95000000
       - X: -125000000
-        Y: -375000000
+        Y: -345000000
       - X: 125000000
-        Y: -375000000
+        Y: -345000000
+  - m_Collider: {fileID: 2138652078}
+    m_ColliderPaths:
+    - - X: -85000000
+        Y: 345000000
+      - X: -335000000
+        Y: 345000000
+      - X: -335000000
+        Y: -345000000
+      - X: -85000000
+        Y: -345000000
+  - m_Collider: {fileID: 1616417410}
+    m_ColliderPaths:
+    - - X: 125000000
+        Y: 345000000
+      - X: -125000000
+        Y: 345000000
+      - X: -125000000
+        Y: 95000000
+      - X: 125000000
+        Y: 95000000
   m_CompositePaths:
     m_Paths:
-    - - {x: 37.499973, y: -37.5}
-      - {x: 37.499973, y: 37.5}
-      - {x: -37.5, y: 37.499973}
-      - {x: -37.499973, y: -37.5}
-    - - {x: 12.5, y: -12.49997}
-      - {x: -12.5, y: -12.49997}
-      - {x: -12.49997, y: 12.5}
-      - {x: 12.5, y: 12.49997}
+    - - {x: 33.499973, y: -34.5}
+      - {x: 33.499973, y: 34.5}
+      - {x: -33.5, y: 34.499973}
+      - {x: -33.499973, y: -34.5}
+    - - {x: 8.5, y: -9.49997}
+      - {x: -8.5, y: -9.49997}
+      - {x: -8.49997, y: 9.5}
+      - {x: 8.5, y: 9.49997}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &1820695558
@@ -3721,7 +3747,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 1
-  m_Offset: {x: -25, y: 0}
+  m_Offset: {x: -21, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3732,7 +3758,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 25, y: 75}
+  m_Size: {x: 25, y: 69}
   m_EdgeRadius: 0
 --- !u!1 &2139131297
 GameObject:

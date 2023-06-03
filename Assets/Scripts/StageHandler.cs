@@ -55,6 +55,8 @@ public class StageHandler : NetworkBehaviour
     //TODO:
     // -check both players are ready, once so send signal for enemy stage logic in 3 seconds
 
+    public int getDamageForEnemy(int index) { return enemyTable[index].damagefromMai + enemyTable[index].damagefromMai; }
+
     public void damageEnemy(int index, int dam)
     {
         //TODO
