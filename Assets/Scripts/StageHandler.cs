@@ -15,6 +15,7 @@ public class StageHandler : NetworkBehaviour
     public Rigidbody2D YukiBody, MaiBody;
 
     int currentFlag = 0;
+    int currentEnemyIndex = 0;
 
     public List<stageFlag> stageFlags;
 

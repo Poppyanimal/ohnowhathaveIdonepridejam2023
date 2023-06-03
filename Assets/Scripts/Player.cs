@@ -66,20 +66,24 @@ public class Player : NetworkBehaviour
 
     void doInputStuff()
     {
-        float axisDeadzone = 0.5f;
         Vector2 movement = Vector2.zero;
 
-        if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) >= axisDeadzone)
-        {
-            movement.x = Input.GetAxisRaw("Horizontal") > 0 ? 1 : -1;
-        }
-        if(Mathf.Abs(Input.GetAxisRaw("Vertical")) >= axisDeadzone)
-        {
-            movement.y = Input.GetAxisRaw("Vertical") > 0 ? 1 : -1;
-        }
+        //Debug.Log(Input.GetAxisRaw("Horizontal") + "; " +Input.GetAxisRaw("Vertical"));
 
-        bool currentlyFocusing = Input.GetButton("Focus");
-        bool currentlyShooting = Input.GetButton("Shoot");
+        if(Mathf.Abs(Input.GetAxisRaw("Horizontal")) >= GlobalVars.inputDeadzone)
+            movement.x = Input.GetAxisRaw("Horizontal");
+        else if(GlobalVars.useController && Mathf.Abs(Input.GetAxisRaw("HorizontalJoy")) >= GlobalVars.inputDeadzone)
+            movement.x = Input.GetAxisRaw("HorizontalJoy");
+
+        if(Mathf.Abs(Input.GetAxisRaw("Vertical")) >= GlobalVars.inputDeadzone)
+            movement.y = Input.GetAxisRaw("Vertical");
+        else if(GlobalVars.useController && Mathf.Abs(Input.GetAxisRaw("VerticalJoy")) >= GlobalVars.inputDeadzone)
+            movement.y = Input.GetAxisRaw("VerticalJoy");
+
+        movement = movement.normalized;
+
+        bool currentlyFocusing = Input.GetButton("Focus") || (GlobalVars.useController && Input.GetButton("FocusJoy"));
+        bool currentlyShooting = Input.GetButton("Shoot") || (GlobalVars.useController && Input.GetButton("ShootJoy"));
 
         thisBody.velocity = movement * baseSpeed * (currentlyFocusing ? focusSpeedMult : currentlyShooting ? shootSpeedMult : 1f);
 

@@ -20,8 +20,12 @@ public class GlobalVars
     // Player Data
     //
 
-    public static int highScore = 0; //local highscore
+    public static int highScoreEasy = 0; //local highscore
+    public static int highScoreStandard = 0; //local highscore
+
+    public static bool useController = true;
     public static float screenDim = .5f;
+    public static float inputDeadzone = .3f;
 
     public static void loadPlayerDataFromFile()
     {
