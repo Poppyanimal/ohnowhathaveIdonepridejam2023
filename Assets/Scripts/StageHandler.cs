@@ -18,6 +18,8 @@ public class StageHandler : NetworkBehaviour
     int currentEnemyIndex = 0;
 
     public List<stageFlag> stageFlags;
+    //TODO: change stageFlag into a scriptable object to make testing sequences in a test environment possible
+    //ei, a test singleplayer space can exist to load a since stageFlag and run through it
 
     [HideInInspector]
     public List<enemyData> enemyTable = new();
@@ -32,11 +34,13 @@ public class StageHandler : NetworkBehaviour
 
 
     void Awake() { Color col = backgroundDimming.color; col.a = GlobalVars.screenDim; backgroundDimming.color = col; Singleton = this; }
-    void Start() { StartCoroutine(doFadeInTransition()); }
+    void Start() { StartCoroutine(doFadeInTransition()); StartCoroutine(doStageStart()); }
 
 
     IEnumerator doStageStart()
     {
+        Debug.Log("stage start reached");
+        initEnemyTable();
         //TODO:
         //title card of makai / 魔界 and subtitle of sub area, fade in into fade out into first enemy grouping
         yield return new WaitForSeconds(fadeTime + 1f);
@@ -50,6 +54,10 @@ public class StageHandler : NetworkBehaviour
                 playerOneMarkWaitingForFlag(0);
             else
                 playerTwoMarkWaitingForFlag(0);
+        }
+        else
+        {
+            Debug.LogError("Expected stage flags to be set!");
         }
     }
 
@@ -65,6 +73,10 @@ public class StageHandler : NetworkBehaviour
             playerOneWaitingForFlag = true;
             markPlayerAsWaitingForFlagClientRpc(flag);
         }
+        else
+        {
+            Debug.LogError("Only the host should be calling to set player one's ready state!");
+        }
     }
     void playerTwoMarkWaitingForFlag(int flag)
     {
@@ -74,10 +86,15 @@ public class StageHandler : NetworkBehaviour
             playerTwoWaitingForFlag = true;
             playerTwoMarkWaitingForFlagServerRpc(flag);
         }
+        else
+        {
+            Debug.LogError("Only the connecting client should be calling to set player two's ready state!");
+        }
     }
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     void playerTwoMarkWaitingForFlagServerRpc(int flag)
     {
+        Debug.Log("Connecting client requests flag waiting");
         playerTwoFlagNumberWaitingOn = flag;
         playerTwoWaitingForFlag = true;
         markPlayerAsWaitingForFlagClientRpc(flag, 2);
@@ -85,32 +102,58 @@ public class StageHandler : NetworkBehaviour
     [ClientRpc]
     void markPlayerAsWaitingForFlagClientRpc(int flag, int player = 1)
     {
+        Debug.Log("General Player flag marking called");
         if(player == 1)
         {
+            Debug.Log("Player one is now waiting for flag");
             playerOneFlagNumberWaitingOn = flag;
             playerOneWaitingForFlag = true;
         }
         else if(player == 2)
         {
+            Debug.Log("Player two is now waiting for flag");
             playerTwoFlagNumberWaitingOn = flag;
             playerTwoWaitingForFlag = true;
         }
-
-        if(IsHost && playerOneWaitingForFlag && playerTwoWaitingForFlag)
+        else
         {
-            if(playerOneWaitingForFlag != playerTwoWaitingForFlag)
+            Debug.LogError("unexpected player number: "+player+" was selected for flag waiting update");
+        }
+
+        if(playerOneWaitingForFlag && playerTwoWaitingForFlag)
+        {
+            Debug.Log("Both players are now waiting to progress");
+            if(IsHost)
             {
-                Debug.LogError("Players are waiting for different flags, a desync may have occured");
+                Debug.Log("Is host, should now progress");
+                if(playerOneWaitingForFlag != playerTwoWaitingForFlag)
+                {
+                    Debug.LogError("Players are waiting for different flags, a desync may have occured. Attempting weak resync");
+                    attemptResyncThenProgressClientRpc(flag, currentEnemyIndex);
+                }
+                else
+                {
+                    unwaitAndProgressToFlagClientRpc(flag); 
+                }
             }
-            unwaitAndProgressToFlagClientRpc(flag);
         }
     }
+
+    [ClientRpc]
+    void attemptResyncThenProgressClientRpc(int flag, int curEnemyIndex)
+    {
+        currentEnemyIndex = curEnemyIndex;
+        playerOneWaitingForFlag = false;
+        playerTwoWaitingForFlag = false;
+        StartCoroutine(doLogicForSequence(flag));
+    }
+
     [ClientRpc]
     void unwaitAndProgressToFlagClientRpc(int flag)
     {
         playerOneWaitingForFlag = false;
         playerTwoWaitingForFlag = false;
-        doLogicForSequence(flag);
+        StartCoroutine(doLogicForSequence(flag));
     }
 
 
@@ -120,16 +163,16 @@ public class StageHandler : NetworkBehaviour
 
     IEnumerator doLogicForSequence(int flagIndex)
     {
-        yield return new WaitForSeconds(.1f);
-        //TODO
-
-        //alllll the logic for this flag
-
-        //
-        //
-
-
-
+        Debug.Log("new flag starting");
+        foreach(enemyGrouping group in stageFlags[flagIndex].enemyGroups)
+        {
+            foreach(enemySpawn spawn in group.enemySpawns)
+            {
+                spawnEnemy(currentEnemyIndex, spawn.spawnLocation, spawn.enemyPrefab);
+                currentEnemyIndex++;
+            }
+            yield return new WaitForSeconds(group.delayTillNextGroup);
+        }
 
         if(flagIndex + 1 < stageFlags.Count)
         {
@@ -154,6 +197,7 @@ public class StageHandler : NetworkBehaviour
 
     void initEnemyTable() //used for generic enemies, not bosses
     {
+        Debug.Log("Initilizing Enemy Table");
         enemyTable.Clear();
         foreach(stageFlag flag in stageFlags)
         {
@@ -171,19 +215,41 @@ public class StageHandler : NetworkBehaviour
 
     public int getDamageForEnemy(int index) { return enemyTable[index].damagefromMai + enemyTable[index].damagefromMai; }
 
+    void spawnEnemy(int index, Vector2 position, GameObject enemyPrefab)
+    {
+        Vector3 pos = (Vector3)position + Vector3.back * .1f;
+        GameObject enemy = Instantiate(enemyPrefab, pos, Quaternion.identity);
+
+        if(index >= enemyTable.Count)
+            Debug.LogError("Enemy index is higher than enemy tables length!!! index: "+index+"; table length: "+enemyTable.Count);
+        
+        enemy.GetComponent<Enemy>().spawnIndexId = index;
+        enemyTable[index].currentObject = enemy;
+        enemyTable[index].isActive = true;
+        if(!enemyTable[index].isAlive)
+        {
+            disableEnemy(index);
+            //TODO
+            //instantly play kill visual effect on enemy / remove them
+        }
+    }
+
     public void damageEnemy(int index, int dam)
     {
+        //sometimes needs netcode sync (every x damage)
         //TODO
     }
 
     public void killEnemy(int index)
     {
+        //needs netcode sync
         //TODO
     }
 
     public void disableEnemy(int index)
     {
-        //TODO
+        enemyTable[index].isActive = false;
+        enemyTable[index].currentObject = null;
     }
 
     public Vector2 getYukiPosition() { return YukiBody.position; }
@@ -256,7 +322,7 @@ public class enemyData
     public int damageFromYuki, damagefromMai = 0; //shared info wise every x damage done
     public bool isAlive = true; //updated always with rpc when changed
     public bool isActive = false; //local only
-    GameObject currentObject = null; //local only
+    public GameObject currentObject = null; //local only
 
     public int getDamageTaken()
     {

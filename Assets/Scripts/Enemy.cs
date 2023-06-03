@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
             }
         });
 
-        thisBody.velocity = new Vector2(xVel,yVel);
+        //thisBody.velocity = new Vector2(xVel,yVel);
 
         yield return new WaitForSeconds(movements[curIndex].timeToWaitAfter);
 
