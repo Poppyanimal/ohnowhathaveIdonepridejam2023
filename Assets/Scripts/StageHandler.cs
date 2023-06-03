@@ -24,6 +24,10 @@ public class StageHandler : NetworkBehaviour
 
     //the boss fight
 
+    bool playerOneWaitingForFlag, playerTwoWaitingForFlag = false;
+    int playerOneFlagNumberWaitingOn, playerTwoFlagNumberWaitingOn = 0;
+
+
 
 
 
@@ -31,10 +35,121 @@ public class StageHandler : NetworkBehaviour
     void Start() { StartCoroutine(doFadeInTransition()); }
 
 
+    IEnumerator doStageStart()
+    {
+        //TODO:
+        //title card of makai / 魔界 and subtitle of sub area, fade in into fade out into first enemy grouping
+        yield return new WaitForSeconds(fadeTime + 1f);
+
+        //...
+        //now done with title card and stuff and any possible dialogue, start enemy groupings
+
+        if(stageFlags.Count > 0)
+        {
+            if(IsHost)
+                playerOneMarkWaitingForFlag(0);
+            else
+                playerTwoMarkWaitingForFlag(0);
+        }
+    }
+
+    //
+    // Flag Netcode
+    //
+
+    void playerOneMarkWaitingForFlag(int flag)
+    {
+        if(IsHost)
+        {
+            playerOneFlagNumberWaitingOn = flag;
+            playerOneWaitingForFlag = true;
+            markPlayerAsWaitingForFlagClientRpc(flag);
+        }
+    }
+    void playerTwoMarkWaitingForFlag(int flag)
+    {
+        if(!IsHost)
+        {
+            playerTwoFlagNumberWaitingOn = flag;
+            playerTwoWaitingForFlag = true;
+            playerTwoMarkWaitingForFlagServerRpc(flag);
+        }
+    }
+    [ServerRpc]
+    void playerTwoMarkWaitingForFlagServerRpc(int flag)
+    {
+        playerTwoFlagNumberWaitingOn = flag;
+        playerTwoWaitingForFlag = true;
+        markPlayerAsWaitingForFlagClientRpc(flag, 2);
+    }
+    [ClientRpc]
+    void markPlayerAsWaitingForFlagClientRpc(int flag, int player = 1)
+    {
+        if(player == 1)
+        {
+            playerOneFlagNumberWaitingOn = flag;
+            playerOneWaitingForFlag = true;
+        }
+        else if(player == 2)
+        {
+            playerTwoFlagNumberWaitingOn = flag;
+            playerTwoWaitingForFlag = true;
+        }
+
+        if(IsHost && playerOneWaitingForFlag && playerTwoWaitingForFlag)
+        {
+            if(playerOneWaitingForFlag != playerTwoWaitingForFlag)
+            {
+                Debug.LogError("Players are waiting for different flags, a desync may have occured");
+            }
+            unwaitAndProgressToFlagClientRpc(flag);
+        }
+    }
+    [ClientRpc]
+    void unwaitAndProgressToFlagClientRpc(int flag)
+    {
+        playerOneWaitingForFlag = false;
+        playerTwoWaitingForFlag = false;
+        doLogicForSequence(flag);
+    }
+
+
+    //
+    // Progression of the flag
+    //
+
     IEnumerator doLogicForSequence(int flagIndex)
     {
         yield return new WaitForSeconds(.1f);
         //TODO
+
+        //alllll the logic for this flag
+
+        //
+        //
+
+
+
+
+        if(flagIndex + 1 < stageFlags.Count)
+        {
+            if(IsHost)
+            {
+                playerOneMarkWaitingForFlag(flagIndex+1);
+            }
+            else
+            {
+                playerTwoMarkWaitingForFlag(flagIndex+1);
+            }
+        }
+        else
+        {
+            //TODO
+            //all stage flags are done
+            //finish the stage and close it out properly by *safely* disconnecting the two players (aka no kick to menu immediately),
+            //a scoreboard of their score and stats (damage taken, hearts obtained, bombs used per player / total), showing the difficult,
+            //and saving the highscore locally
+        }
     }
 
     void initEnemyTable() //used for generic enemies, not bosses
@@ -53,8 +168,6 @@ public class StageHandler : NetworkBehaviour
     }
 
 
-    //TODO:
-    // -check both players are ready, once so send signal for enemy stage logic in 3 seconds
 
     public int getDamageForEnemy(int index) { return enemyTable[index].damagefromMai + enemyTable[index].damagefromMai; }
 
@@ -64,6 +177,11 @@ public class StageHandler : NetworkBehaviour
     }
 
     public void killEnemy(int index)
+    {
+        //TODO
+    }
+
+    public void disableEnemy(int index)
     {
         //TODO
     }

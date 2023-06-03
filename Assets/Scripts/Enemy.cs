@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public loopType shotLoopPattern;
     public int timesToLoop;
     public List<moveInfo> movements;
+    public bool despawnAtMovementEnd;
     Rigidbody2D thisBody;
     [HideInInspector]
     public int spawnIndexId; //set when it is spawned, keeps track of it in stage handler
@@ -94,7 +95,11 @@ public class Enemy : MonoBehaviour
     {
         thisBody.velocity = Vector2.zero;
         Debug.Log("Enemy Movement Finished");
-        //TODO: remove the enemy
+        if(despawnAtMovementEnd)
+        {
+            StageHandler.Singleton.disableEnemy(spawnIndexId);
+            Destroy(this.gameObject);
+        }
     }
 
 
