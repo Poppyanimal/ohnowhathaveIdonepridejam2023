@@ -88,7 +88,7 @@ PrefabInstance:
     - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 1296273932107506960, guid: e34c5433de51be846b24cc965c4a1e48, type: 3}
+      objectReference: {fileID: 170700092075506666, guid: 17a44ec198a730a48b2cd46fe4d49cd7, type: 3}
     - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: patternDat.trackTarget
       value: 0
@@ -128,7 +128,7 @@ PrefabInstance:
     - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: bullet
       value: 
-      objectReference: {fileID: 1296273932107506960, guid: e34c5433de51be846b24cc965c4a1e48, type: 3}
+      objectReference: {fileID: 170700092075506666, guid: 17a44ec198a730a48b2cd46fe4d49cd7, type: 3}
     - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: patternDat.trackTarget
       value: 0

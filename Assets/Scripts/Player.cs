@@ -12,9 +12,13 @@ public class Player : NetworkBehaviour
 
 
     //Move speed slightly slower while shooting?
-    public NetworkVariable<bool> isShooting, isFocusing; //used for visuals of other player
+    public NetworkVariable<bool> isShooting = new NetworkVariable<bool>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<bool> isFocusing = new NetworkVariable<bool>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner); //used for visuals of other player
     public character thischar = character.Yuki;
     Rigidbody2D thisBody;
+
+    public ComplexPattern regularShot, focusedShot;
+    public List<BulletPattern> homingShots;
 
 
     void Start()
@@ -47,6 +51,7 @@ public class Player : NetworkBehaviour
                 NetworkObject.ChangeOwnership(otherPlayer);
             }
         }
+        StartCoroutine(shootingLogic());
     }
 
 
@@ -87,11 +92,52 @@ public class Player : NetworkBehaviour
 
         thisBody.velocity = movement * baseSpeed * (currentlyFocusing ? focusSpeedMult : currentlyShooting ? shootSpeedMult : 1f);
 
+        if(IsOwner)
+        {
+            //Debug.Log("perms: shoot: "+isShooting.WritePerm + "; focus:"+isFocusing.WritePerm);
+            isShooting.Value = currentlyShooting;
+            isFocusing.Value = currentlyFocusing;
+        }
+
         //TODO
         //shooting
         //focus
         //also got to do the graze mechanic eventually
         //bombs
+    }
+
+    IEnumerator shootingLogic()
+    {
+        yield return new WaitUntil(delegate()
+        {
+            if(isShooting.Value)
+            {
+                if(isFocusing.Value)
+                {
+                    updateLockonTarget();
+                    if(focusedShot.isFinished())
+                        focusedShot.reset();
+                    focusedShot.shootAllPatterns();
+                }
+                else
+                {
+                    if(regularShot.isFinished())
+                        regularShot.reset();
+                    regularShot.shootAllPatterns();
+                }
+            }
+            return false;
+        });
+    }
+
+    void updateLockonTarget()
+    {
+        Rigidbody2D target = StageHandler.Singleton.getClosestEnemyTo(thisBody.position);
+        for(int i = 0; i < homingShots.Count; i++)
+        {
+            homingShots[i].patternDat.trackTarget = PatternData.playerToTarget.SpecificRigidbody;
+            homingShots[i].patternDat.customRigidbodyTarget = target;
+        }
     }
 
 

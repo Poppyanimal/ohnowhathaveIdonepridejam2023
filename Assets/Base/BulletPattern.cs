@@ -40,8 +40,11 @@ public class BulletPattern : MonoBehaviour
                         targetPosition = StageHandler.Singleton.getMaiPosition();
                         break;
                     case PatternData.playerToTarget.SpecificRigidbody:
-                        hasTargetPosition = true;
-                        targetPosition = patternDat.customRigidbodyTarget.position;
+                        if(patternDat.customRigidbodyTarget != null)
+                        {
+                            hasTargetPosition = true;
+                            targetPosition = patternDat.customRigidbodyTarget.position;
+                        }
                         break;
                 }
 

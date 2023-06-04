@@ -18,7 +18,7 @@ public class BulGarbageCollector : MonoBehaviour
             Debug.Log("Using Composite Collider!");
     }
 
-    void Update()
+    void FixedUpdate()
     {
         Collider2D[] bulletsToDestroy = new Collider2D[16];
         int results = thisCol.OverlapCollider(bulletsToClearFil, bulletsToDestroy);

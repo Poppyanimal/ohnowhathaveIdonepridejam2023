@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: -865686870, guid: ccf6d53a976b2484e8d727a8e4871dcb, type: 3}
     - target: {fileID: 4009254514278192597, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
       propertyPath: m_Name
-      value: tullets ice shard
+      value: tullets ice shard Variant -DEPR
       objectReference: {fileID: 0}
     - target: {fileID: 4119628317280901318, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
       propertyPath: m_Radius

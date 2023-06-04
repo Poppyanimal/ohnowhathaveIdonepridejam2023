@@ -27,6 +27,12 @@ public class StageHandler : NetworkBehaviour
 
     [HideInInspector]
     public List<enemyData> enemyTable = new();
+    [HideInInspector]
+    public List<GameObject> activeEnemies = new();
+
+    //for toggling layer
+    public List<GameObject> yukiBulletPrefabs;
+    public List<GameObject> maiBulletPrefabs;
 
     //the boss fight
 
@@ -45,6 +51,7 @@ public class StageHandler : NetworkBehaviour
     {
         Debug.Log("stage start reached");
         initEnemyTable();
+        updatePlayerBulletPrefabs();
 
         if(rainbowBulletMaterial != null)
             StartCoroutine(doRainbowBulletAnimation());
@@ -258,6 +265,8 @@ public class StageHandler : NetworkBehaviour
 
         enemyTable[index].currentObject = enemyObj;
         enemyTable[index].isActive = true;
+        activeEnemies.Add(enemyObj);
+
         if(!enemyTable[index].isAlive)
         {
             disableEnemy(index);
@@ -281,6 +290,8 @@ public class StageHandler : NetworkBehaviour
     public void disableEnemy(int index)
     {
         enemyTable[index].isActive = false;
+        if(activeEnemies.Contains(enemyTable[index].currentObject))
+            activeEnemies.Remove(enemyTable[index].currentObject);
         enemyTable[index].currentObject = null;
     }
 
@@ -294,6 +305,17 @@ public class StageHandler : NetworkBehaviour
             return getYukiPosition();
         else
             return getMaiPosition();
+    }
+
+    public Rigidbody2D getClosestEnemyTo(Vector2 position)
+    {
+        Rigidbody2D closestEnemy = null;
+        foreach(GameObject activeEnemy in activeEnemies)
+        {
+            if(((Vector2)activeEnemy.transform.position - position).magnitude <= (closestEnemy != null ? (closestEnemy.position - position).magnitude : 9999f))
+                closestEnemy = activeEnemy.GetComponent<Rigidbody2D>();
+        }
+        return closestEnemy;
     }
 
 
@@ -346,6 +368,20 @@ public class StageHandler : NetworkBehaviour
                     return false;
                 }
             });
+        }
+    }
+
+    void updatePlayerBulletPrefabs()
+    {
+        int yukiLayer = GlobalVars.isPlayingYuki ? LayerMask.NameToLayer("PlayerBullet") : LayerMask.NameToLayer("PlayerBulletFake");
+        int maiLayer = !GlobalVars.isPlayingYuki ? LayerMask.NameToLayer("PlayerBullet") : LayerMask.NameToLayer("PlayerBulletFake");
+        for(int i = 0; i < yukiBulletPrefabs.Count; i++)
+        {
+            yukiBulletPrefabs[i].layer = yukiLayer;
+        }
+        for(int i = 0; i < maiBulletPrefabs.Count; i++)
+        {
+            maiBulletPrefabs[i].layer = maiLayer;
         }
     }
 

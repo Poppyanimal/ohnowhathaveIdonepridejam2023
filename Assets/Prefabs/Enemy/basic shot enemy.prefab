@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3639577656276462514, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+  bullet: {fileID: 3639577656276462514, guid: e5110490644854247b3752695a47bea0, type: 3}
   patternDat:
     trackTarget: 3
     customRigidbodyTarget: {fileID: 0}
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 3639577656276462514, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+  bullet: {fileID: 3639577656276462514, guid: e5110490644854247b3752695a47bea0, type: 3}
   patternDat:
     trackTarget: 3
     customRigidbodyTarget: {fileID: 0}
@@ -271,6 +271,7 @@ MonoBehaviour:
   timesToLoop: 0
   movements: []
   despawnAtMovementEnd: 1
+  startLogicOverride: 0
   spawnIndexId: 0
   timeBeforeShooting: 1.5
 --- !u!50 &6536166481123552311
@@ -293,4 +294,4 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4

@@ -1,0 +1,713 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3963355956766221968
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8293640439860953782}
+  - component: {fileID: 7660934973229858360}
+  m_Layer: 6
+  m_Name: foc shot (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8293640439860953782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963355956766221968}
+  m_LocalRotation: {x: 0, y: 0, z: 0.008726558, w: 0.999962}
+  m_LocalPosition: {x: -0.3, y: 0.3000002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4450088808180612434}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1}
+--- !u!114 &7660934973229858360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3963355956766221968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6021956752466170743, guid: 9d6195846f01be4499893e1cbf14ad37, type: 3}
+  patternDat:
+    trackTarget: 4
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 14}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 0
+  patternShootSFXs: []
+--- !u!1 &4270048429496054610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5131285214510851834}
+  - component: {fileID: 1403330379347933730}
+  m_Layer: 6
+  m_Name: reg shot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5131285214510851834
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270048429496054610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2664565297777830928}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1403330379347933730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270048429496054610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6021956752466170743, guid: 9d6195846f01be4499893e1cbf14ad37, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 14}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 0
+  patternShootSFXs: []
+--- !u!1 &5599781908748016614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1986285110898716649}
+  - component: {fileID: 2834073203625710391}
+  m_Layer: 6
+  m_Name: foc shot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1986285110898716649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599781908748016614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3000002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4450088808180612434}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2834073203625710391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5599781908748016614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6021956752466170743, guid: 9d6195846f01be4499893e1cbf14ad37, type: 3}
+  patternDat:
+    trackTarget: 4
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 14}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 0
+  patternShootSFXs: []
+--- !u!1 &6594972663608927510
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1785441893513616764}
+  - component: {fileID: 3382954205407777008}
+  m_Layer: 6
+  m_Name: reg shot (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1785441893513616764
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594972663608927510}
+  m_LocalRotation: {x: 0, y: 0, z: 0.01745245, w: 0.99984777}
+  m_LocalPosition: {x: -0.3, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2664565297777830928}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2}
+--- !u!114 &3382954205407777008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594972663608927510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6021956752466170743, guid: 9d6195846f01be4499893e1cbf14ad37, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 14}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 0
+  patternShootSFXs: []
+--- !u!1 &6720691913255343833
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6776209870881402830}
+  - component: {fileID: 4418232465162400873}
+  m_Layer: 6
+  m_Name: reg shot (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6776209870881402830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6720691913255343833}
+  m_LocalRotation: {x: 0, y: 0, z: -0.01745245, w: 0.99984777}
+  m_LocalPosition: {x: 0.3, y: 0.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2664565297777830928}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2}
+--- !u!114 &4418232465162400873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6720691913255343833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6021956752466170743, guid: 9d6195846f01be4499893e1cbf14ad37, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 14}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 0
+  patternShootSFXs: []
+--- !u!1 &8820204489496640264
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1201618528955983676}
+  - component: {fileID: 4798712309414856907}
+  m_Layer: 6
+  m_Name: foc shot (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1201618528955983676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820204489496640264}
+  m_LocalRotation: {x: 0, y: 0, z: -0.008726465, w: 0.999962}
+  m_LocalPosition: {x: 0.3, y: 0.3000002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4450088808180612434}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1}
+--- !u!114 &4798712309414856907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8820204489496640264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 6021956752466170743, guid: 9d6195846f01be4499893e1cbf14ad37, type: 3}
+  patternDat:
+    trackTarget: 4
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 14}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 0
+  patternShootSFXs: []
+--- !u!1001 &3175838048773835572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 68730159180058802, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100543988351703419, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6021956752466170743, guid: e230341a56c2ef342850dc3ac643f3da, type: 3}
+    - target: {fileID: 2100543988351703419, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.activityDurationOffset
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100543988351703419, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleOffset
+      value: -53.33333
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100543988351703419, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].bulletQuantity
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100543988351703419, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].startingVelocity.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2100543988351703419, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleBetweenBullets
+      value: 13.33333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775631975549261417, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4856353170358590502, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9eea02e18dfcbf44bfa20461567e36f, type: 3}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098405, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: homingShots.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: homingShots.Array.data[0]
+      value: 
+      objectReference: {fileID: 2834073203625710391}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: homingShots.Array.data[1]
+      value: 
+      objectReference: {fileID: 7660934973229858360}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: homingShots.Array.data[2]
+      value: 
+      objectReference: {fileID: 4798712309414856907}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: focusedShot.simultanousPatterns.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: regularShot.simultanousPatterns.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: focusedShot.simultanousPatterns.Array.data[1].bPattern
+      value: 
+      objectReference: {fileID: 2834073203625710391}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: focusedShot.simultanousPatterns.Array.data[2].bPattern
+      value: 
+      objectReference: {fileID: 7660934973229858360}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: focusedShot.simultanousPatterns.Array.data[3].bPattern
+      value: 
+      objectReference: {fileID: 4798712309414856907}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: regularShot.simultanousPatterns.Array.data[1].bPattern
+      value: 
+      objectReference: {fileID: 1403330379347933730}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: regularShot.simultanousPatterns.Array.data[2].bPattern
+      value: 
+      objectReference: {fileID: 3382954205407777008}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: regularShot.simultanousPatterns.Array.data[3].bPattern
+      value: 
+      objectReference: {fileID: 4418232465162400873}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: focusedShot.simultanousPatterns.Array.data[1].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: focusedShot.simultanousPatterns.Array.data[2].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: focusedShot.simultanousPatterns.Array.data[3].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: regularShot.simultanousPatterns.Array.data[1].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: regularShot.simultanousPatterns.Array.data[2].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098406, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: regularShot.simultanousPatterns.Array.data[3].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098408, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 951099334
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098409, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Name
+      value: Player (Yuki) Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098410, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d9eea02e18dfcbf44bfa20461567e36f, type: 3}
+    - target: {fileID: 5270585943144098410, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098410, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5270585943144098410, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5437082269310259099, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 5576412796920165700, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6021956752466170743, guid: e230341a56c2ef342850dc3ac643f3da, type: 3}
+    - target: {fileID: 5576412796920165700, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.activityDurationOffset
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5576412796920165700, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleOffset
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5576412796920165700, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].bulletQuantity
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5576412796920165700, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].startingVelocity.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5576412796920165700, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleBetweenBullets
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7978347740953436160, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172463612029349828, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Color.a
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172463612029349828, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172463612029349828, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172463612029349828, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+--- !u!4 &2664565297777830928 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 641947546200368932, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+  m_PrefabInstance: {fileID: 3175838048773835572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4450088808180612434 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1284427289590658662, guid: 22205159d93ba3142bdd4b2413924d1e, type: 3}
+  m_PrefabInstance: {fileID: 3175838048773835572}
+  m_PrefabAsset: {fileID: 0}
