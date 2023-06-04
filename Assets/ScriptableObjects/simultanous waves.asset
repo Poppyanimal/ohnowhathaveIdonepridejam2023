@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d354d8ac62e05cd48a53a10c95118793, type: 3}
   m_Name: simultanous waves
   m_EditorClassIdentifier: 
-  label: 
-  descr: 
+  label: heavy walls
+  descr: two lines of 4 enemies each shoot closest player
   enemyGroups:
   - enemySpawns:
     - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
@@ -246,4 +246,4 @@ MonoBehaviour:
           amplitude: -3
           numOfPeaks: 1
       despawnAtMovementEnd: 1
-    delayTillNextGroup: 2
+    delayTillNextGroup: 16

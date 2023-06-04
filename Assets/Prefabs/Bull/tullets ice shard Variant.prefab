@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2557810244731489954
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.6361914
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.93929255
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2118974188088936467, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3717553086269492495, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -865686870, guid: ccf6d53a976b2484e8d727a8e4871dcb, type: 3}
+    - target: {fileID: 4009254514278192597, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_Name
+      value: tullets ice shard
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119628317280901318, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_Radius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119628317280901318, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4119628317280901318, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 774a14d4b35eb0e488c84e6e6298a809, type: 3}

@@ -12,6 +12,8 @@ public class StageHandler : NetworkBehaviour
     public Image leftPanel, rightPanel;
     public float fadeDistance;
     public float fadeTime;
+    public Material rainbowBulletMaterial;
+    public float rainbowBulletCycleTime = 1f; //in seconds
     public Rigidbody2D YukiBody, MaiBody;
     public bool bypassNetcodeChecks = false;
     public int flagToBypassTo = 0;
@@ -43,6 +45,12 @@ public class StageHandler : NetworkBehaviour
     {
         Debug.Log("stage start reached");
         initEnemyTable();
+
+        if(rainbowBulletMaterial != null)
+            StartCoroutine(doRainbowBulletAnimation());
+        else
+            Debug.LogError("Rainbow bullet material is not set!");
+
         //TODO:
         //title card of makai / 魔界 and subtitle of sub area, fade in into fade out into first enemy grouping
         yield return new WaitForSeconds(fadeTime + 1f);
@@ -317,6 +325,29 @@ public class StageHandler : NetworkBehaviour
         });
     }
 
+    IEnumerator doRainbowBulletAnimation()
+    {
+        while(true)
+        {
+            //Debug.Log("current rainbow float: " + rainbowBulletMaterial.GetFloat("_HueShift"));
+            float startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / rainbowBulletCycleTime;
+                //Debug.Log("hue shift cycle started. Time ratio: "+timeRatio);
+                if(timeRatio >= 1)
+                {
+                    rainbowBulletMaterial.SetFloat("_HueShift", 0f);
+                    return true;
+                }
+                else
+                {
+                    rainbowBulletMaterial.SetFloat("_HueShift", Mathf.PI * (2 * timeRatio));
+                    return false;
+                }
+            });
+        }
+    }
 
 }
 public class enemyData

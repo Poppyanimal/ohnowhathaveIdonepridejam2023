@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public int timesToLoop;
     public List<moveInfo> movements;
     public bool despawnAtMovementEnd;
+    public bool startLogicOverride = false;
     Rigidbody2D thisBody;
     [HideInInspector]
     public int spawnIndexId; //set when it is spawned, keeps track of it in stage handler
@@ -20,6 +21,11 @@ public class Enemy : MonoBehaviour
 
     //TODO: have this activate after a set location is reached
     public float timeBeforeShooting;
+    void Start()
+    {
+        if(startLogicOverride)
+            startLogic();
+    }
     public void startLogic()
     {
         thisBody = gameObject.GetComponent<Rigidbody2D>();

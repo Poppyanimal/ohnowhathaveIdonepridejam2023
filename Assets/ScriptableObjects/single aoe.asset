@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d354d8ac62e05cd48a53a10c95118793, type: 3}
+  m_Name: single aoe
+  m_EditorClassIdentifier: 
+  label: cirno does cirno
+  descr: single cirno comes in, does pattern, leaves
+  enemyGroups:
+  - enemySpawns:
+    - enemyPrefab: {fileID: 5262597152870560155, guid: 93327e1b7cbcc7e41863d572de6dd805, type: 3}
+      spawnLocation: {x: 0, y: 9}
+      movements:
+      - timeToTake: 1
+        timeToWaitAfter: 10
+        xMovement:
+          type: 0
+          unitsMoved: 0
+          amplitude: 0
+          numOfPeaks: 0
+        yMovement:
+          type: 1
+          unitsMoved: -4
+          amplitude: 0
+          numOfPeaks: 0
+      - timeToTake: 1
+        timeToWaitAfter: 0
+        xMovement:
+          type: 0
+          unitsMoved: 0
+          amplitude: 0
+          numOfPeaks: 0
+        yMovement:
+          type: 1
+          unitsMoved: 4
+          amplitude: 0
+          numOfPeaks: 0
+      despawnAtMovementEnd: 1
+    delayTillNextGroup: 2
