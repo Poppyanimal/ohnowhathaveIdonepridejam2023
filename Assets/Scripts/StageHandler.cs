@@ -13,11 +13,13 @@ public class StageHandler : NetworkBehaviour
     public float fadeDistance;
     public float fadeTime;
     public Rigidbody2D YukiBody, MaiBody;
+    public bool bypassNetcodeChecks = false;
+    public int flagToBypassTo = 0;
 
     int currentFlag = 0;
     int currentEnemyIndex = 0;
 
-    public List<stageFlag> stageFlags;
+    public List<stageSection> stageFlags;
     //TODO: change stageFlag into a scriptable object to make testing sequences in a test environment possible
     //ei, a test singleplayer space can exist to load a since stageFlag and run through it
 
@@ -50,10 +52,17 @@ public class StageHandler : NetworkBehaviour
 
         if(stageFlags.Count > 0)
         {
-            if(IsHost)
-                playerOneMarkWaitingForFlag(0);
+            if(bypassNetcodeChecks)
+            {
+                StartCoroutine(doLogicForSequence(flagToBypassTo));
+            }
             else
-                playerTwoMarkWaitingForFlag(0);
+            {
+                if(IsHost)
+                    playerOneMarkWaitingForFlag(0);
+                else
+                    playerTwoMarkWaitingForFlag(0);
+            }
         }
         else
         {
@@ -174,11 +183,11 @@ public class StageHandler : NetworkBehaviour
     {
         Debug.Log("new flag starting");
         currentFlag = flagIndex;
-        foreach(enemyGrouping group in stageFlags[flagIndex].enemyGroups)
+        foreach(stageSection.enemyGrouping group in stageFlags[flagIndex].enemyGroups)
         {
-            foreach(enemySpawn spawn in group.enemySpawns)
+            foreach(stageSection.enemySpawn spawn in group.enemySpawns)
             {
-                spawnEnemy(currentEnemyIndex, spawn.spawnLocation, spawn.enemyPrefab);
+                spawnEnemy(currentEnemyIndex, spawn);
                 currentEnemyIndex++;
             }
             yield return new WaitForSeconds(group.delayTillNextGroup);
@@ -209,11 +218,11 @@ public class StageHandler : NetworkBehaviour
     {
         Debug.Log("Initilizing Enemy Table");
         enemyTable.Clear();
-        foreach(stageFlag flag in stageFlags)
+        foreach(stageSection flag in stageFlags)
         {
-            foreach(enemyGrouping enemyGroup in flag.enemyGroups)
+            foreach(stageSection.enemyGrouping enemyGroup in flag.enemyGroups)
             {
-                foreach(enemySpawn enemy in enemyGroup.enemySpawns)
+                foreach(stageSection.enemySpawn enemy in enemyGroup.enemySpawns)
                 {
                     enemyTable.Add(new enemyData());
                 }
@@ -225,16 +234,21 @@ public class StageHandler : NetworkBehaviour
 
     public int getDamageForEnemy(int index) { return enemyTable[index].damagefromMai + enemyTable[index].damagefromMai; }
 
-    void spawnEnemy(int index, Vector2 position, GameObject enemyPrefab)
+    void spawnEnemy(int index, stageSection.enemySpawn spawninfo)
     {
-        Vector3 pos = (Vector3)position + Vector3.back * .1f;
-        GameObject enemy = Instantiate(enemyPrefab, pos, Quaternion.identity);
+        Vector3 pos = (Vector3)spawninfo.spawnLocation + Vector3.back * .1f;
+        GameObject enemyObj = Instantiate(spawninfo.enemyPrefab, pos, Quaternion.identity);
 
         if(index >= enemyTable.Count)
             Debug.LogError("Enemy index is higher than enemy tables length!!! index: "+index+"; table length: "+enemyTable.Count);
-        
-        enemy.GetComponent<Enemy>().spawnIndexId = index;
-        enemyTable[index].currentObject = enemy;
+
+        Enemy enemy = enemyObj.GetComponent<Enemy>();
+        enemy.spawnIndexId = index;
+        enemy.movements = spawninfo.movements;
+        enemy.despawnAtMovementEnd = spawninfo.despawnAtMovementEnd;
+        enemy.startLogic();
+
+        enemyTable[index].currentObject = enemyObj;
         enemyTable[index].isActive = true;
         if(!enemyTable[index].isAlive)
         {
@@ -303,28 +317,6 @@ public class StageHandler : NetworkBehaviour
         });
     }
 
-
-    //each client keeps track of which stage flag they are on and when they reach the end of one flag, they wait for the other player to also reach that before continuing the stage
-    //(to avoid massive desync)
-    [Serializable]
-    public struct stageFlag
-    {
-        public List<enemyGrouping> enemyGroups;
-    }
-
-    [Serializable]
-    public struct enemyGrouping
-    {
-        public List<enemySpawn> enemySpawns;
-        public float delayTillNextGroup;
-    }
-
-    [Serializable]
-    public struct enemySpawn
-    {
-        public GameObject enemyPrefab;
-        public Vector2 spawnLocation;
-    }
 
 }
 public class enemyData

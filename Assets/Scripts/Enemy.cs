@@ -20,9 +20,7 @@ public class Enemy : MonoBehaviour
 
     //TODO: have this activate after a set location is reached
     public float timeBeforeShooting;
-
-    // Start is called before the first frame update
-    void Start()
+    public void startLogic()
     {
         thisBody = gameObject.GetComponent<Rigidbody2D>();
         StartCoroutine(countdownThenStartShooting());

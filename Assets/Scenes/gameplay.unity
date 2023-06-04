@@ -960,32 +960,10 @@ MonoBehaviour:
   fadeTime: 0.4
   YukiBody: {fileID: 721170313}
   MaiBody: {fileID: 494090047}
+  bypassNetcodeChecks: 0
+  flagToBypassTo: 0
   stageFlags:
-  - enemyGroups:
-    - enemySpawns:
-      - enemyPrefab: {fileID: 6536166481123552299, guid: 357b80a590e0b4e479ec72b276366187, type: 3}
-        spawnLocation: {x: -3, y: 10}
-      - enemyPrefab: {fileID: 6536166481123552299, guid: c20061169d48f0d4f81277b5f4890bf5, type: 3}
-        spawnLocation: {x: 3, y: 10}
-      delayTillNextGroup: 1.5
-    - enemySpawns:
-      - enemyPrefab: {fileID: 6536166481123552299, guid: 357b80a590e0b4e479ec72b276366187, type: 3}
-        spawnLocation: {x: -3, y: 10}
-      - enemyPrefab: {fileID: 6536166481123552299, guid: c20061169d48f0d4f81277b5f4890bf5, type: 3}
-        spawnLocation: {x: 3, y: 10}
-      delayTillNextGroup: 1.5
-    - enemySpawns:
-      - enemyPrefab: {fileID: 6536166481123552299, guid: 357b80a590e0b4e479ec72b276366187, type: 3}
-        spawnLocation: {x: -3, y: 10}
-      - enemyPrefab: {fileID: 6536166481123552299, guid: c20061169d48f0d4f81277b5f4890bf5, type: 3}
-        spawnLocation: {x: 3, y: 10}
-      delayTillNextGroup: 1.5
-    - enemySpawns:
-      - enemyPrefab: {fileID: 6536166481123552299, guid: 357b80a590e0b4e479ec72b276366187, type: 3}
-        spawnLocation: {x: -3, y: 10}
-      - enemyPrefab: {fileID: 6536166481123552299, guid: c20061169d48f0d4f81277b5f4890bf5, type: 3}
-        spawnLocation: {x: 3, y: 10}
-      delayTillNextGroup: 1.5
+  - {fileID: 11400000, guid: bfd68eb9106e1844eb0707fa1fa5b57a, type: 2}
 --- !u!4 &380381164
 Transform:
   m_ObjectHideFlags: 0
