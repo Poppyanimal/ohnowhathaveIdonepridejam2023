@@ -1,0 +1,305 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &245854796
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 245854798}
+  - component: {fileID: 245854797}
+  m_Layer: 10
+  m_Name: bullWave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &245854798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245854796}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5804199353037218741}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &245854797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245854796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 1423a0c8b0864654cbbad6b26269d9d4, type: 3}
+  patternDat:
+    trackTarget: 1
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.1
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 6
+        angleBetweenBullets: 24
+        angleOffset: -60
+        startingVelocity: {x: 0, y: 1.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &1659725149
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1659725150}
+  - component: {fileID: 1659725151}
+  m_Layer: 10
+  m_Name: bullWave easy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1659725150
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659725149}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5804199353298419469}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1659725151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659725149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 1423a0c8b0864654cbbad6b26269d9d4, type: 3}
+  patternDat:
+    trackTarget: 1
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.1
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 2
+        angleBetweenBullets: 60
+        angleOffset: -30
+        startingVelocity: {x: 0, y: 1.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1001 &736769856059582128
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 170700092075506666, guid: 1351d42bcf1acb246a8c734217f607e0, type: 3}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.trackTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleOffset
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].startingVelocity.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleBetweenBullets
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 170700092075506666, guid: 1351d42bcf1acb246a8c734217f607e0, type: 3}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.trackTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].bulletQuantity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].startingVelocity.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleBetweenBullets
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.190242
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.050684
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552297, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1501540045, guid: 39fe82dc40ff81941bfc6016eacce56e, type: 3}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: maxHealth
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: startLogicOverride
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: easyPattern.simultanousPatterns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: easyPattern.simultanousPatterns.Array.data[1].bPattern
+      value: 
+      objectReference: {fileID: 1659725151}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: easyPattern.simultanousPatterns.Array.data[1].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[1].bPattern
+      value: 
+      objectReference: {fileID: 245854797}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[1].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_Name
+      value: focus shot enemy - yuki Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+--- !u!4 &5804199353037218741 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6536166479928247557, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+  m_PrefabInstance: {fileID: 736769856059582128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5804199353298419469 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6536166480202095037, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+  m_PrefabInstance: {fileID: 736769856059582128}
+  m_PrefabAsset: {fileID: 0}

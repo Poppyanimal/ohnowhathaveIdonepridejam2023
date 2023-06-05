@@ -246,4 +246,4 @@ MonoBehaviour:
           amplitude: -3
           numOfPeaks: 1
       despawnAtMovementEnd: 1
-    delayTillNextGroup: 16
+    delayTillNextGroup: 14

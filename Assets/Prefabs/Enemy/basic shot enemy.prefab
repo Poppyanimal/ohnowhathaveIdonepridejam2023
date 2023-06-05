@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d4b35fdeb7bf34bbcf9a7aac8fbc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 40
+  maxHealth: 30
   standardPattern:
     timeDelayAfterFinished: 2
     simultanousPatterns:

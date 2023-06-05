@@ -245,7 +245,7 @@ public class StageHandler : NetworkBehaviour
 
 
 
-    public int getDamageForEnemy(int index) { return enemyTable[index].damagefromMai + enemyTable[index].damagefromMai; }
+    public int getDamageForEnemy(int index) { return enemyTable[index].damagefromMai + enemyTable[index].damageFromYuki; }
 
     void spawnEnemy(int index, stageSection.enemySpawn spawninfo)
     {
@@ -277,6 +277,7 @@ public class StageHandler : NetworkBehaviour
         int oldDam = GlobalVars.isPlayingYuki ? enemyTable[index].damageFromYuki : enemyTable[index].damagefromMai;
 
         int newDam = oldDam + dam;
+        //Debug.Log("Old damage:"+oldDam+"; newdam: "+newDam+"; isyuki?"+GlobalVars.isPlayingYuki);
         if(GlobalVars.isPlayingYuki)
         {
             enemyTable[index].damageFromYuki = newDam;
@@ -318,6 +319,7 @@ public class StageHandler : NetworkBehaviour
 
     public void killEnemy(int index)
     {
+        Debug.Log("kill enemy procced");
         enemyTable[index].isAlive = false;
         if(enemyTable[index].isActive)
         {

@@ -44,4 +44,4 @@ MonoBehaviour:
           amplitude: 0
           numOfPeaks: 0
       despawnAtMovementEnd: 1
-    delayTillNextGroup: 2
+    delayTillNextGroup: 12.5

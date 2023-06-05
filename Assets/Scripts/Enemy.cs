@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour
 
     void takeDamageLocal()
     {
+        //Debug.Log("taking damage local");
         StageHandler.Singleton.damageEnemy(spawnIndexId);
         if(shouldDie())
         {

@@ -962,11 +962,13 @@ MonoBehaviour:
   rainbowBulletCycleTime: 5
   YukiBody: {fileID: 721170313}
   MaiBody: {fileID: 494090047}
-  bypassNetcodeChecks: 1
-  flagToBypassTo: 0
+  syncDamageEveryXDamage: 5
+  bypassNetcodeChecks: 0
+  flagToBypassTo: 2
   stageFlags:
   - {fileID: 11400000, guid: bfd68eb9106e1844eb0707fa1fa5b57a, type: 2}
   - {fileID: 11400000, guid: 80d70a424601ebf45adf33a7421dcd08, type: 2}
+  - {fileID: 11400000, guid: 5b0a597d4b7c88e4fab27a137b7b7aaa, type: 2}
   activeEnemies: []
   yukiBulletPrefabs:
   - {fileID: 6247498632365518096, guid: e230341a56c2ef342850dc3ac643f3da, type: 3}
