@@ -18,6 +18,7 @@ public class LobbyHandler : NetworkBehaviour
     bool playerOneIsYuki = true;
     bool difficultyisStandard = true;
 
+
     public string nextScene;
 
     void Start()

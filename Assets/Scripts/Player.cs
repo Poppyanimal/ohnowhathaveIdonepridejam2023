@@ -20,14 +20,24 @@ public class Player : NetworkBehaviour
     public ComplexPattern regularShot, focusedShot;
     public List<BulletPattern> homingShots;
 
+    Collider2D hitbox, clearbox;
+    public float iframeTime = 1f;
+    bool inIframes = false;
+    Coroutine iFrameCoro;
+    public bool bypassDamageDebug = false;
+
 
     void Start()
     {
         thisBody = gameObject.GetComponent<Rigidbody2D>();
 
-        if(GlobalVars.isPlayingYuki == thischar is character.Yuki && hitboxVisual != null) //make hitbox visible if playing character
+        if(GlobalVars.isPlayingYuki == thischar is character.Yuki) //make hitbox visible if playing character
         {
-            hitboxVisual.SetActive(true);
+            if(hitboxVisual != null)
+                hitboxVisual.SetActive(true);
+
+            if(hitbox != null)
+                StartCoroutine(hitCheck());
         }
 
         if(NetworkManager.IsHost) //passes ownership over to other player if host is not playing this character
@@ -140,6 +150,48 @@ public class Player : NetworkBehaviour
         }
     }
 
+    IEnumerator hitCheck()
+    {
+        yield return new WaitUntil(delegate()
+        {
+            Collider2D[] list = new Collider2D[4];
+            int hits = hitbox.OverlapCollider(KiroLib.getBulletFilter(), list);
+            if(hits > 0 && !bypassDamageDebug)
+                StageHandler.Singleton.playerGotHit();
+            return false;
+        });
+    }
 
+
+    IEnumerator iFrameCounter()
+    {
+        //TODO: iframe effect
+        inIframes = true;
+        yield return new WaitForSeconds(iframeTime);
+        inIframes = false;
+    }
+
+    public void clearProjectiles() //should be called when a hit is registered and sync
+    {
+        if(clearbox != null)
+        {
+            Collider2D[] list = new Collider2D[32];
+            int hits = clearbox.OverlapCollider(KiroLib.getBulletFilter(), list);
+            if(hits > 0)
+            {
+                for(int i = 0; i < hits; i++)
+                {
+                    try
+                    {
+                        list[i].gameObject.GetComponent<bulletDestroyHandler>().destroy();
+                    }
+                    catch
+                    {
+                        Destroy(list[i].gameObject);
+                    }
+                }
+            }
+        }
+    }
     public enum character { Yuki, Mai }
 }

@@ -963,10 +963,11 @@ MonoBehaviour:
   YukiBody: {fileID: 721170313}
   MaiBody: {fileID: 494090047}
   syncDamageEveryXDamage: 5
-  bypassNetcodeChecks: 0
-  flagToBypassTo: 2
+  bypassNetcodeChecks: 1
+  flagToBypassTo: 1
   stageFlags:
   - {fileID: 11400000, guid: bfd68eb9106e1844eb0707fa1fa5b57a, type: 2}
+  - {fileID: 11400000, guid: a3ba96ff1a7f35247a7e6e7ddcc99d0a, type: 2}
   - {fileID: 11400000, guid: 80d70a424601ebf45adf33a7421dcd08, type: 2}
   - {fileID: 11400000, guid: 5b0a597d4b7c88e4fab27a137b7b7aaa, type: 2}
   activeEnemies: []

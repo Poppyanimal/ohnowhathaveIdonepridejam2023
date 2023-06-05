@@ -12,67 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d354d8ac62e05cd48a53a10c95118793, type: 3}
   m_Name: simultanous waves
   m_EditorClassIdentifier: 
-  label: heavy walls
+  label: heavy walls + flag carrier
   descr: two lines of 4 enemies each shoot closest player
   enemyGroups:
   - enemySpawns:
     - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
-      spawnLocation: {x: -5, y: 10}
+      spawnLocation: {x: 0, y: 10}
       movements:
-      - timeToTake: 6.75
+      - timeToTake: 5.7
         timeToWaitAfter: 0
         xMovement:
-          type: 2
+          type: 0
           unitsMoved: 0
           amplitude: -0.5
           numOfPeaks: 3
         yMovement:
           type: 1
-          unitsMoved: -14
+          unitsMoved: -10
           amplitude: 0
           numOfPeaks: 0
-      - timeToTake: 2.25
+      - timeToTake: 5.7
         timeToWaitAfter: 0
         xMovement:
-          type: 1
+          type: 0
           unitsMoved: -7
           amplitude: -1
           numOfPeaks: 3
         yMovement:
-          type: 2
-          unitsMoved: -5
+          type: 1
+          unitsMoved: 10
           amplitude: -3
           numOfPeaks: 1
       despawnAtMovementEnd: 1
-    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
-      spawnLocation: {x: 5, y: 10}
-      movements:
-      - timeToTake: 6.75
-        timeToWaitAfter: 0
-        xMovement:
-          type: 2
-          unitsMoved: 0
-          amplitude: 0.5
-          numOfPeaks: 3
-        yMovement:
-          type: 1
-          unitsMoved: -14
-          amplitude: 0
-          numOfPeaks: 0
-      - timeToTake: 2.25
-        timeToWaitAfter: 0
-        xMovement:
-          type: 1
-          unitsMoved: 7
-          amplitude: -1
-          numOfPeaks: 3
-        yMovement:
-          type: 2
-          unitsMoved: -5
-          amplitude: -3
-          numOfPeaks: 1
-      despawnAtMovementEnd: 1
-    delayTillNextGroup: 2
+    delayTillNextGroup: 4
   - enemySpawns:
     - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       spawnLocation: {x: -5, y: 10}
@@ -130,7 +102,65 @@ MonoBehaviour:
           amplitude: -3
           numOfPeaks: 1
       despawnAtMovementEnd: 1
-    delayTillNextGroup: 2
+    delayTillNextGroup: 3
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -5, y: 10}
+      movements:
+      - timeToTake: 6.75
+        timeToWaitAfter: 0
+        xMovement:
+          type: 2
+          unitsMoved: 0
+          amplitude: -0.5
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -14
+          amplitude: 0
+          numOfPeaks: 0
+      - timeToTake: 2.25
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -7
+          amplitude: -1
+          numOfPeaks: 3
+        yMovement:
+          type: 2
+          unitsMoved: -5
+          amplitude: -3
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 5, y: 10}
+      movements:
+      - timeToTake: 6.75
+        timeToWaitAfter: 0
+        xMovement:
+          type: 2
+          unitsMoved: 0
+          amplitude: 0.5
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -14
+          amplitude: 0
+          numOfPeaks: 0
+      - timeToTake: 2.25
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 7
+          amplitude: -1
+          numOfPeaks: 3
+        yMovement:
+          type: 2
+          unitsMoved: -5
+          amplitude: -3
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+    delayTillNextGroup: 2.5
   - enemySpawns:
     - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       spawnLocation: {x: -5, y: 10}

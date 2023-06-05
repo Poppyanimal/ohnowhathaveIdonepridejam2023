@@ -15,7 +15,6 @@ public class GlobalVars
     }
 
 
-
     //
     // Player Data
     //

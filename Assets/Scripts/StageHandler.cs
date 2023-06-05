@@ -37,6 +37,11 @@ public class StageHandler : NetworkBehaviour
     bool playerOneWaitingForFlag, playerTwoWaitingForFlag = false;
     int playerOneFlagNumberWaitingOn, playerTwoFlagNumberWaitingOn = 0;
 
+    public int startingHealth = 5;
+    int currentHealth;
+    public int startingBombs = 2;
+    int currentBombsPlayerOne, currentBombsPlayerTwo;
+
 
 
 
@@ -50,6 +55,10 @@ public class StageHandler : NetworkBehaviour
         Debug.Log("stage start reached");
         initEnemyTable();
         updatePlayerBulletPrefabs();
+
+        currentHealth = startingHealth;
+        currentBombsPlayerOne = startingBombs;
+        currentBombsPlayerTwo = startingBombs;
 
         if(rainbowBulletMaterial != null)
             StartCoroutine(doRainbowBulletAnimation());
@@ -376,6 +385,114 @@ public class StageHandler : NetworkBehaviour
         }
         return closestEnemy;
     }
+
+    public void playerGotHit()
+    {
+        int newHealth = currentHealth--;
+        if(newHealth <= 0)
+        {
+            startDeathEffectServerRpc(NetworkManager.Singleton.LocalClientId);
+            doDeathEffect();
+        }
+        else
+        {
+            takePlayerDamageServerRpc(newHealth);
+            //TODO
+            //do hit effect clearing bullets around the one who got hit and giving slight iframes to both characters
+        }
+    }
+
+    public void useBomb()
+    {
+        int bombs = IsHost ? currentBombsPlayerOne : currentBombsPlayerTwo;
+        if(bombs > 0)
+        {
+            bombs--;
+            if(IsHost)
+                currentBombsPlayerOne = bombs;
+            else
+                currentBombsPlayerTwo = bombs;
+
+            updateBombUI();
+            useBombServerRpc(GlobalVars.isPlayingYuki, NetworkManager.Singleton.LocalClientId);
+            doBombEffect(GlobalVars.isPlayingYuki);
+            setPlayerBombsServerRpc(IsHost, bombs);
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void takePlayerDamageServerRpc(int newHealth)
+    {
+        currentHealth = newHealth;
+        takePlayerDamageClientRpc(newHealth);
+        setPlayerBombsClientRpc(true, startingBombs);
+        setPlayerBombsClientRpc(false, startingBombs);
+    }
+    [ClientRpc]
+    public void takePlayerDamageClientRpc(int newHealth)
+    {
+        currentHealth = newHealth;
+    }
+    [ServerRpc(RequireOwnership = false)]
+    void setPlayerBombsServerRpc(bool isPlayerOne, int bombs)
+    {
+        setPlayerBombsClientRpc(isPlayerOne, bombs);
+    }
+    [ClientRpc]
+    void setPlayerBombsClientRpc(bool isPlayerOne, int bombs)
+    {
+        if(isPlayerOne)
+            currentBombsPlayerOne = bombs;
+        else
+            currentBombsPlayerTwo = bombs;
+        updateBombUI();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void useBombServerRpc(bool isYuki, ulong playerId)
+    {
+        useBombClientRpc(isYuki, playerId);
+    }
+
+    [ClientRpc]
+    void useBombClientRpc(bool isYuki, ulong playerId)
+    {
+        if(NetworkManager.Singleton.LocalClientId != playerId)
+            doBombEffect(isYuki);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void startDeathEffectServerRpc(ulong initiatingPlayer)
+    {
+        startDeathEffectClientRpc(initiatingPlayer);
+    }
+    [ClientRpc]
+    void startDeathEffectClientRpc(ulong initiatingPlayer)
+    {
+        if(NetworkManager.Singleton.LocalClientId != initiatingPlayer)
+            doDeathEffect();
+    }
+
+    void doDeathEffect()
+    {
+        //TODO:
+        //both players explode
+        //slight fade into death screen
+        //return to lobby screen
+    }
+
+    void doBombEffect(bool isYuki)
+    {
+        //TODO
+        //the actual result of the bomb, starting from that player
+    }
+
+    void updateBombUI()
+    {
+        //TODO
+        //just updates the ui with the new bomb values
+    }
+
 
 
     
