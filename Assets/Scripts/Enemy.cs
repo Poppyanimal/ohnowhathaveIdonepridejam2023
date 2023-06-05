@@ -15,21 +15,22 @@ public class Enemy : MonoBehaviour
     Rigidbody2D thisBody;
     [HideInInspector]
     public int spawnIndexId; //set when it is spawned, keeps track of it in stage handler
-
-
-    //TODO: pathing to different points in space, custom time delay after each stop is made, support for curved paths to a point (semicircles, sine wave movement maybe)
-
-    //TODO: have this activate after a set location is reached
+    Collider2D hitbox;
     public float timeBeforeShooting;
+
     void Start()
     {
         if(startLogicOverride)
             startLogic();
     }
+
     public void startLogic()
     {
         thisBody = gameObject.GetComponent<Rigidbody2D>();
+        hitbox = gameObject.GetComponent<Collider2D>();
         StartCoroutine(countdownThenStartShooting());
+
+        StartCoroutine(scanForBullets());
 
         if(movements.Count > 0)
             StartCoroutine(doMovement());
@@ -37,6 +38,62 @@ public class Enemy : MonoBehaviour
 
 
     bool shouldDie() { return StageHandler.Singleton.getDamageForEnemy(spawnIndexId) >= maxHealth; }
+
+    void playHitEffect()
+    {
+        //TODO
+    }
+
+    public void doKillEffect() //this should only be called from the stagehandler
+    {
+        //TODO
+        Destroy(this.gameObject);
+    }
+
+    void takeDamageLocal()
+    {
+        StageHandler.Singleton.damageEnemy(spawnIndexId);
+        if(shouldDie())
+        {
+            StageHandler.Singleton.killEnemy(spawnIndexId);
+        }
+        else
+        {
+            playHitEffect();
+        }
+    }
+
+    IEnumerator scanForBullets()
+    {
+        yield return new WaitUntil(delegate()
+        {
+            Collider2D[] fakeBul = new Collider2D[16];
+            int fakes = hitbox.OverlapCollider(KiroLib.getFakePBulletFilter(), fakeBul);
+
+            if(fakes > 0)
+            {
+                for(int i = 0; i < fakes; i++)
+                {
+                    fakeBul[i].gameObject.GetComponent<bulletDestroyHandler>().destroy();
+                    playHitEffect();
+                }
+            }
+
+            Collider2D[] realBul = new Collider2D[16];
+            int reals = hitbox.OverlapCollider(KiroLib.getPBulletFilter(), realBul);
+
+            if(reals > 0)
+            {
+                for(int i = 0; i < reals; i++)
+                {
+                    realBul[i].gameObject.GetComponent<bulletDestroyHandler>().destroy();
+                    takeDamageLocal();
+                }
+            }
+
+            return false;
+        });
+    }
 
     IEnumerator doMovement(int curIndex = 0)
     {
@@ -84,8 +141,6 @@ public class Enemy : MonoBehaviour
                 return false;
             }
         });
-
-        //thisBody.velocity = new Vector2(xVel,yVel);
 
         yield return new WaitForSeconds(movements[curIndex].timeToWaitAfter);
 

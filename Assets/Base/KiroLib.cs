@@ -19,6 +19,7 @@ public class KiroLib : MonoBehaviour
     
     public static ContactFilter2D getBulletFilter() { return getFilter("EnemyBullet"); }
     public static ContactFilter2D getPBulletFilter() { return getFilter("PlayerBullet"); }
+    public static ContactFilter2D getFakePBulletFilter() { return getFilter("PlayerBulletFake"); }
     public static ContactFilter2D getAllBulletsToClearFilter() { return getFilter(new string[] {"EnemyBullet", "PlayerBullet", "PlayerBulletFake"}); }
     
     public static ContactFilter2D getFilter(string layer) { return getFilter(new string[] {layer}); }

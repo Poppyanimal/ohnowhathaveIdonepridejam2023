@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6536166479928247557}
   - component: {fileID: 6536166479928247556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: normal pattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6536166480202095037}
   - component: {fileID: 6536166480202095036}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: easy pattern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,8 @@ GameObject:
   - component: {fileID: 6536166481123552297}
   - component: {fileID: 6536166481123552298}
   - component: {fileID: 6536166481123552311}
-  m_Layer: 0
+  - component: {fileID: 9169459699774000719}
+  m_Layer: 10
   m_Name: basic shot enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d4b35fdeb7bf34bbcf9a7aac8fbc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 40
   standardPattern:
     timeDelayAfterFinished: 2
     simultanousPatterns:
@@ -295,3 +296,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &9169459699774000719
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6536166481123552299}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.65

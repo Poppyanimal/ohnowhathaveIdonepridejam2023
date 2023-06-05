@@ -15,6 +15,7 @@ public class StageHandler : NetworkBehaviour
     public Material rainbowBulletMaterial;
     public float rainbowBulletCycleTime = 1f; //in seconds
     public Rigidbody2D YukiBody, MaiBody;
+    public int syncDamageEveryXDamage = 5;
     public bool bypassNetcodeChecks = false;
     public int flagToBypassTo = 0;
 
@@ -22,19 +23,16 @@ public class StageHandler : NetworkBehaviour
     int currentEnemyIndex = 0;
 
     public List<stageSection> stageFlags;
-    //TODO: change stageFlag into a scriptable object to make testing sequences in a test environment possible
-    //ei, a test singleplayer space can exist to load a since stageFlag and run through it
 
     [HideInInspector]
     public List<enemyData> enemyTable = new();
     [HideInInspector]
     public List<GameObject> activeEnemies = new();
 
-    //for toggling layer
-    public List<GameObject> yukiBulletPrefabs;
+    public List<GameObject> yukiBulletPrefabs; //for toggling which layer the bullets are marked as for fake bullets
     public List<GameObject> maiBulletPrefabs;
 
-    //the boss fight
+    //TODO: the boss fight
 
     bool playerOneWaitingForFlag, playerTwoWaitingForFlag = false;
     int playerOneFlagNumberWaitingOn, playerTwoFlagNumberWaitingOn = 0;
@@ -269,22 +267,81 @@ public class StageHandler : NetworkBehaviour
 
         if(!enemyTable[index].isAlive)
         {
+            enemy.doKillEffect();
             disableEnemy(index);
-            //TODO
-            //instantly play kill visual effect on enemy / remove them
         }
     }
 
-    public void damageEnemy(int index, int dam)
+    public void damageEnemy(int index, int dam = 1)
     {
-        //sometimes needs netcode sync (every x damage)
-        //TODO
+        int oldDam = GlobalVars.isPlayingYuki ? enemyTable[index].damageFromYuki : enemyTable[index].damagefromMai;
+
+        int newDam = oldDam + dam;
+        if(GlobalVars.isPlayingYuki)
+        {
+            enemyTable[index].damageFromYuki = newDam;
+        }
+        else
+        {
+            enemyTable[index].damagefromMai = newDam;
+        }
+
+        if((int)(oldDam / syncDamageEveryXDamage) != (int)(newDam / syncDamageEveryXDamage))
+        {
+            attemptSyncDamageServerRpc(index, newDam, GlobalVars.isPlayingYuki);
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void attemptSyncDamageServerRpc(int index, int newDamage, bool isYuki)
+    {
+        int oldDamage = isYuki ? enemyTable[index].damageFromYuki : enemyTable[index].damagefromMai;
+        if(newDamage < oldDamage)
+            newDamage = oldDamage;
+        
+        if(isYuki)
+            enemyTable[index].damageFromYuki = newDamage;
+        else
+            enemyTable[index].damagefromMai = newDamage;
+
+        syncDamageClientRpc(index, newDamage, isYuki);
+    }
+
+    [ClientRpc]
+    public void syncDamageClientRpc(int index, int newDamage, bool isYuki)
+    {
+        if(isYuki)
+            enemyTable[index].damageFromYuki = newDamage;
+        else
+            enemyTable[index].damagefromMai = newDamage;
     }
 
     public void killEnemy(int index)
     {
-        //needs netcode sync
-        //TODO
+        enemyTable[index].isAlive = false;
+        if(enemyTable[index].isActive)
+        {
+            enemyTable[index].currentObject.GetComponent<Enemy>().doKillEffect();
+            disableEnemy(index);
+        }
+        killEnemyServerRpc(index);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void killEnemyServerRpc(int index)
+    {
+        killEnemyClientRpc(index);
+    }
+
+    [ClientRpc]
+    public void killEnemyClientRpc(int index)
+    {
+        enemyTable[index].isAlive = false;
+        if(enemyTable[index].isActive)
+        {
+            enemyTable[index].currentObject.GetComponent<Enemy>().doKillEffect();
+            disableEnemy(index);
+        }
     }
 
     public void disableEnemy(int index)
@@ -319,8 +376,8 @@ public class StageHandler : NetworkBehaviour
     }
 
 
-    // for the black bar fade in effect
-    IEnumerator doFadeInTransition()
+    
+    IEnumerator doFadeInTransition() // for the black bar fade in effect
     {
         yield return new WaitForSeconds(.15f);
 
