@@ -257,17 +257,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4d4b35fdeb7bf34bbcf9a7aac8fbc38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 25
   standardPattern:
     timeDelayAfterFinished: 2
     simultanousPatterns:
     - timesToShoot: 1
       bPattern: {fileID: 6536166479928247556}
+      resetDriftOnShotReset: 0
   easyPattern:
     timeDelayAfterFinished: 2
     simultanousPatterns:
     - timesToShoot: 1
       bPattern: {fileID: 6536166480202095036}
+      resetDriftOnShotReset: 0
   shotLoopPattern: 2
   timesToLoop: 0
   movements: []
@@ -275,6 +277,10 @@ MonoBehaviour:
   startLogicOverride: 0
   spawnIndexId: 0
   timeBeforeShooting: 1.5
+  applyAdditionalPatternRot: 0
+  additionalPatternRot: 0
+  rotateAllPatternsBetweenCycles: 0
+  rotateAmountPerCycle: 0
 --- !u!50 &6536166481123552311
 Rigidbody2D:
   serializedVersion: 4

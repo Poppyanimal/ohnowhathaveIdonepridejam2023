@@ -241,9 +241,19 @@ public class cPatternLoopInfo
 {
     public int timesToShoot = 10;
     public BulletPattern bPattern;
+    public bool resetDriftOnShotReset = false;
 
     int timesAlreadyShot = 0;
-    public void resetTimesShot() { timesAlreadyShot = 0; }
+    public void resetTimesShot()
+    {
+        timesAlreadyShot = 0;
+        
+        if(resetDriftOnShotReset)
+        {
+            for(int j = 0; j < bPattern.patternDat.patternSettings.sPatternList.Count; j++)
+                bPattern.patternDat.patternSettings.sPatternList[j].driftInfo.resetDrift();
+        }
+    }
     public void incTimesShot() { timesAlreadyShot++; }
     public int timesShot() { return timesAlreadyShot; }
 }

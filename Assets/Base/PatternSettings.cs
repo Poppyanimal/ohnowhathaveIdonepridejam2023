@@ -64,6 +64,10 @@ public class patternDrift
     {
         currentCycle++;
     }
+    public void resetDrift()
+    {
+        currentCycle = 0;
+    }
 }
 
 [System.Serializable]

@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3672653065661185271
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleOffset
+      value: -60
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].bulletQuantity
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].startingVelocity.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleOffset
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].bulletQuantity
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].startingVelocity.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleBetweenBullets
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.0818539
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.0670714
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552297, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1646631994, guid: c2df8f9dfac596545aeba8ced709367e, type: 3}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: easyPattern.timeDelayAfterFinished
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.timeDelayAfterFinished
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_Name
+      value: basic shot enemy - but slow and thick Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}

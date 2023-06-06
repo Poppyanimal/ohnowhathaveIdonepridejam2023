@@ -17,6 +17,15 @@ public class Enemy : MonoBehaviour
     public int spawnIndexId; //set when it is spawned, keeps track of it in stage handler
     Collider2D hitbox;
     public float timeBeforeShooting;
+    [HideInInspector]
+    public bool applyAdditionalPatternRot = false;
+    [HideInInspector]
+    public float additionalPatternRot = 0f;
+    [HideInInspector]
+
+    public bool rotateAllPatternsBetweenCycles = false;
+    [HideInInspector]
+    public float rotateAmountPerCycle = 0f;
 
     void Start()
     {
@@ -28,6 +37,12 @@ public class Enemy : MonoBehaviour
     {
         thisBody = gameObject.GetComponent<Rigidbody2D>();
         hitbox = gameObject.GetComponent<Collider2D>();
+
+        if(applyAdditionalPatternRot)
+        {
+            rotateAllPattern(additionalPatternRot);
+        }
+
         StartCoroutine(countdownThenStartShooting());
 
         StartCoroutine(scanForBullets());
@@ -112,8 +127,8 @@ public class Enemy : MonoBehaviour
 
             if(timeRatio >= 1)
             {
-                float newXPos = startPos.x + (xMType is movementType.toPointDamp ? movements[curIndex].xMovement.unitsMoved : 0);
-                float newYPos = startPos.y + (yMType is movementType.toPointDamp ? movements[curIndex].yMovement.unitsMoved : 0);
+                float newXPos = startPos.x + (xMType is movementType.toPointDamp or movementType.toPointDampSin ? movements[curIndex].xMovement.unitsMoved : 0);
+                float newYPos = startPos.y + (yMType is movementType.toPointDamp or movementType.toPointDampSin ? movements[curIndex].yMovement.unitsMoved : 0);
                 thisBody.position = new Vector2(newXPos, newYPos);
                 return true;
             }
@@ -128,6 +143,9 @@ public class Enemy : MonoBehaviour
                     newXPos = startPos.x + movements[curIndex].xMovement.amplitude * Mathf.Sin((Mathf.PI * timeRatio) * movements[curIndex].xMovement.numOfPeaks);
                 else if(xMType is movementType.toPointCos)
                     newXPos = startPos.x + movements[curIndex].xMovement.amplitude * Mathf.Cos((2 * Mathf.PI * timeRatio) * movements[curIndex].xMovement.numOfPeaks);
+                else if(xMType is movementType.toPointDampSin)
+                    newXPos = Mathf.SmoothDamp(newXPos, startPos.x + movements[curIndex].xMovement.unitsMoved
+                        + (movements[curIndex].xMovement.amplitude * Mathf.Sin((Mathf.PI * timeRatio) * movements[curIndex].xMovement.numOfPeaks)), ref xVel, timeLeft);
 
                 
                 if(yMType is movementType.toPointDamp)
@@ -136,6 +154,9 @@ public class Enemy : MonoBehaviour
                     newYPos = startPos.y + movements[curIndex].yMovement.amplitude * Mathf.Sin((Mathf.PI * timeRatio) * movements[curIndex].yMovement.numOfPeaks);
                 else if(yMType is movementType.toPointCos)
                     newYPos = startPos.y + movements[curIndex].yMovement.amplitude * Mathf.Cos((2 * Mathf.PI * timeRatio) * movements[curIndex].yMovement.numOfPeaks);
+                else if(yMType is movementType.toPointDampSin)
+                    newYPos = Mathf.SmoothDamp(newYPos, startPos.y + movements[curIndex].yMovement.unitsMoved
+                        + (movements[curIndex].yMovement.amplitude * Mathf.Sin((Mathf.PI * timeRatio) * movements[curIndex].yMovement.numOfPeaks)), ref yVel, timeLeft);
                     
                 thisBody.position = new Vector2(newXPos, newYPos);
 
@@ -181,6 +202,9 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(pat.timeDelayAfterFinished);
             pat.reset();
 
+            if(rotateAllPatternsBetweenCycles)
+                rotateAllPattern(rotateAmountPerCycle);
+
             if(shotLoopPattern != loopType.loop_forever)
             {
                 if(shotLoopPattern is loopType.no_looping || (shotLoopPattern is loopType.loop_x_times && loops >= timesToLoop))
@@ -188,6 +212,31 @@ public class Enemy : MonoBehaviour
             }
 
             loops++;
+        }
+    }
+
+
+    void rotateAllPattern(float rotation)
+    {
+        for(int i = 0; i < standardPattern.simultanousPatterns.Count; i++)
+        {
+            for(int j = 0; j < standardPattern.simultanousPatterns[i].bPattern.patternDat.patternSettings.sPatternList.Count; j++)
+                if(standardPattern.simultanousPatterns[i].bPattern.patternDat.patternSettings.sPatternList[j].TrackingOverrideChoice == simplePatternInfo.TrackingOverride.No_Tracking
+                || (standardPattern.simultanousPatterns[i].bPattern.patternDat.patternSettings.sPatternList[j].TrackingOverrideChoice == simplePatternInfo.TrackingOverride.Ignore
+                && standardPattern.simultanousPatterns[i].bPattern.patternDat.trackTarget == PatternData.playerToTarget.noTracking))
+                {
+                    standardPattern.simultanousPatterns[i].bPattern.patternDat.patternSettings.sPatternList[j].angleOffset += rotation;
+                }
+        }
+        for(int i = 0; i < easyPattern.simultanousPatterns.Count; i++)
+        {
+            for(int j = 0; j < easyPattern.simultanousPatterns[i].bPattern.patternDat.patternSettings.sPatternList.Count; j++)
+                if(easyPattern.simultanousPatterns[i].bPattern.patternDat.patternSettings.sPatternList[j].TrackingOverrideChoice == simplePatternInfo.TrackingOverride.No_Tracking
+                || (easyPattern.simultanousPatterns[i].bPattern.patternDat.patternSettings.sPatternList[j].TrackingOverrideChoice == simplePatternInfo.TrackingOverride.Ignore
+                && easyPattern.simultanousPatterns[i].bPattern.patternDat.trackTarget == PatternData.playerToTarget.noTracking))
+                {
+                    easyPattern.simultanousPatterns[i].bPattern.patternDat.patternSettings.sPatternList[j].angleOffset += rotation;
+                }
         }
     }
 
@@ -211,5 +260,5 @@ public class Enemy : MonoBehaviour
         public movement yMovement;
     }
 
-    public enum movementType { nothing, toPointDamp, toPointSin, toPointCos }
+    public enum movementType { nothing, toPointDamp, toPointSin, toPointCos, toPointDampSin }
 }

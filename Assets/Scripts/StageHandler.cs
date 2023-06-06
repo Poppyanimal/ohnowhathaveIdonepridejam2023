@@ -207,7 +207,7 @@ public class StageHandler : NetworkBehaviour
         currentFlag = flagIndex;
         foreach(stageSection.enemyGrouping group in stageFlags[flagIndex].enemyGroups)
         {
-            foreach(stageSection.enemySpawn spawn in group.enemySpawns)
+            foreach(enemySpawn spawn in group.enemySpawns)
             {
                 spawnEnemy(currentEnemyIndex, spawn);
                 currentEnemyIndex++;
@@ -244,7 +244,7 @@ public class StageHandler : NetworkBehaviour
         {
             foreach(stageSection.enemyGrouping enemyGroup in flag.enemyGroups)
             {
-                foreach(stageSection.enemySpawn enemy in enemyGroup.enemySpawns)
+                foreach(enemySpawn enemy in enemyGroup.enemySpawns)
                 {
                     enemyTable.Add(new enemyData());
                 }
@@ -256,7 +256,7 @@ public class StageHandler : NetworkBehaviour
 
     public int getDamageForEnemy(int index) { return enemyTable[index].damagefromMai + enemyTable[index].damageFromYuki; }
 
-    void spawnEnemy(int index, stageSection.enemySpawn spawninfo)
+    void spawnEnemy(int index, enemySpawn spawninfo)
     {
         Vector3 pos = (Vector3)spawninfo.spawnLocation + Vector3.back * .1f;
         GameObject enemyObj = Instantiate(spawninfo.enemyPrefab, pos, Quaternion.identity);
@@ -268,6 +268,12 @@ public class StageHandler : NetworkBehaviour
         enemy.spawnIndexId = index;
         enemy.movements = spawninfo.movements;
         enemy.despawnAtMovementEnd = spawninfo.despawnAtMovementEnd;
+        enemy.applyAdditionalPatternRot = spawninfo.rotateAllPatterns;
+        enemy.additionalPatternRot = spawninfo.patternRotationAmount;
+        enemy.rotateAllPatternsBetweenCycles = spawninfo.rotatePatternsBetweenCycles;
+        enemy.rotateAmountPerCycle = spawninfo.rotateAmountPerCycle;
+        if(spawninfo.overrideTimeBeforeShooting)
+            enemy.timeBeforeShooting = spawninfo.timeBeforeShooting;
         enemy.startLogic();
 
         enemyTable[index].currentObject = enemyObj;
@@ -397,8 +403,8 @@ public class StageHandler : NetworkBehaviour
         else
         {
             takePlayerDamageServerRpc(newHealth);
-            //TODO
-            //do hit effect clearing bullets around the one who got hit and giving slight iframes to both characters
+            startGetHitEffectServerRpc(NetworkManager.Singleton.LocalClientId, GlobalVars.isPlayingYuki);
+            doGetHitEffect(GlobalVars.isPlayingYuki);
         }
     }
 
@@ -471,6 +477,24 @@ public class StageHandler : NetworkBehaviour
     {
         if(NetworkManager.Singleton.LocalClientId != initiatingPlayer)
             doDeathEffect();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void startGetHitEffectServerRpc(ulong initiatingPlayer, bool isYuki)
+    {
+        startGetHitEffectClientRpc(initiatingPlayer, isYuki);
+    }
+    [ClientRpc]
+    void startGetHitEffectClientRpc(ulong initiatingPlayer, bool isYuki)
+    {
+        if(NetworkManager.Singleton.LocalClientId != initiatingPlayer)
+            doGetHitEffect(isYuki);
+    }
+
+    void doGetHitEffect(bool isYuki)
+    {
+        //TODO
+        //do hit effect clearing bullets around the one who got hit and giving slight iframes to both characters
     }
 
     void doDeathEffect()

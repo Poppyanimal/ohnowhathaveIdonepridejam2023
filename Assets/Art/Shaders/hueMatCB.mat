@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: rainbowBulletMat
+  m_Name: hueMatCB
   m_Shader: {fileID: 4800000, guid: 8bfc7f25aa651874994dc234075e6ff1, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords:
@@ -74,7 +74,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HueShift: 2.4426355
+    - _HueShift: 1.98
     - _Metallic: 0
     - _Mode: 3
     - _OcclusionStrength: 1

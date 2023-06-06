@@ -291,7 +291,7 @@ Transform:
   - {fileID: 1377340261}
   - {fileID: 1820695556}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &220449153
 GameObject:
@@ -963,13 +963,14 @@ MonoBehaviour:
   YukiBody: {fileID: 721170313}
   MaiBody: {fileID: 494090047}
   syncDamageEveryXDamage: 5
-  bypassNetcodeChecks: 1
-  flagToBypassTo: 1
+  bypassNetcodeChecks: 0
+  flagToBypassTo: 4
   stageFlags:
   - {fileID: 11400000, guid: bfd68eb9106e1844eb0707fa1fa5b57a, type: 2}
   - {fileID: 11400000, guid: a3ba96ff1a7f35247a7e6e7ddcc99d0a, type: 2}
   - {fileID: 11400000, guid: 80d70a424601ebf45adf33a7421dcd08, type: 2}
   - {fileID: 11400000, guid: 5b0a597d4b7c88e4fab27a137b7b7aaa, type: 2}
+  - {fileID: 11400000, guid: 6a4f792de1a4dc744a1f545e94c936a1, type: 2}
   activeEnemies: []
   yukiBulletPrefabs:
   - {fileID: 6247498632365518096, guid: e230341a56c2ef342850dc3ac643f3da, type: 3}
@@ -977,6 +978,8 @@ MonoBehaviour:
   maiBulletPrefabs:
   - {fileID: 6247498632365518096, guid: 5356456913e32294fa87a2b457799c68, type: 3}
   - {fileID: 6247498632365518096, guid: 1d9881bd8d9f1c14db9602d86c889374, type: 3}
+  startingHealth: 5
+  startingBombs: 2
 --- !u!4 &380381164
 Transform:
   m_ObjectHideFlags: 0
@@ -3714,7 +3717,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7293076143044878673, guid: 25511adf8ad3b794484770c7d52f7231, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7293076143044878673, guid: 25511adf8ad3b794484770c7d52f7231, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3756,6 +3759,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7293076143044878674, guid: 25511adf8ad3b794484770c7d52f7231, type: 3}
+      propertyPath: bypassDamageDebug
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7293076143044878684, guid: 25511adf8ad3b794484770c7d52f7231, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3548854271
@@ -3780,6 +3787,10 @@ PrefabInstance:
     - target: {fileID: 2407553242308490307, guid: 710370019bb6afb4ca254b7bc5da2313, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1193684586
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407553242308490317, guid: 710370019bb6afb4ca254b7bc5da2313, type: 3}
+      propertyPath: bypassDamageDebug
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2407553242308490318, guid: 710370019bb6afb4ca254b7bc5da2313, type: 3}
       propertyPath: m_RootOrder
