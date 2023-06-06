@@ -14,6 +14,8 @@ public class Player : NetworkBehaviour
     //Move speed slightly slower while shooting?
     public NetworkVariable<bool> isShooting = new NetworkVariable<bool>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public NetworkVariable<bool> isFocusing = new NetworkVariable<bool>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner); //used for visuals of other player
+    public NetworkVariable<bool> isMoving = new NetworkVariable<bool>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    public NetworkVariable<bool> facingLeft = new NetworkVariable<bool>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
     public character thischar = character.Yuki;
     Rigidbody2D thisBody;
 
@@ -25,11 +27,19 @@ public class Player : NetworkBehaviour
     bool inIframes = false;
     Coroutine iFrameCoro;
     public bool bypassDamageDebug = false;
+    Animator anim;
 
 
     void Start()
     {
         thisBody = gameObject.GetComponent<Rigidbody2D>();
+        try
+        { anim = gameObject.GetComponent<Animator>(); }
+        catch
+        { anim = null; }
+
+        isMoving.OnValueChanged += onAnimUpdateMoving;
+        facingLeft.OnValueChanged += onAnimUpdateFacingLeft;
 
         if(GlobalVars.isPlayingYuki == thischar is character.Yuki) //make hitbox visible if playing character
         {
@@ -64,6 +74,9 @@ public class Player : NetworkBehaviour
         StartCoroutine(shootingLogic());
     }
 
+    void onAnimUpdateMoving(bool prevValue, bool newValue) { if(anim != null) anim.SetBool("isMoving", newValue);  }
+    void onAnimUpdateFacingLeft(bool prevValue, bool newValue) { if(anim != null) anim.SetBool("facingLeft", newValue); }
+
 
     void Update()
     {
@@ -96,6 +109,23 @@ public class Player : NetworkBehaviour
             movement.y = Input.GetAxisRaw("VerticalJoy");
 
         movement = movement.normalized;
+
+        if(Mathf.Abs(movement.x) > 0.001f)
+        {
+            isMoving.Value = true;
+            facingLeft.Value = movement.x < 0;
+            if(anim != null)
+            {
+                anim.SetBool("isMoving", true);
+                anim.SetBool("facingLeft", movement.x < 0);
+            }
+        }
+        else
+        {
+            isMoving.Value = false;
+            if(anim != null)
+                anim.SetBool("isMoving", false);
+        }
 
         bool currentlyFocusing = Input.GetButton("Focus") || (GlobalVars.useController && Input.GetButton("FocusJoy"));
         bool currentlyShooting = Input.GetButton("Shoot") || (GlobalVars.useController && Input.GetButton("ShootJoy"));
