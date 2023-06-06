@@ -37,10 +37,15 @@ public class StageHandler : NetworkBehaviour
     bool playerOneWaitingForFlag, playerTwoWaitingForFlag = false;
     int playerOneFlagNumberWaitingOn, playerTwoFlagNumberWaitingOn = 0;
 
+    public List<Image> healthIcons;
+    public List<Image> ownBombs;
+    public List<Image> partnerBombs;
     public int startingHealth = 5;
+    int maxHearts = 8;
     int currentHealth;
     public int startingBombs = 2;
     int currentBombsPlayerOne, currentBombsPlayerTwo;
+    public Collider2D bombClearBox;
 
 
 
@@ -233,6 +238,8 @@ public class StageHandler : NetworkBehaviour
             //finish the stage and close it out properly by *safely* disconnecting the two players (aka no kick to menu immediately),
             //a scoreboard of their score and stats (damage taken, hearts obtained, bombs used per player / total), showing the difficult,
             //and saving the highscore locally
+            if(IsHost)
+                NetworkManager.Singleton.SceneManager.LoadScene("lobby", UnityEngine.SceneManagement.LoadSceneMode.Single);
         }
     }
 
@@ -394,7 +401,8 @@ public class StageHandler : NetworkBehaviour
 
     public void playerGotHit()
     {
-        int newHealth = currentHealth--;
+        int newHealth = currentHealth - 1;
+        currentHealth = newHealth;
         if(newHealth <= 0)
         {
             startDeathEffectServerRpc(NetworkManager.Singleton.LocalClientId);
@@ -402,7 +410,7 @@ public class StageHandler : NetworkBehaviour
         }
         else
         {
-            takePlayerDamageServerRpc(newHealth);
+            takePlayerDamageServerRpc(newHealth, GlobalVars.isPlayingYuki, NetworkManager.Singleton.LocalClientId);
             startGetHitEffectServerRpc(NetworkManager.Singleton.LocalClientId, GlobalVars.isPlayingYuki);
             doGetHitEffect(GlobalVars.isPlayingYuki);
         }
@@ -427,17 +435,21 @@ public class StageHandler : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void takePlayerDamageServerRpc(int newHealth)
+    public void takePlayerDamageServerRpc(int newHealth, bool isYuki, ulong caller)
     {
         currentHealth = newHealth;
-        takePlayerDamageClientRpc(newHealth);
+        takePlayerDamageClientRpc(newHealth, isYuki, caller);
         setPlayerBombsClientRpc(true, startingBombs);
         setPlayerBombsClientRpc(false, startingBombs);
     }
     [ClientRpc]
-    public void takePlayerDamageClientRpc(int newHealth)
+    public void takePlayerDamageClientRpc(int newHealth, bool isYuki, ulong caller)
     {
-        currentHealth = newHealth;
+        if(caller != NetworkManager.Singleton.LocalClientId)
+        {
+            currentHealth = newHealth;
+            updateHealthUI();
+        }
     }
     [ServerRpc(RequireOwnership = false)]
     void setPlayerBombsServerRpc(bool isPlayerOne, int bombs)
@@ -493,28 +505,100 @@ public class StageHandler : NetworkBehaviour
 
     void doGetHitEffect(bool isYuki)
     {
-        //TODO
-        //do hit effect clearing bullets around the one who got hit and giving slight iframes to both characters
+        //TODO: play get hit sfx
+        Player yuki = YukiBody.gameObject.GetComponent<Player>();
+        Player mai = MaiBody.gameObject.GetComponent<Player>();
+        if(isYuki)
+            yuki.clearProjectiles();
+        else
+            mai.clearProjectiles();
+
+        yuki.giveIframes();
+        mai.giveIframes();
+        updateHealthUI();
     }
 
-    void doDeathEffect()
+    void doDeathEffect() //for when out of lives
     {
+        currentHealth = 0;
+        updateHealthUI();
         //TODO:
         //both players explode
         //slight fade into death screen
         //return to lobby screen
+
+        //
+
+        if(IsHost)
+            NetworkManager.Singleton.SceneManager.LoadScene("lobby", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }
+
+
 
     void doBombEffect(bool isYuki)
     {
-        //TODO
-        //the actual result of the bomb, starting from that player
+        //TODO: various visual effects and Shtuff of the bomb being used
+        //sfx too and some filter
+        updateBombUI();
+        Collider2D[] list = new Collider2D[64];
+        int results = bombClearBox.OverlapCollider(KiroLib.getBulletFilter(), list);
+        while(results > 0)
+        {
+            for(int i = 0; i < results; i++)
+            {
+                try
+                {
+                    list[i].gameObject.GetComponent<bulletDestroyHandler>().destroy();
+                }
+                catch
+                {
+                    Destroy(list[i].gameObject);
+                }
+            }
+            results = bombClearBox.OverlapCollider(KiroLib.getBulletFilter(), list);
+        }
     }
 
     void updateBombUI()
     {
+        //TODO: actual visual effect when they change
+        int ownBombAmount = IsHost ? currentBombsPlayerOne : currentBombsPlayerTwo;
+        int partnerBombAmount = IsHost ? currentBombsPlayerTwo : currentBombsPlayerOne;
+        for(int i = 0; i < ownBombs.Count; i++)
+        {
+            if(i < ownBombAmount)
+                ownBombs[i].gameObject.SetActive(true);
+            else
+                ownBombs[i].gameObject.SetActive(false);
+        }
+    }
+
+    void updateHealthUI()
+    {
+        //TODO: actual visual effect where losing a heart makes it overgrow slightly real fast then shrink into nothing
+        //and if gain heart, grow, overshoot, and return to regular size
+        for(int i = 0; i < healthIcons.Count; i++)
+        {
+            if(currentHealth > i)
+                healthIcons[i].gameObject.SetActive(true);
+            else
+                healthIcons[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void updateScore()
+    {
+        int totalScore = YukiBody.gameObject.GetComponent<Player>().score.Value + MaiBody.gameObject.GetComponent<Player>().score.Value;
         //TODO
-        //just updates the ui with the new bomb values
+        //update the ui element with the new score
+    }
+
+    public void gainScore(int amount)
+    {
+        if(GlobalVars.isPlayingYuki)
+            YukiBody.gameObject.GetComponent<Player>().score.Value += amount;
+        else
+            MaiBody.gameObject.GetComponent<Player>().score.Value += amount;
     }
 
 

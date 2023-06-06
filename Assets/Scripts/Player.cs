@@ -22,12 +22,17 @@ public class Player : NetworkBehaviour
     public ComplexPattern regularShot, focusedShot;
     public List<BulletPattern> homingShots;
 
-    Collider2D hitbox, clearbox;
+    public Collider2D hitbox, clearbox;
     public float iframeTime = 1f;
     bool inIframes = false;
     Coroutine iFrameCoro;
     public bool bypassDamageDebug = false;
     Animator anim;
+    bool onBombCooldown = false;
+    float bombCooldown = .5f;
+
+    [HideInInspector]
+    public NetworkVariable<int> score = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
 
     void Start()
@@ -40,6 +45,7 @@ public class Player : NetworkBehaviour
 
         isMoving.OnValueChanged += onAnimUpdateMoving;
         facingLeft.OnValueChanged += onAnimUpdateFacingLeft;
+        score.OnValueChanged += updateScore;
 
         if(GlobalVars.isPlayingYuki == thischar is character.Yuki) //make hitbox visible if playing character
         {
@@ -130,6 +136,15 @@ public class Player : NetworkBehaviour
         bool currentlyFocusing = Input.GetButton("Focus") || (GlobalVars.useController && Input.GetButton("FocusJoy"));
         bool currentlyShooting = Input.GetButton("Shoot") || (GlobalVars.useController && Input.GetButton("ShootJoy"));
 
+        if((Input.GetButtonDown("Bomb") || Input.GetButtonDown("BombJoy")) && !onBombCooldown)
+        {
+            StageHandler.Singleton.useBomb();
+            StartCoroutine(bombcooldownTimer());
+        }
+
+        //TODO: bomb and cooldown on hitting bomb?
+        //also maybe bomb should hurt all "active" enemies a specific amount
+
         thisBody.velocity = movement * baseSpeed * (currentlyFocusing ? focusSpeedMult : currentlyShooting ? shootSpeedMult : 1f);
 
         if(IsOwner)
@@ -184,10 +199,13 @@ public class Player : NetworkBehaviour
     {
         yield return new WaitUntil(delegate()
         {
-            Collider2D[] list = new Collider2D[4];
-            int hits = hitbox.OverlapCollider(KiroLib.getBulletFilter(), list);
-            if(hits > 0 && !bypassDamageDebug)
-                StageHandler.Singleton.playerGotHit();
+            if(!inIframes)
+            {
+                Collider2D[] list = new Collider2D[4];
+                int hits = hitbox.OverlapCollider(KiroLib.getBulletFilter(), list);
+                if(hits > 0 && !bypassDamageDebug)
+                    StageHandler.Singleton.playerGotHit();
+            }
             return false;
         });
     }
@@ -195,10 +213,23 @@ public class Player : NetworkBehaviour
 
     IEnumerator iFrameCounter()
     {
-        //TODO: iframe effect
+        //TODO: iframe visual effect
         inIframes = true;
         yield return new WaitForSeconds(iframeTime);
         inIframes = false;
+    }
+
+    IEnumerator bombcooldownTimer()
+    {
+        onBombCooldown = true;
+        yield return new WaitForSeconds(bombCooldown);
+        onBombCooldown = false;
+    }
+
+    public void giveIframes()
+    {
+        if(!inIframes)
+            StartCoroutine(iFrameCounter());
     }
 
     public void clearProjectiles() //should be called when a hit is registered and sync
@@ -223,5 +254,7 @@ public class Player : NetworkBehaviour
             }
         }
     }
+
+    public void updateScore(int oldScore, int newScore) { StageHandler.Singleton.updateScore(); }
     public enum character { Yuki, Mai }
 }

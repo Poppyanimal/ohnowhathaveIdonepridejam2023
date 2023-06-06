@@ -317,6 +317,7 @@ Transform:
   - {fileID: 641947546200368932}
   - {fileID: 7978347740953436160}
   - {fileID: 1284427289590658662}
+  - {fileID: 3757852783588108364}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -340,18 +341,28 @@ MonoBehaviour:
     m_InternalValue: 0
   isFocusing:
     m_InternalValue: 0
+  isMoving:
+    m_InternalValue: 0
+  facingLeft:
+    m_InternalValue: 0
   thischar: 0
   regularShot:
     timeDelayAfterFinished: 0.5
     simultanousPatterns:
     - timesToShoot: 1
       bPattern: {fileID: 2100543988351703419}
+      resetDriftOnShotReset: 0
   focusedShot:
     timeDelayAfterFinished: 0.5
     simultanousPatterns:
     - timesToShoot: 1
       bPattern: {fileID: 5576412796920165700}
+      resetDriftOnShotReset: 0
   homingShots: []
+  hitbox: {fileID: 5270585943144098401}
+  clearbox: {fileID: 6856379138637339541}
+  iframeTime: 1
+  bypassDamageDebug: 0
 --- !u!114 &5270585943144098411
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,3 +563,51 @@ Transform:
   m_Father: {fileID: 5270585943144098405}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6965998866019697824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3757852783588108364}
+  - component: {fileID: 6856379138637339541}
+  m_Layer: 14
+  m_Name: Clearbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3757852783588108364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965998866019697824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5270585943144098405}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6856379138637339541
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6965998866019697824}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.5
