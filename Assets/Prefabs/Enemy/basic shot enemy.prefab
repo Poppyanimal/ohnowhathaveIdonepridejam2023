@@ -258,6 +258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
+  scoreForKill: 25
   standardPattern:
     timeDelayAfterFinished: 2
     simultanousPatterns:

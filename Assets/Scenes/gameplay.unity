@@ -485,7 +485,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 40823
+    m_Bits: 122743
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1031,6 +1031,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundDimming: {fileID: 277550760}
+  scoreText: {fileID: 630826299}
   leftPanel: {fileID: 1746969285}
   rightPanel: {fileID: 1795282381}
   fadeDistance: 1200
@@ -1073,6 +1074,7 @@ MonoBehaviour:
   startingHealth: 5
   startingBombs: 2
   bombClearBox: {fileID: 1133644309}
+  scoreIndicatorPrefab: {fileID: 4948153567870092401, guid: 11b0a6abdd73b044a923808342457aa9, type: 3}
 --- !u!4 &380381164
 Transform:
   m_ObjectHideFlags: 0
@@ -1399,8 +1401,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 300, y: 210}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 325, y: 210}
+  m_SizeDelta: {x: 250, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &630826299
 MonoBehaviour:
@@ -4900,7 +4902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7293076143044878674, guid: 25511adf8ad3b794484770c7d52f7231, type: 3}
       propertyPath: bypassDamageDebug
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7293076143044878684, guid: 25511adf8ad3b794484770c7d52f7231, type: 3}
       propertyPath: GlobalObjectIdHash

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth = 10;
+    public int scoreForKill = 300;
     public ComplexPattern standardPattern, easyPattern;
     public loopType shotLoopPattern;
     public int timesToLoop;
@@ -26,6 +27,9 @@ public class Enemy : MonoBehaviour
     public bool rotateAllPatternsBetweenCycles = false;
     [HideInInspector]
     public float rotateAmountPerCycle = 0f;
+
+
+    bool alreadyGaveScore = false;
 
     void Start()
     {
@@ -61,6 +65,7 @@ public class Enemy : MonoBehaviour
 
     public void doKillEffect() //this should only be called from the stagehandler
     {
+        StageHandler.Singleton.tryPlayingEnemyDeathSFX();
         //TODO
         Destroy(this.gameObject);
     }
@@ -71,6 +76,12 @@ public class Enemy : MonoBehaviour
         StageHandler.Singleton.damageEnemy(spawnIndexId);
         if(shouldDie())
         {
+            if(!alreadyGaveScore)
+            {
+                StageHandler.Singleton.gainScore(scoreForKill);
+                StageHandler.Singleton.spawnScoreIndicator(scoreForKill * 10, thisBody.position, true);
+                alreadyGaveScore = true;
+            }
             StageHandler.Singleton.killEnemy(spawnIndexId);
         }
         else

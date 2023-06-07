@@ -76,6 +76,10 @@ PrefabInstance:
       value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5804199352369580698, guid: f08efb239e812b5439a0c2baeaa07ffe, type: 3}
+      propertyPath: scoreForKill
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 5804199352369580698, guid: f08efb239e812b5439a0c2baeaa07ffe, type: 3}
       propertyPath: startLogicOverride
       value: 0
       objectReference: {fileID: 0}

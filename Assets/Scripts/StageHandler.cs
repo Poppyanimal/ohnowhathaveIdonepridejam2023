@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
+using TMPro;
 
 public class StageHandler : NetworkBehaviour
 {
     public static StageHandler Singleton;
     public SpriteRenderer backgroundDimming;
+    public TMP_Text scoreText;
     public Image leftPanel, rightPanel;
     public float fadeDistance;
     public float fadeTime;
@@ -46,6 +48,7 @@ public class StageHandler : NetworkBehaviour
     public int startingBombs = 2;
     int currentBombsPlayerOne, currentBombsPlayerTwo;
     public Collider2D bombClearBox;
+    public GameObject scoreIndicatorPrefab;
 
 
 
@@ -589,8 +592,10 @@ public class StageHandler : NetworkBehaviour
     public void updateScore()
     {
         int totalScore = YukiBody.gameObject.GetComponent<Player>().score.Value + MaiBody.gameObject.GetComponent<Player>().score.Value;
-        //TODO
-        //update the ui element with the new score
+        string newScore = totalScore.ToString();
+        newScore = newScore.PadLeft(9, '0');
+        newScore = newScore.PadRight(10, '0');
+        scoreText.text = newScore;
     }
 
     public void gainScore(int amount)
@@ -599,6 +604,31 @@ public class StageHandler : NetworkBehaviour
             YukiBody.gameObject.GetComponent<Player>().score.Value += amount;
         else
             MaiBody.gameObject.GetComponent<Player>().score.Value += amount;
+        
+        updateScore();
+    }
+
+    public void spawnScoreIndicator(int amount, Vector2 location, bool propogateCrossClients = false)
+    {
+        GameObject s = Instantiate(scoreIndicatorPrefab, (Vector3)location + Vector3.up * .8f, Quaternion.identity);
+        scoreDrift sd = s.GetComponent<scoreDrift>();
+        sd.setText(amount.ToString());
+        sd.doStartup();
+
+        if(propogateCrossClients)
+            propogateScoreIndicatorServerRpc(amount, location, NetworkManager.Singleton.LocalClientId);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void propogateScoreIndicatorServerRpc(int amount, Vector2 location, ulong initiatingClient)
+    {
+        propogateScoreIndicatorClientRpc(amount, location, initiatingClient);
+    }
+    [ClientRpc]
+    public void propogateScoreIndicatorClientRpc(int amount, Vector2 location, ulong initiatingClient)
+    {
+        if(initiatingClient != NetworkManager.Singleton.LocalClientId)
+            spawnScoreIndicator(amount, location);
     }
 
 
@@ -667,6 +697,22 @@ public class StageHandler : NetworkBehaviour
         {
             maiBulletPrefabs[i].layer = maiLayer;
         }
+    }
+
+
+
+    //
+    // SFX
+    //
+
+    public void tryPlayingGrazeSFX()
+    {
+        //TODO
+    }
+
+    public void tryPlayingEnemyDeathSFX()
+    {
+        //TODO
     }
 
 }

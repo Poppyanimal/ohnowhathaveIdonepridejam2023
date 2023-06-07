@@ -22,7 +22,7 @@ TagManager:
   - UI_Transition
   - ignoreall
   - PlayerHitbox
-  - 
+  - score
   - 
   - 
   - 
@@ -44,4 +44,7 @@ TagManager:
     locked: 0
   - name: PlayerHitbox
     uniqueID: 1590831245
+    locked: 0
+  - name: score
+    uniqueID: 115858457
     locked: 0

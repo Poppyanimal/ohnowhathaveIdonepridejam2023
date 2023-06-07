@@ -22,7 +22,7 @@ public class Player : NetworkBehaviour
     public ComplexPattern regularShot, focusedShot;
     public List<BulletPattern> homingShots;
 
-    public Collider2D hitbox, clearbox;
+    public Collider2D hitbox, clearbox, grazebox;
     public float iframeTime = 1f;
     bool inIframes = false;
     Coroutine iFrameCoro;
@@ -30,8 +30,6 @@ public class Player : NetworkBehaviour
     Animator anim;
     bool onBombCooldown = false;
     float bombCooldown = .5f;
-
-    [HideInInspector]
     public NetworkVariable<int> score = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
 
@@ -54,6 +52,8 @@ public class Player : NetworkBehaviour
 
             if(hitbox != null)
                 StartCoroutine(hitCheck());
+            if(grazebox != null)
+                StartCoroutine(doGrazeCheck());
         }
 
         if(NetworkManager.IsHost) //passes ownership over to other player if host is not playing this character
@@ -205,6 +205,29 @@ public class Player : NetworkBehaviour
                 int hits = hitbox.OverlapCollider(KiroLib.getBulletFilter(), list);
                 if(hits > 0 && !bypassDamageDebug)
                     StageHandler.Singleton.playerGotHit();
+            }
+            return false;
+        });
+    }
+
+    IEnumerator doGrazeCheck()
+    {
+        yield return new WaitUntil(delegate()
+        {
+            Collider2D[] possibles = new Collider2D[4];
+            int hits = grazebox.OverlapCollider(KiroLib.getBulletFilter(), possibles);
+            if(hits > 0)
+            {
+                for(int i = 0; i < hits; i++)
+                {
+                    if(!possibles[i].gameObject.tag.Equals("Grazed"))
+                    {
+                        StageHandler.Singleton.gainScore(2); //grazing a bullet is worth 2 points
+                        possibles[i].gameObject.tag = "Grazed";
+                        StageHandler.Singleton.spawnScoreIndicator(20, (Vector2)possibles[i].gameObject.transform.position);
+                        StageHandler.Singleton.tryPlayingGrazeSFX();
+                    }
+                }
             }
             return false;
         });

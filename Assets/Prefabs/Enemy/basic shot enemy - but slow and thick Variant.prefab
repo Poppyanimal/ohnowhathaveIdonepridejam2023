@@ -96,6 +96,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: scoreForKill
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: easyPattern.timeDelayAfterFinished
       value: 4
       objectReference: {fileID: 0}
