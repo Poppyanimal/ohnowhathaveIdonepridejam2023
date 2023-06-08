@@ -42,6 +42,7 @@ public class GlobalVars
 
     public static bool mainMenuNetRegDone = false;
     public static bool connectionClosedUnexpectedly = false;
+    public static int endingScore = 0;
 
 
     //

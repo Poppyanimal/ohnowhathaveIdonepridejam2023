@@ -49,6 +49,15 @@ public class StageHandler : NetworkBehaviour
     int currentBombsPlayerOne, currentBombsPlayerTwo;
     public Collider2D bombClearBox;
     public GameObject scoreIndicatorPrefab;
+    public GameObject backgroundScroll;
+    public float bgStartingHeight;
+    public float bgMidbossHeight;
+    public float bgFinalHeight;
+    Coroutine backgroundScrollCoro;
+    public SpriteRenderer backgroundDimmer;
+    public float superDimmingAmount = .9f;
+    public float timeToChangeDim = 1f;
+    Coroutine changeDimmingCoro;
 
 
 
@@ -73,6 +82,7 @@ public class StageHandler : NetworkBehaviour
         else
             Debug.LogError("Rainbow bullet material is not set!");
 
+
         //TODO:
         //title card of makai / 魔界 and subtitle of sub area, fade in into fade out into first enemy grouping
         yield return new WaitForSeconds(fadeTime + 1f);
@@ -82,6 +92,10 @@ public class StageHandler : NetworkBehaviour
 
         if(stageFlags.Count > 0)
         {
+            //first bg scroll
+            if(backgroundScroll != null)
+                backgroundScrollCoro = StartCoroutine(scrollTheBackground(bgStartingHeight, bgMidbossHeight, getTimeTotalPreMidboss()));
+
             if(bypassNetcodeChecks)
             {
                 StartCoroutine(doLogicForSequence(flagToBypassTo));
@@ -100,9 +114,67 @@ public class StageHandler : NetworkBehaviour
         }
     }
 
+
+
+    IEnumerator scrollTheBackground(float startHeight, float endHeight, float timeToTake)
+    {
+        Vector3 startPos = backgroundScroll.transform.position;
+        startPos.y = startHeight;
+        backgroundScroll.transform.position = startPos;
+        float yDif = endHeight - startHeight;
+        float startTime = Time.time;
+        yield return new WaitUntil(delegate()
+        {
+            float timeRatio = (Time.time - startTime) / timeToTake;
+            if(timeRatio >= 1)
+            {
+                Vector3 endPos = startPos;
+                endPos.y = endHeight;
+                backgroundScroll.transform.position = endPos;
+                return true;
+            }
+            else
+            {
+                Vector3 curPos = startPos;
+                curPos.y = startPos.y + timeRatio * yDif;
+                backgroundScroll.transform.position = curPos;
+                return false;
+            }
+        });
+    }
+
+    IEnumerator changeDimming(bool makeDarker)
+    {
+        float startingAlpha = backgroundDimmer.color.a;
+        float targetAlpha = makeDarker ? superDimmingAmount : GlobalVars.screenDim;
+        if(makeDarker && superDimmingAmount <= GlobalVars.screenDim)
+            targetAlpha = GlobalVars.screenDim;
+
+        Color col = backgroundDimmer.color;
+        float alphaDif = targetAlpha - startingAlpha;
+        float timeStart = Time.time;
+        yield return new WaitUntil(delegate()
+        {
+            float timeRatio = (Time.time - timeStart) / timeToChangeDim;
+            if(timeRatio >= 1)
+            {
+                col.a = targetAlpha;
+                backgroundDimmer.color = col;
+                return true;
+            }
+            else
+            {
+                col.a = startingAlpha + timeRatio * alphaDif;
+                backgroundDimmer.color = col;
+                return false;
+            }
+        });
+    }
+
     //
     // Flag Netcode
     //
+
 
     void playerOneMarkWaitingForFlag(int flag)
     {
@@ -632,7 +704,24 @@ public class StageHandler : NetworkBehaviour
     }
 
 
+    public float getTimeTotalPreMidboss()
+    {
+        float time = 0f;
+        foreach(stageSection flag in stageFlags)
+        {
+            foreach(stageSection.enemyGrouping group in flag.enemyGroups)
+            {
+                time += group.delayTillNextGroup;
+            }
+        }
+        return time;
+    }
 
+    public float getTimeTotalPreBigBoss()
+    {
+        //TODO
+        return 1f;
+    }
     
     IEnumerator doFadeInTransition() // for the black bar fade in effect
     {
