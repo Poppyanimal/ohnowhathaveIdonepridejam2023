@@ -21,10 +21,11 @@ public class StageHandler : NetworkBehaviour
     public bool bypassNetcodeChecks = false;
     public int flagToBypassTo = 0;
 
-    int currentFlag = 0;
+    int currentFlag = 0; //stageFlags 0-x; midboss; stageFlagsFinale y-z; finalboss
     int currentEnemyIndex = 0;
 
     public List<stageSection> stageFlags;
+    public List<stageSection> stageFlagsEnding;
 
     [HideInInspector]
     public List<enemyData> enemyTable = new();
@@ -284,18 +285,69 @@ public class StageHandler : NetworkBehaviour
     IEnumerator doLogicForSequence(int flagIndex)
     {
         Debug.Log("new flag starting");
+
         currentFlag = flagIndex;
-        foreach(stageSection.enemyGrouping group in stageFlags[flagIndex].enemyGroups)
+        flagType thisFlag = getFlagType(currentFlag);
+
+        if(thisFlag is flagType.stageFirstHalf)
         {
-            foreach(enemySpawn spawn in group.enemySpawns)
+            Debug.Log("running flag for first stage half");
+            foreach(stageSection.enemyGrouping group in stageFlags[flagIndex].enemyGroups)
             {
-                spawnEnemy(currentEnemyIndex, spawn);
-                currentEnemyIndex++;
+                foreach(enemySpawn spawn in group.enemySpawns)
+                {
+                    spawnEnemy(currentEnemyIndex, spawn);
+                    currentEnemyIndex++;
+                }
+                yield return new WaitForSeconds(group.delayTillNextGroup);
             }
-            yield return new WaitForSeconds(group.delayTillNextGroup);
+        }
+        else if(thisFlag is flagType.midBoss)
+        {
+            Debug.Log("running flag for midboss");
+            bossHandler.Singleton.startMidBoss();
+            yield return new WaitUntil(delegate()
+            {
+                return bossHandler.Singleton.midBossDefeated.Value;
+            });
+        }
+        else if(thisFlag is flagType.stageSecondHalf)
+        {
+            Debug.Log("running flag for second stage half");
+
+            if(isFlagStartOfPartTwo(currentFlag) && backgroundScroll != null)
+            {
+                if(backgroundScrollCoro != null)
+                    StopCoroutine(backgroundScrollCoro);
+                
+                backgroundScrollCoro = StartCoroutine(scrollTheBackground(bgMidbossHeight, bgFinalHeight, getTimeTotalPreBigBoss()));
+            }
+
+            foreach(stageSection.enemyGrouping group in stageFlagsEnding[flagIndex - (stageFlags.Count + 1)].enemyGroups)
+            {
+                foreach(enemySpawn spawn in group.enemySpawns)
+                {
+                    spawnEnemy(currentEnemyIndex, spawn);
+                    currentEnemyIndex++;
+                }
+                yield return new WaitForSeconds(group.delayTillNextGroup);
+            }
+        }
+        else if(thisFlag is flagType.finalBoss)
+        {
+            Debug.Log("running flag for final boss");
+            bossHandler.Singleton.startFinalBoss();
+            yield return new WaitUntil(delegate()
+            {
+                return bossHandler.Singleton.finalBossDefeated.Value;
+            });
         }
 
-        if(flagIndex + 1 < stageFlags.Count)
+
+        //
+
+        flagType nextFlag = getFlagType(flagIndex + 1);
+        if(nextFlag is flagType.stageFirstHalf or flagType.midBoss or flagType.stageSecondHalf or flagType.finalBoss)
         {
             if(IsHost)
             {
@@ -323,6 +375,16 @@ public class StageHandler : NetworkBehaviour
         Debug.Log("Initilizing Enemy Table");
         enemyTable.Clear();
         foreach(stageSection flag in stageFlags)
+        {
+            foreach(stageSection.enemyGrouping enemyGroup in flag.enemyGroups)
+            {
+                foreach(enemySpawn enemy in enemyGroup.enemySpawns)
+                {
+                    enemyTable.Add(new enemyData());
+                }
+            }
+        }
+        foreach(stageSection flag in stageFlagsEnding)
         {
             foreach(stageSection.enemyGrouping enemyGroup in flag.enemyGroups)
             {
@@ -646,6 +708,13 @@ public class StageHandler : NetworkBehaviour
             else
                 ownBombs[i].gameObject.SetActive(false);
         }
+        for(int i = 0; i < partnerBombs.Count; i++)
+        {
+            if(i < partnerBombAmount)
+                partnerBombs[i].gameObject.SetActive(true);
+            else
+                partnerBombs[i].gameObject.SetActive(false);
+        }
     }
 
     void updateHealthUI()
@@ -719,8 +788,15 @@ public class StageHandler : NetworkBehaviour
 
     public float getTimeTotalPreBigBoss()
     {
-        //TODO
-        return 1f;
+        float time = 0f;
+        foreach(stageSection flag in stageFlagsEnding)
+        {
+            foreach(stageSection.enemyGrouping group in flag.enemyGroups)
+            {
+                time += group.delayTillNextGroup;
+            }
+        }
+        return time;
     }
     
     IEnumerator doFadeInTransition() // for the black bar fade in effect
@@ -788,6 +864,28 @@ public class StageHandler : NetworkBehaviour
         }
     }
 
+    public flagType getFlagType(int atIndex)
+    {
+        if(atIndex < 0)
+            return flagType.undefined;
+        if(atIndex < stageFlags.Count)
+            return flagType.stageFirstHalf;
+        else if(atIndex == stageFlags.Count)
+            return flagType.midBoss;
+        else if(atIndex < stageFlags.Count + 1 + stageFlagsEnding.Count)
+            return flagType.stageSecondHalf;
+        else if(atIndex == stageFlags.Count + 1 + stageFlagsEnding.Count)
+            return flagType.finalBoss;
+        else
+            return flagType.undefined;
+    }
+
+    public bool isFlagStartOfPartTwo(int atIndex)
+    {
+        return atIndex == stageFlags.Count + 1;
+    }
+
+    public enum flagType { undefined, stageFirstHalf, midBoss, stageSecondHalf, finalBoss };
 
 
     //
