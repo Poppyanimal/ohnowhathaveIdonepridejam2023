@@ -21,9 +21,9 @@ public class bossHandler : NetworkBehaviour
     public int syncEveryXDamage = 5;
 
     [HideInInspector]
-    public List<bossPhaseDamage> midBossDamageTable;
+    public List<bossPhaseDamage> midBossDamageTable = new();
     [HideInInspector]
-    public List<bossPhaseDamage> finalBossDamageTable;
+    public List<bossPhaseDamage> finalBossDamageTable = new();
 
     public int currentbossPhase = 0;
 
@@ -102,18 +102,18 @@ public class bossHandler : NetworkBehaviour
     {
         bool isYuki = GlobalVars.isPlayingYuki;
         int oldDam = 0;
-        switch(spawnedBossObject.GetComponent<boss>().type, isYuki)
+        switch(spawnedBossObject.GetComponent<boss>().type is bossType.midboss, isYuki)
         {
-            case(bossType.midboss, true):
+            case(true, true):
                 oldDam = midBossDamageTable[currentbossPhase].damageFromYuki;
                 break;
-            case(bossType.midboss, false):
+            case(true, false):
                 oldDam = midBossDamageTable[currentbossPhase].damageFromMai;
                 break;
-            case(bossType.finalboss, true):
+            case(false, true):
                 oldDam = finalBossDamageTable[currentbossPhase].damageFromYuki;
                 break;
-            case(bossType.finalboss, false):
+            case(false, false):
                 oldDam = finalBossDamageTable[currentbossPhase].damageFromMai;
                 break;
         }
@@ -126,18 +126,18 @@ public class bossHandler : NetworkBehaviour
         }
         else
         {
-            switch(spawnedBossObject.GetComponent<boss>().type, isYuki)
+            switch(spawnedBossObject.GetComponent<boss>().type is bossType.midboss, isYuki)
             {
-                case(bossType.midboss, true):
+                case(true, true):
                     midBossDamageTable[currentbossPhase].damageFromYuki = newDam;
                     break;
-                case(bossType.midboss, false):
+                case(true, false):
                     midBossDamageTable[currentbossPhase].damageFromMai = newDam;
                     break;
-                case(bossType.finalboss, true):
+                case(false, true):
                     finalBossDamageTable[currentbossPhase].damageFromYuki = newDam;
                     break;
-                case(bossType.finalboss, false):
+                case(false, false):
                     finalBossDamageTable[currentbossPhase].damageFromMai = newDam;
                     break;
             }
@@ -217,5 +217,6 @@ public class bossHandler : NetworkBehaviour
 
 public class bossPhaseDamage
 {
-    public int damageFromYuki, damageFromMai = 0;
+    public int damageFromYuki = 0;
+    public int damageFromMai = 0;
 }

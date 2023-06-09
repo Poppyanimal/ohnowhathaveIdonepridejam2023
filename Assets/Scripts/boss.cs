@@ -8,20 +8,31 @@ public class boss : MonoBehaviour
     public bossHandler.bossType type;
 
     Rigidbody2D thisBody;
-    Coroutine phaseLogicCoro;
-    Coroutine movementCoro;
-    Coroutine phaseTimerCoro;
+    Coroutine phaseLogicCoro = null;
+    Coroutine movementCoro = null;
+    Coroutine phaseTimerCoro = null; //TODO
+    Coroutine checkForHitsCoro = null;
+
+    Collider2D hitbox;
 
     public bool overrideStartForDebug = false;
     public int phaseIndexToStartup = 0;
 
-    void Start() { thisBody = gameObject.GetComponent<Rigidbody2D>(); if(overrideStartForDebug) startPhase(phaseIndexToStartup); }
+    void Start() { if(overrideStartForDebug) startPhase(phaseIndexToStartup); }
 
     public void startPhase(int index)
     {
+        Debug.Log("starting phase of index: "+index);
+        if(thisBody == null)
+            thisBody = gameObject.GetComponent<Rigidbody2D>();
+        if(hitbox == null)
+            hitbox = gameObject.GetComponent<Collider2D>();
         stopCurrentPhase();
         phaseLogicCoro = StartCoroutine(phaseLogic(index));
         movementCoro = StartCoroutine(movementForPhase(index));
+
+        if(checkForHitsCoro == null)
+            checkForHitsCoro = StartCoroutine(checkForHits());
     }
 
     void stopCurrentPhase()
@@ -36,9 +47,12 @@ public class boss : MonoBehaviour
 
     IEnumerator phaseLogic(int index)
     {
+        yield return new WaitForSeconds(majorPhases[index].delayBeforePhaseStarts);
+
+        List<ComplexPattern> phaseList = (GlobalVars.isDifficultyStandard ? majorPhases[index].standardPhases : majorPhases[index].easyPhases);
         while(true)
         {
-            foreach(ComplexPattern c in (GlobalVars.isDifficultyStandard ? majorPhases[index].standardPhases : majorPhases[index].easyPhases))
+            foreach(ComplexPattern c in phaseList)
             {
                 c.reset();
                 yield return new WaitUntil(delegate()
@@ -52,28 +66,33 @@ public class boss : MonoBehaviour
 
     IEnumerator movementForPhase(int index)
     {
-        while(true)
+        if(majorPhases[index].moveData.Count > 0)
         {
-            foreach(bossMovement move in majorPhases[index].moveData)
+            while(true)
             {
-                Vector2 ogPos = thisBody.position;
-                Vector2 posDif = move.targetPosition - ogPos;
-
-                float startTime = Time.time;
-                yield return new WaitUntil(delegate()
+                foreach(bossMovement move in majorPhases[index].moveData)
                 {
-                    float timeRatio = (Time.time - startTime) / move.timeToArrive;
-                    if(timeRatio >= 1)
+                    Vector2 ogPos = thisBody.position;
+                    Vector2 posDif = move.targetPosition - ogPos;
+
+                    float startTime = Time.time;
+                    yield return new WaitUntil(delegate()
                     {
-                        thisBody.position = move.targetPosition;
-                        return true;
-                    }
-                    else
-                    {
-                        thisBody.position = ogPos + timeRatio * posDif;
-                        return false;
-                    }
-                });
+                        float timeRatio = (Time.time - startTime) / move.timeToArrive;
+                        if(timeRatio >= 1)
+                        {
+                            thisBody.position = move.targetPosition;
+                            return true;
+                        }
+                        else
+                        {
+                            thisBody.position = ogPos + timeRatio * posDif;
+                            return false;
+                        }
+                    });
+                }
+                if(!majorPhases[index].loopMoveData)
+                    break;
             }
         }
     }
@@ -81,15 +100,18 @@ public class boss : MonoBehaviour
     public void doDeath()
     {
         stopCurrentPhase();
+        StopCoroutine(checkForHitsCoro);
         StartCoroutine(doDeathEffect());
     }
 
     IEnumerator doDeathEffect()
     {
         //TODO
-        //do all the fancy effects
+        //do all the fancy death effects
 
         yield return new WaitForSeconds(1f);
+
+        Destroy(this.gameObject);
 
         if(bossHandler.Singleton.IsOwner)
         {
@@ -98,6 +120,45 @@ public class boss : MonoBehaviour
             else if(type is bossHandler.bossType.finalboss)
                 bossHandler.Singleton.finalBossDefeated.Value = true;
         }
+    }
+
+    IEnumerator checkForHits()
+    {
+        yield return new WaitUntil(delegate()
+        {
+            Collider2D[] results = new Collider2D[16];
+            int hits = hitbox.OverlapCollider(KiroLib.getFakePBulletFilter(), results);
+
+            for(int i = 0; i < hits; i++)
+            {
+                try
+                {
+                    results[i].gameObject.GetComponent<bulletDestroyHandler>().destroy();
+                }
+                catch
+                {
+                    Destroy(results[i].gameObject);
+                }
+            }
+
+            results = new Collider2D[16];
+            hits = hitbox.OverlapCollider(KiroLib.getPBulletFilter(), results);
+
+            for(int i = 0; i < hits; i++)
+            {
+                bossHandler.Singleton.damageBoss();
+                try
+                {
+                    results[i].gameObject.GetComponent<bulletDestroyHandler>().destroy();
+                }
+                catch
+                {
+                    Destroy(results[i].gameObject);
+                }
+            }
+
+            return false;
+        });
     }
 
 
@@ -111,8 +172,10 @@ public class majorPhase
     public int hpThisPhase = 100;
     public bool endPhaseEarlyIfTimeExpires = false;
     public float timerLengthSeconds = 60f;
+    public float delayBeforePhaseStarts = 1f;
 
     public List<bossMovement> moveData;
+    public bool loopMoveData = false;
 }
 [System.Serializable]
 public class bossMovement

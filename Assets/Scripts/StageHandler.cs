@@ -531,6 +531,10 @@ public class StageHandler : NetworkBehaviour
     public Rigidbody2D getClosestEnemyTo(Vector2 position)
     {
         Rigidbody2D closestEnemy = null;
+
+        if(bossHandler.Singleton.isBossActive)
+            return bossHandler.Singleton.spawnedBossObject.GetComponent<Rigidbody2D>();
+
         foreach(GameObject activeEnemy in activeEnemies)
         {
             if(((Vector2)activeEnemy.transform.position - position).magnitude <= (closestEnemy != null ? (closestEnemy.position - position).magnitude : 9999f))
