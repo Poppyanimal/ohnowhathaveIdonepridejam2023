@@ -31,4 +31,6 @@ public class enemySpawn
     public float patternRotationAmount = 0f;
     public bool rotatePatternsBetweenCycles = false;
     public float rotateAmountPerCycle = 0f;
+
+    public bool skipEnemySpawnOnEasy = false;
 }

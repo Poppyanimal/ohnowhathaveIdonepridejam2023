@@ -402,6 +402,9 @@ public class StageHandler : NetworkBehaviour
 
     void spawnEnemy(int index, enemySpawn spawninfo)
     {
+        if(spawninfo.skipEnemySpawnOnEasy && !GlobalVars.isDifficultyStandard) //skipping enemy spawn because difficulty is easy and enemy does not spawn on easy
+            return;
+
         Vector3 pos = (Vector3)spawninfo.spawnLocation + Vector3.back * .1f;
         GameObject enemyObj = Instantiate(spawninfo.enemyPrefab, pos, Quaternion.identity);
 

@@ -12,10 +12,11 @@ public class bossHandler : NetworkBehaviour
     [HideInInspector]
     public bool isBossActive = false;
     [HideInInspector]
-    public boss spawnedBossObject = null;
+    public GameObject spawnedBossObject = null;
 
-    public boss midBossPrefab;
-    public boss finalBossPrefab;
+    public GameObject midBossPrefab;
+    public GameObject finalBossPrefab;
+    public Vector2 midBossSpawnPos, finalBossSpawnPos;
 
     public int syncEveryXDamage = 5;
 
@@ -27,25 +28,169 @@ public class bossHandler : NetworkBehaviour
     public int currentbossPhase = 0;
 
 
+
     void Start() { Singleton = this; initilizeDamageTables(); }
+
 
 
     public void startMidBoss()
     {
         currentbossPhase = 0;
-        //TODO
-
-        if(IsHost)
-            midBossDefeated.Value = true;
+        spawnedBossObject = Instantiate(midBossPrefab, (Vector3)midBossSpawnPos + Vector3.forward * 5f, Quaternion.identity);
+        boss b = spawnedBossObject.GetComponent<boss>();
+        b.type = bossType.midboss;
+        isBossActive = true;
+        b.startPhase(currentbossPhase);
     }
 
     public void startFinalBoss()
     {
         currentbossPhase = 0;
-        //TODO
-        
-        if(IsHost)
-            finalBossDefeated.Value = true;
+        spawnedBossObject = Instantiate(midBossPrefab, (Vector3)midBossSpawnPos + Vector3.forward * 5f, Quaternion.identity);
+        boss b = spawnedBossObject.GetComponent<boss>();
+        b.type = bossType.finalboss;
+        isBossActive = true;
+        b.startPhase(currentbossPhase);
+    }
+
+
+
+    [ServerRpc(RequireOwnership = false)]
+    public void advanceBossPhaseToServerRpc(int index)
+    {
+        advanceBossPhaseToClientRpc(index);
+    }
+    [ClientRpc]
+    public void advanceBossPhaseToClientRpc(int index)
+    {
+        if(index <= currentbossPhase || !isBossActive)
+            return;
+
+        currentbossPhase = index;
+
+        if(spawnedBossObject.GetComponent<boss>().type is bossType.midboss) //assume is midboss
+        {
+            if(index >= midBossDamageTable.Count) //all phases finished
+            {
+                isBossActive = false;
+                spawnedBossObject.GetComponent<boss>().doDeath();
+                if(IsHost)
+                    midBossDefeated.Value = true;
+            }
+            else
+            {
+                spawnedBossObject.GetComponent<boss>().startPhase(index);
+            }
+        }
+        else //assume is final boss
+        {
+            if(index >= finalBossDamageTable.Count) //all phases finished
+            {
+                isBossActive = false;
+                spawnedBossObject.GetComponent<boss>().doDeath();
+                if(IsHost)
+                    finalBossDefeated.Value = true;
+            }
+            else
+            {
+                spawnedBossObject.GetComponent<boss>().startPhase(index);
+            }
+        }
+    }
+
+    public void damageBoss(int amount = 1)
+    {
+        bool isYuki = GlobalVars.isPlayingYuki;
+        int oldDam = 0;
+        switch(spawnedBossObject.GetComponent<boss>().type, isYuki)
+        {
+            case(bossType.midboss, true):
+                oldDam = midBossDamageTable[currentbossPhase].damageFromYuki;
+                break;
+            case(bossType.midboss, false):
+                oldDam = midBossDamageTable[currentbossPhase].damageFromMai;
+                break;
+            case(bossType.finalboss, true):
+                oldDam = finalBossDamageTable[currentbossPhase].damageFromYuki;
+                break;
+            case(bossType.finalboss, false):
+                oldDam = finalBossDamageTable[currentbossPhase].damageFromMai;
+                break;
+        }
+        int newDam = oldDam + amount;
+        int totalDam = newDam + (isYuki ? (spawnedBossObject.GetComponent<boss>().type is bossType.midboss ? midBossDamageTable[currentbossPhase] : finalBossDamageTable[currentbossPhase]).damageFromMai :
+            (spawnedBossObject.GetComponent<boss>().type is bossType.midboss ? midBossDamageTable[currentbossPhase] : finalBossDamageTable[currentbossPhase]).damageFromYuki);
+        if(totalDam >= spawnedBossObject.GetComponent<boss>().majorPhases[currentbossPhase].hpThisPhase) //if hit will kill phase, try to kill phase
+        {
+            advanceBossPhaseToServerRpc(currentbossPhase+1);
+        }
+        else
+        {
+            switch(spawnedBossObject.GetComponent<boss>().type, isYuki)
+            {
+                case(bossType.midboss, true):
+                    midBossDamageTable[currentbossPhase].damageFromYuki = newDam;
+                    break;
+                case(bossType.midboss, false):
+                    midBossDamageTable[currentbossPhase].damageFromMai = newDam;
+                    break;
+                case(bossType.finalboss, true):
+                    finalBossDamageTable[currentbossPhase].damageFromYuki = newDam;
+                    break;
+                case(bossType.finalboss, false):
+                    finalBossDamageTable[currentbossPhase].damageFromMai = newDam;
+                    break;
+            }
+
+            if((int)(oldDam / syncEveryXDamage) != (int)(newDam / syncEveryXDamage))
+                syncDamageServerRpc(newDam, isYuki, currentbossPhase, NetworkManager.Singleton.LocalClientId);
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void syncDamageServerRpc(int newDam, bool isYuki, int phaseIndex, ulong initatingClient)
+    {
+        syncDamageClientRpc(newDam, isYuki, phaseIndex, initatingClient);
+    }
+    [ClientRpc]
+    public void syncDamageClientRpc(int newDam, bool isYuki, int phaseIndex, ulong initatingClient)
+    {
+        if(initatingClient != NetworkManager.Singleton.LocalClientId)
+        {
+            boss b = spawnedBossObject.GetComponent<boss>();
+            switch(b.type, isYuki)
+            {
+                case(bossType.midboss, true):
+                    midBossDamageTable[phaseIndex].damageFromYuki = newDam;
+                    break;
+                case(bossType.midboss, false):
+                    midBossDamageTable[phaseIndex].damageFromMai = newDam;
+                    break;
+                case(bossType.finalboss, true):
+                    finalBossDamageTable[phaseIndex].damageFromYuki = newDam;
+                    break;
+                case(bossType.finalboss, false):
+                    finalBossDamageTable[phaseIndex].damageFromMai = newDam;
+                    break;
+            }
+
+            if(phaseIndex == currentbossPhase && getTotalDamageForPhase(b.type is bossType.midboss, phaseIndex) >= b.majorPhases[phaseIndex].hpThisPhase)
+            {
+                advanceBossPhaseToServerRpc(currentbossPhase + 1);
+            }
+        }
+    }
+
+    int getTotalDamageForPhase(bool isMidBoss, int phaseIndex)
+    {
+        if(isMidBoss)
+        {
+            return midBossDamageTable[phaseIndex].damageFromYuki + midBossDamageTable[phaseIndex].damageFromMai;
+        }
+        else
+        {
+            return finalBossDamageTable[phaseIndex].damageFromYuki + finalBossDamageTable[phaseIndex].damageFromMai;
+        }
     }
 
     void initilizeDamageTables()
@@ -53,11 +198,11 @@ public class bossHandler : NetworkBehaviour
         midBossDamageTable.Clear();
         finalBossDamageTable.Clear();
 
-        foreach(majorPhase mPhase in midBossPrefab.majorPhases)
+        foreach(majorPhase mPhase in midBossPrefab.GetComponent<boss>().majorPhases)
         {
             midBossDamageTable.Add(new bossPhaseDamage());
         }
-        foreach(majorPhase mPhase in finalBossPrefab.majorPhases)
+        foreach(majorPhase mPhase in finalBossPrefab.GetComponent<boss>().majorPhases)
         {
             finalBossDamageTable.Add(new bossPhaseDamage());
         }
@@ -72,5 +217,5 @@ public class bossHandler : NetworkBehaviour
 
 public class bossPhaseDamage
 {
-    int damageFromYuki, damageFromMai = 0;
+    public int damageFromYuki, damageFromMai = 0;
 }
