@@ -20,11 +20,20 @@ public class LobbyHandler : NetworkBehaviour
     public LobbyPlayerSplash playerOneSplash, playerTwoSplash;
     public characterRibbon playerOneRibbonTop, playerOneRibbon, playerTwoRibbon, playerTwoRibbonTop;
 
+    public Material lobbyDifficultyColorMat;
+    Coroutine lobbyDiffEffectCoro;
+    public float difficultyEffectChangeSpeed = 1f;
+    float targetEasyHue = Mathf.PI * 2f;
+    public float targetStandardHue;
+    bool readyForDebug = false;
+
 
     public string nextScene;
 
     void Start()
     {
+        lobbyDifficultyColorMat.SetFloat("_HueShift", targetStandardHue);
+        readyForDebug = true;
         if(NetworkManager.Singleton.IsHost)
         {
             amPlayerOneText.gameObject.SetActive(true);
@@ -64,12 +73,73 @@ public class LobbyHandler : NetworkBehaviour
     //
     //
 
+    [ContextMenu("DEBUG Difficulty Toggle")]
+    public void toggleDifficultyDEBUG()
+    {
+        if(!readyForDebug)
+            return;
+        difficultyisStandard = !difficultyisStandard;
+        difficultyText.text = difficultyisStandard ? "Difficulty:\nStandard" : "Difficulty:\nApproachable";
+        if(lobbyDiffEffectCoro != null)
+            StopCoroutine(lobbyDiffEffectCoro);
+        lobbyDiffEffectCoro = StartCoroutine(changeDifficultyEffect(difficultyisStandard));
+    }
+
+    IEnumerator changeDifficultyEffect(bool isSTD)
+    {
+        //if going to standard, decrease till at target or less than target
+        //if going to approachable, increase till at target or more than target
+        Debug.Log("starting diff change effect coro");
+        float startValue = lobbyDifficultyColorMat.GetFloat("_HueShift");
+        float startTime = Time.time;
+        if(isSTD)
+        {
+            yield return new WaitUntil(delegate()
+            {
+                float timeDif = Time.time - startTime;
+                float newValue = startValue - difficultyEffectChangeSpeed * timeDif;
+
+                if(newValue <= targetStandardHue)
+                {
+                    lobbyDifficultyColorMat.SetFloat("_HueShift", targetStandardHue);
+                    return true;
+                }
+                else
+                {
+                    lobbyDifficultyColorMat.SetFloat("_HueShift", newValue);
+                    return false;
+                }
+
+            });
+        }
+        else
+        {
+            yield return new WaitUntil(delegate()
+            {
+                float timeDif = Time.time - startTime;
+                float newValue = startValue + difficultyEffectChangeSpeed * timeDif;
+
+                if(newValue >= targetEasyHue)
+                {
+                    lobbyDifficultyColorMat.SetFloat("_HueShift", targetEasyHue);
+                    return true;
+                }
+                else
+                {
+                    lobbyDifficultyColorMat.SetFloat("_HueShift", newValue);
+                    return false;
+                }
+
+            });
+        }
+    }
+
     public void toggleDifficulty()
     {
         if(IsHost)
         {
             difficultyisStandard = !difficultyisStandard;
-            updateDifficultyTextClientRpc(difficultyisStandard);
+            updateDifficultyClientRpc(difficultyisStandard);
         }
     }
 
@@ -83,12 +153,12 @@ public class LobbyHandler : NetworkBehaviour
     }
 
     [ClientRpc]
-    void updateDifficultyTextClientRpc(bool isStandard)
+    void updateDifficultyClientRpc(bool isSTD)
     {
-        if(isStandard)
-            difficultyText.text = "Difficulty:\nStandard";
-        else
-            difficultyText.text = "Difficulty:\nApproachable";
+        difficultyText.text = isSTD ? "Difficulty:\nStandard" : "Difficulty:\nApproachable";
+        if(lobbyDiffEffectCoro != null)
+            StopCoroutine(lobbyDiffEffectCoro);
+        lobbyDiffEffectCoro = StartCoroutine(changeDifficultyEffect(isSTD));
     }
 
     [ClientRpc]
@@ -159,6 +229,11 @@ public class LobbyHandler : NetworkBehaviour
     {
         GlobalVars.isDifficultyStandard = isDifficultyStandard;
         GlobalVars.isPlayingYuki = (isPlayerOneYuki == NetworkManager.Singleton.IsHost);
+
+        playerOneRibbon.markReady();
+        playerOneRibbonTop.markReady();
+        playerTwoRibbon.markReady();
+        playerTwoRibbonTop.markReady();
 
         StartCoroutine(doCountdownVisual());
     }

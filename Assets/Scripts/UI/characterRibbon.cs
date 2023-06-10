@@ -5,7 +5,7 @@ using UnityEngine;
 public class characterRibbon : MonoBehaviour
 {
     public GameObject ribbonObj;
-    public GameObject yukiPart, maiPart;
+    public GameObject yukiPart, maiPart, readyPart;
     public float distanceToMove = 160f;
     public float timePerLoop = 4f;
     public bool movingLeft = false;
@@ -49,6 +49,13 @@ public class characterRibbon : MonoBehaviour
     public void selectMai()
     {
         maiPart.SetActive(true);
+        yukiPart.SetActive(false);
+    }
+
+    public void markReady()
+    {
+        readyPart.SetActive(true);
+        maiPart.SetActive(false);
         yukiPart.SetActive(false);
     }
 }
