@@ -8,7 +8,6 @@ public class DisconnectKick : MonoBehaviour
 {
     public static DisconnectKick Singleton;
 
-    public static string fallbackScene;
     public static bool bypassDisconnectCheck = false;
 
     void Start()
@@ -26,8 +25,8 @@ public class DisconnectKick : MonoBehaviour
             return;
         Debug.LogError("Connection Closed Unexpectedly");
         GlobalVars.connectionClosedUnexpectedly = true;
+        SceneManager.LoadScene(GlobalVars.mainMenuName, LoadSceneMode.Single);
         if(!NetworkManager.Singleton.ShutdownInProgress)
             NetworkManager.Singleton.Shutdown();
-        SceneManager.LoadScene(fallbackScene, LoadSceneMode.Single);
     }
 }

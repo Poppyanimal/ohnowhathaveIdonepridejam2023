@@ -8,8 +8,7 @@ using TMPro;
 public class LobbyHandler : NetworkBehaviour
 {
     //TODO: handle the host being able to change difficulty and who is what player
-    public Image playeroneReadyImage, playertwoReadyImage, fadeToBlackOverlay, playerOneCharacterImage, playerTwoCharacterImage;
-    public Sprite spriteForYuki, spriteForMai;
+    public Image playeroneReadyImage, playertwoReadyImage, fadeToBlackOverlay;
     public TMP_Text amPlayerOneText, amPlayerTwoText, countDownText, difficultyText;
     public GameObject difficultyButton, swapCharactersButton;
     bool playeroneReady, playertwoReady = false;
@@ -17,6 +16,9 @@ public class LobbyHandler : NetworkBehaviour
 
     bool playerOneIsYuki = true;
     bool difficultyisStandard = true;
+
+    public LobbyPlayerSplash playerOneSplash, playerTwoSplash;
+    public characterRibbon playerOneRibbonTop, playerOneRibbon, playerTwoRibbon, playerTwoRibbonTop;
 
 
     public string nextScene;
@@ -90,10 +92,28 @@ public class LobbyHandler : NetworkBehaviour
     }
 
     [ClientRpc]
-    void updatePlayerCharacterClientRpc(bool playerOneYuki)
+    void updatePlayerCharacterClientRpc(bool poyuki)
     {
-        playerOneCharacterImage.sprite = playerOneYuki ? spriteForYuki : spriteForMai;
-        playerTwoCharacterImage.sprite = playerOneYuki ? spriteForMai : spriteForYuki;
+        if(poyuki)
+        {
+            playerOneSplash.switchToYuki();
+            playerOneRibbon.selectYuki();
+            playerOneRibbonTop.selectYuki();
+
+            playerTwoSplash.switchToMai();
+            playerTwoRibbon.selectMai();
+            playerTwoRibbonTop.selectMai();
+        }
+        else
+        {
+            playerOneSplash.switchToMai();
+            playerOneRibbon.selectMai();
+            playerOneRibbonTop.selectMai();
+
+            playerTwoSplash.switchToYuki();
+            playerTwoRibbon.selectYuki();
+            playerTwoRibbonTop.selectYuki();
+        }
     }
 
 
