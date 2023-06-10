@@ -4306,6 +4306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1850718734}
   - component: {fileID: 1850718733}
+  - component: {fileID: 1850718735}
   m_Layer: 0
   m_Name: grad bg
   m_TagString: Untagged
@@ -4381,6 +4382,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1850718735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850718732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d533c9dc413c42c4f805438ec76d43f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mmMat: {fileID: 2100000, guid: 39eccc61390cc7140ba85a04ec0998c2, type: 2}
+  redHue: 4.1
+  blueHue: 1.8
+  timeBetweenTransitions: 60
+  timeForTransition: 3
 --- !u!1 &1925156603
 GameObject:
   m_ObjectHideFlags: 0
