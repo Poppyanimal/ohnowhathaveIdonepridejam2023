@@ -363,6 +363,9 @@ public class StageHandler : NetworkBehaviour
         {
             int totalScore = YukiBody.gameObject.GetComponent<Player>().score.Value + MaiBody.gameObject.GetComponent<Player>().score.Value; //ignoring the added 10s place
             GlobalVars.endingScore = totalScore;
+            YukiBody.gameObject.GetComponent<Player>().bypassDamageDebug = true;
+            MaiBody.gameObject.GetComponent<Player>().bypassDamageDebug = true;
+
             endingScreen.startEndingScreen();
         }
     }

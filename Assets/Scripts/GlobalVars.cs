@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class GlobalVars
 {
@@ -31,14 +33,90 @@ public class GlobalVars
     public static bool useController = true;
     public static float screenDim = .5f;
     public static float inputDeadzone = .3f;
+    static bool attemptedLoadYet = false;
 
     public static void loadPlayerDataFromFile()
     {
-        //TODO
+        attemptedLoadYet = true;
+
+        try
+        {
+            Debug.Log("load save file called");
+            string saveLocation = Application.persistentDataPath + "/save.dat";
+            FileStream file;
+
+            if(!File.Exists(saveLocation))
+                return;
+            else
+            {
+                file = File.OpenRead(saveLocation);
+                BinaryFormatter bf = new BinaryFormatter();
+                savedData data;
+                try
+                {
+                    data = (savedData) bf.Deserialize(file);
+                }
+                catch
+                {
+                    data = null;
+                    Debug.LogError("Data could not be completely read. Exception caught");
+                }
+                file.Close();
+
+                //parsing saved data
+                highScoreEasy = data.highScoreEasy;
+                highScoreStandard = data.highScoreStandard;
+                //
+            }
+        }
+        catch
+        {
+            Debug.LogError("Reading of save file completely failed!");
+        }
+
     }
     public static void savePlayerDataToFile()
     {
-        //TODO
+        Debug.Log("write save file called");
+        string saveLocation = Application.persistentDataPath + "/save.dat";
+        FileStream file;
+
+        try
+        {
+            if(!File.Exists(saveLocation))
+                File.Create(saveLocation);
+
+
+            file = File.OpenWrite(saveLocation);
+
+            //entering data to save
+            savedData data = new(highScoreEasy, highScoreStandard);
+            //
+
+            BinaryFormatter bf = new BinaryFormatter();
+            bf.Serialize(file, data);
+            file.Close();
+        }
+        catch
+        {
+            Debug.Log("Unable to write save data!");
+        }
+    }
+
+    public static int getHighscoreEasy()
+    {
+        if(!attemptedLoadYet)
+            loadPlayerDataFromFile();
+
+        return highScoreEasy;
+    }
+    
+    public static int getHighscoreNormal()
+    {
+        if(!attemptedLoadYet)
+            loadPlayerDataFromFile();
+
+        return highScoreStandard;
     }
 
     public static void setNewEasyHighscore(int s)
@@ -46,7 +124,7 @@ public class GlobalVars
         if(s >= highScoreEasy)
         {
             highScoreEasy = s;
-            //TODO
+            savePlayerDataToFile();
         }
     }
 
@@ -55,8 +133,16 @@ public class GlobalVars
         if(s >= highScoreStandard)
         {
             highScoreStandard = s;
-            //TODO
+            savePlayerDataToFile();
         }
+    }
+
+    public static string getStringForScore(int score)
+    {
+        string str = score.ToString();
+        str = str.PadLeft(9, '0');
+        str = str.PadRight(10, '0');
+        return str;
     }
 
 
@@ -78,4 +164,16 @@ public class GlobalVars
     public static bool isDifficultyStandard = true; //otherwise, playing on easy
 
 
+}
+[System.Serializable]
+public class savedData
+{
+    public int highScoreEasy;
+    public int highScoreStandard;
+
+    public savedData(int hs_Easy, int hs_Std)
+    {
+        highScoreEasy = hs_Easy;
+        highScoreStandard = hs_Std;
+    }
 }
