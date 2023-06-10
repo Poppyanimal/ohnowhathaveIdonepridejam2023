@@ -9,7 +9,7 @@ public class LobbyHandler : NetworkBehaviour
 {
     //TODO: handle the host being able to change difficulty and who is what player
     public Image playeroneReadyImage, playertwoReadyImage, fadeToBlackOverlay;
-    public TMP_Text amPlayerOneText, amPlayerTwoText, countDownText, difficultyText;
+    public TMP_Text amPlayerOneText, amPlayerTwoText, countDownText, difficultyText, readyButtonText;
     public GameObject difficultyButton, swapCharactersButton;
     bool playeroneReady, playertwoReady = false;
     Color notReadyCol = new Color(0.6981132f, 0.1045764f, 0.003292995f); Color readyCol = new Color(0.0994485f, 0.6980392f, 0.003921568f);
@@ -189,6 +189,7 @@ public class LobbyHandler : NetworkBehaviour
 
     public void readyUp()
     {
+        readyButtonText.text = "Readied";
         if(NetworkManager.Singleton.IsHost)
         {
             difficultyButton.gameObject.SetActive(false);
