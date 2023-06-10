@@ -8,19 +8,26 @@ public class DisconnectKick : MonoBehaviour
 {
     public static DisconnectKick Singleton;
 
-    public string fallbackScene;
+    public static string fallbackScene;
+    public static bool bypassDisconnectCheck = false;
 
     void Start()
     {
-        Singleton = this;
-        NetworkManager.Singleton.OnClientDisconnectCallback += disconnectHappened;
+        if(Singleton == null)
+        {
+            Singleton = this;
+            NetworkManager.Singleton.OnClientDisconnectCallback += disconnectHappened;
+        }
     }
 
-    public void disconnectHappened(ulong id)
+    public static void disconnectHappened(ulong id)
     {
+        if(bypassDisconnectCheck)
+            return;
         Debug.LogError("Connection Closed Unexpectedly");
         GlobalVars.connectionClosedUnexpectedly = true;
-        NetworkManager.Singleton.Shutdown();
+        if(!NetworkManager.Singleton.ShutdownInProgress)
+            NetworkManager.Singleton.Shutdown();
         SceneManager.LoadScene(fallbackScene, LoadSceneMode.Single);
     }
 }

@@ -14,6 +14,11 @@ public class GlobalVars
         return (isDevBuild ? 0 : 1) + ((minorVersion + majorVersion * 1000) << 1);
     }
 
+    public static string getGameVersionString()
+    {
+        return majorVersion + "." + minorVersion + (isDevBuild ? " DEV" : "");
+    }
+
 
     //
     // Player Data
@@ -35,6 +40,24 @@ public class GlobalVars
         //TODO
     }
 
+    public static void setNewEasyHighscore(int s)
+    {
+        if(s >= highScoreEasy)
+        {
+            highScoreEasy = s;
+            //TODO
+        }
+    }
+
+    public static void setNewStandardHighscore(int s)
+    {
+        if(s >= highScoreStandard)
+        {
+            highScoreStandard = s;
+            //TODO
+        }
+    }
+
 
     //
     // Data between scenes
@@ -42,6 +65,7 @@ public class GlobalVars
 
     public static bool mainMenuNetRegDone = false;
     public static bool connectionClosedUnexpectedly = false;
+    public static bool connectionClosedDueToVersionMismatch = false;
     public static int endingScore = 0;
 
 

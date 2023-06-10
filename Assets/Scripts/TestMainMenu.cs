@@ -28,11 +28,18 @@ public class TestMainMenu : MonoBehaviour
             GlobalVars.mainMenuNetRegDone = true;
         }
 
-        versionText.text = "Version: " + GlobalVars.majorVersion + "." + GlobalVars.minorVersion + (GlobalVars.isDevBuild ? " DEV" : "");
+        versionText.text = "Version: " + GlobalVars.getGameVersionString();
 
         //Debug.Log("Unexpected Closure? "+GlobalVars.connectionClosedUnexpectedly);
 
-        if(GlobalVars.connectionClosedUnexpectedly)
+        if(GlobalVars.connectionClosedDueToVersionMismatch)
+        {
+            GlobalVars.connectionClosedDueToVersionMismatch = false;
+            GlobalVars.connectionClosedUnexpectedly = false;
+            debugText.color = Color.red;
+            debugText.text = "Connection closed due to mismatched versions!";
+        }
+        else if(GlobalVars.connectionClosedUnexpectedly)
         {
             GlobalVars.connectionClosedUnexpectedly = false;
             debugText.color = Color.red;

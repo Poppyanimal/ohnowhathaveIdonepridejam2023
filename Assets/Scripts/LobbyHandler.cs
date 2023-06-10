@@ -34,6 +34,27 @@ public class LobbyHandler : NetworkBehaviour
             amPlayerTwoText.gameObject.SetActive(true);
             difficultyButton.gameObject.SetActive(false);
             swapCharactersButton.gameObject.SetActive(false);
+            checkVersionServerRpc(GlobalVars.getGameVersion());
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void checkVersionServerRpc(int vers)
+    {
+        if(GlobalVars.getGameVersion() != vers)
+        {
+            GlobalVars.connectionClosedDueToVersionMismatch = true;
+            closeConnectionDueToVersionMismatchClientRpc();
+        }
+    }
+
+    [ClientRpc]
+    void closeConnectionDueToVersionMismatchClientRpc()
+    {
+        if(!IsHost)
+        {
+            GlobalVars.connectionClosedDueToVersionMismatch = true;
+            NetworkManager.Singleton.Shutdown();
         }
     }
 

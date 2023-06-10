@@ -59,6 +59,7 @@ public class StageHandler : NetworkBehaviour
     public float superDimmingAmount = .9f;
     public float timeToChangeDim = 1f;
     Coroutine changeDimmingCoro;
+    public endScreen endingScreen;
 
 
 
@@ -360,13 +361,9 @@ public class StageHandler : NetworkBehaviour
         }
         else
         {
-            //TODO
-            //all stage flags are done
-            //finish the stage and close it out properly by *safely* disconnecting the two players (aka no kick to menu immediately),
-            //a scoreboard of their score and stats (damage taken, hearts obtained, bombs used per player / total), showing the difficult,
-            //and saving the highscore locally
-            if(IsHost)
-                NetworkManager.Singleton.SceneManager.LoadScene("lobby", UnityEngine.SceneManagement.LoadSceneMode.Single);
+            int totalScore = YukiBody.gameObject.GetComponent<Player>().score.Value + MaiBody.gameObject.GetComponent<Player>().score.Value; //ignoring the added 10s place
+            GlobalVars.endingScore = totalScore;
+            endingScreen.startEndingScreen();
         }
     }
 
