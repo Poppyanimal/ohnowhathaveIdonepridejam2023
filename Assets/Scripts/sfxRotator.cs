@@ -11,6 +11,7 @@ public class sfxRotator : MonoBehaviour
     public bool cooldownBetweenSFX = false;
     public float cooldownTime = .1f;
     bool onCooldown = false;
+    public bool allowPlayAtStageEnd = false;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class sfxRotator : MonoBehaviour
     
     public void playSFX()
     {
-        if(onCooldown)
+        if(onCooldown || (stageSFXHandler.Singleton.stageFinished && !allowPlayAtStageEnd))
             return;
 
         sources[curIndex].Play();
