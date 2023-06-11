@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
 
     public void doKillEffect() //this should only be called from the stagehandler
     {
-        StageHandler.Singleton.tryPlayingEnemyDeathSFX();
+        stageSFXHandler.Singleton.enemyDeath.playSFX();
         try
         {
             enemyDeathEffects.Singleton.doDeathAt(this.transform.position);

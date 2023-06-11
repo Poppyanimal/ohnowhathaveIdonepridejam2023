@@ -326,6 +326,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1796688701, guid: c2df8f9dfac596545aeba8ced709367e, type: 3}
     - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: scoreForKill
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: startLogicOverride
       value: 0
       objectReference: {fileID: 0}
@@ -383,7 +391,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: m_Name
-      value: green sniper
+      value: green sniper Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}

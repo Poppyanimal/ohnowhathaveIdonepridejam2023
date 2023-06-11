@@ -257,7 +257,7 @@ PrefabInstance:
       objectReference: {fileID: 1501540045, guid: 39fe82dc40ff81941bfc6016eacce56e, type: 3}
     - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: maxHealth
-      value: 70
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
       propertyPath: scoreForKill
