@@ -8,7 +8,7 @@ public class GlobalVars
 {
     public const string gameName = "Touhou Adventure of Two (Pride Jam 2023)";
     public const ushort majorVersion = 0;
-    public const ushort minorVersion = 4;
+    public const ushort minorVersion = 5;
     public const bool isDevBuild = true;
     public const string mainMenuName = "SampleScene";
 
