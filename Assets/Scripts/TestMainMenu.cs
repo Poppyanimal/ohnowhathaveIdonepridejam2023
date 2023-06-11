@@ -15,6 +15,7 @@ public class TestMainMenu : MonoBehaviour
     public TMP_InputField ipInput, portInput;
 
     public string levelToTransitionTo;
+    public sfxRotator clickSFX;
 
     Coroutine debugTextCoro;
     
@@ -106,6 +107,7 @@ public class TestMainMenu : MonoBehaviour
 
     public void doHost()
     {
+        clickSFX.playSFX();
         if(!NetworkManager.Singleton.ShutdownInProgress)
         {
             startDebugCoro("Restarting Network Manager");
@@ -116,6 +118,7 @@ public class TestMainMenu : MonoBehaviour
 
     public void doConnect()
     {
+        clickSFX.playSFX();
         if(!NetworkManager.Singleton.ShutdownInProgress)
         {
             startDebugCoro("Restarting Network Manager");

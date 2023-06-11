@@ -23,7 +23,13 @@ public class Player : NetworkBehaviour
     public List<BulletPattern> homingShots;
 
     public Collider2D hitbox, clearbox, grazebox;
+    public SpriteRenderer spriteRendOutput;
+    public GameObject iFrameWhiteFlash, iFrameRedFlash;
+    public SpriteMask iFrameWhiteSpriteMask, iFrameRedSpriteMask;
     public float iframeTime = 1f;
+    public float iframeflashTime = 20f / 60f;
+    public float redFlashEffectTime = 20f / 60f;
+    Coroutine redFlashCoro;
     bool inIframes = false;
     Coroutine iFrameCoro;
     public bool bypassDamageDebug = false;
@@ -35,6 +41,9 @@ public class Player : NetworkBehaviour
 
     void Start()
     {
+        if(GlobalVars.forceRemoveDebugInvul)
+            bypassDamageDebug = false;
+
         thisBody = gameObject.GetComponent<Rigidbody2D>();
         try
         { anim = gameObject.GetComponent<Animator>(); }
@@ -246,13 +255,56 @@ public class Player : NetworkBehaviour
         });
     }
 
+    public void updateFlashSpriteMasks()
+    {
+        iFrameWhiteSpriteMask.sprite = spriteRendOutput.sprite;
+        iFrameRedSpriteMask.sprite = spriteRendOutput.sprite;
+    }
 
     IEnumerator iFrameCounter()
     {
         //TODO: iframe visual effect
         inIframes = true;
-        yield return new WaitForSeconds(iframeTime);
+        float startTime = Time.time;
+        float targetTime = iframeTime + startTime;
+
+        yield return new WaitUntil(delegate() //white flash effect
+        {
+            updateFlashSpriteMasks();
+            iFrameWhiteFlash.SetActive((Time.time - startTime) % iframeflashTime >= (iframeTime % iframeflashTime) / 2f);
+            if(Time.time >= targetTime)
+                return true;
+            else
+                return false;
+        });
+        
+        iFrameWhiteFlash.SetActive(false);
         inIframes = false;
+    }
+
+    public void triggerRedFlashEffect()
+    {
+        if(redFlashCoro != null)
+            StopCoroutine(redFlashCoro);
+
+        redFlashCoro = StartCoroutine(redFlashEffect());
+    }
+
+    IEnumerator redFlashEffect()
+    {
+        updateFlashSpriteMasks();
+        iFrameRedFlash.SetActive(true);
+        float startTime = Time.time;
+        float targetTime = startTime + redFlashEffectTime;
+        yield return new WaitUntil(delegate()
+        {
+            updateFlashSpriteMasks();
+            if(Time.time >= targetTime)
+                return true;
+            else
+                return false;
+        });
+        iFrameRedFlash.SetActive(false);
     }
 
     IEnumerator bombcooldownTimer()

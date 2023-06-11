@@ -70,6 +70,8 @@ public class StageHandler : NetworkBehaviour
     int bombSelfAtLastAnim = 2;
     int bombPartnerAtLastAnim = 2;
 
+    public GameObject bulletDestroyEffectForBombs;
+
 
 
 
@@ -933,7 +935,7 @@ public class StageHandler : NetworkBehaviour
 
     public void killEnemy(int index)
     {
-        Debug.Log("kill enemy procced");
+        //Debug.Log("kill enemy procced");
         enemyTable[index].isAlive = false;
         if(enemyTable[index].isActive)
         {
@@ -1006,6 +1008,7 @@ public class StageHandler : NetworkBehaviour
         }
         else
         {
+            enemyDeathEffects.Singleton.makePlayerTakeHitEffect(GlobalVars.isPlayingYuki);
             takePlayerDamageServerRpc(newHealth, GlobalVars.isPlayingYuki, NetworkManager.Singleton.LocalClientId);
             startGetHitEffectServerRpc(NetworkManager.Singleton.LocalClientId, GlobalVars.isPlayingYuki);
             doGetHitEffect(GlobalVars.isPlayingYuki);
@@ -1043,6 +1046,7 @@ public class StageHandler : NetworkBehaviour
     {
         if(caller != NetworkManager.Singleton.LocalClientId)
         {
+            enemyDeathEffects.Singleton.makePlayerTakeHitEffect(isYuki);
             currentHealth = newHealth;
             updateHealthUI();
         }
@@ -1130,11 +1134,21 @@ public class StageHandler : NetworkBehaviour
     }
 
 
-
+    public SpriteRenderer bombDimOverlay;
+    public float bombbulletdestroyeffectZChange = -4f;
+    Coroutine bombDimCoro;
     void doBombEffect(bool isYuki)
     {
+        if(bombDimCoro != null)
+            StopCoroutine(bombDimCoro);
+        if(bombDimOverlay != null)
+            bombDimCoro = StartCoroutine(bombDimming());
+
         //TODO: various visual effects and Shtuff of the bomb being used
         //sfx too and some filter
+        if(stageSFXHandler.Singleton != null && stageSFXHandler.Singleton.playerBomb != null)
+            stageSFXHandler.Singleton.playerBomb.playSFX();
+
         updateBombUI();
         Collider2D[] list = new Collider2D[64];
         int results = bombClearBox.OverlapCollider(KiroLib.getBulletFilter(), list);
@@ -1142,6 +1156,8 @@ public class StageHandler : NetworkBehaviour
         {
             for(int i = 0; i < results; i++)
             {
+                if(bulletDestroyEffectForBombs != null)
+                    Instantiate(bulletDestroyEffectForBombs, list[i].gameObject.transform.position + Vector3.back * (0.1f + bombbulletdestroyeffectZChange), Quaternion.identity);
                 try
                 {
                     list[i].gameObject.GetComponent<bulletDestroyHandler>().destroy();
@@ -1153,6 +1169,61 @@ public class StageHandler : NetworkBehaviour
             }
             results = bombClearBox.OverlapCollider(KiroLib.getBulletFilter(), list);
         }
+    }
+
+    public float bombDimAppearTime = .1f;
+    public float bombDimFadeTime = 1f;
+    public float bombDimTargetAlpha = .5f;
+
+    IEnumerator bombDimming()
+    {
+        float timeToAppear = bombDimAppearTime;
+        float timeToFade = bombDimFadeTime;
+        float targetAlpha = bombDimTargetAlpha;
+
+        Color col = Color.black;
+        col.a = 0;
+
+        bombDimOverlay.color = col;
+
+        float startTime = Time.time;
+        yield return new WaitUntil(delegate()
+        {
+            float timeRatio = (Time.time - startTime) / timeToAppear;
+            if(timeRatio >= 1f)
+            {
+                col.a = targetAlpha;
+                bombDimOverlay.color = col;
+                return true;
+            }
+            else
+            {
+                col.a = targetAlpha * timeRatio;
+                bombDimOverlay.color = col;
+                return false;
+            }
+        });
+
+        
+        startTime = Time.time;
+        yield return new WaitUntil(delegate()
+        {
+            float timeRatio = (Time.time - startTime) / timeToFade;
+            if(timeRatio >= 1f)
+            {
+                col.a = 0f;
+                bombDimOverlay.color = col;
+                return true;
+            }
+            else
+            {
+                col.a = targetAlpha * (1f - timeRatio);
+                bombDimOverlay.color = col;
+                return false;
+            }
+        });
+
+
     }
 
     void updateBombUI()

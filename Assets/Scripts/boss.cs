@@ -17,8 +17,15 @@ public class boss : MonoBehaviour
 
     public bool overrideStartForDebug = false;
     public int phaseIndexToStartup = 0;
+    public bool debugKillOnLoad = false;
 
-    void Start() { if(overrideStartForDebug) startPhase(phaseIndexToStartup); }
+    void Start()
+    {
+        if(debugKillOnLoad)
+            doDeath();
+        else if(overrideStartForDebug)
+            startPhase(phaseIndexToStartup);
+    }
 
     public void startPhase(int index)
     {
@@ -99,8 +106,13 @@ public class boss : MonoBehaviour
 
     public void doDeath()
     {
+        Debug.Log("doDeath() called");
         stopCurrentPhase();
         StopCoroutine(checkForHitsCoro);
+
+        if(enemyDeathEffects.Singleton != null)
+            enemyDeathEffects.Singleton.doBossDeathAt(gameObject.transform.position);
+
         StartCoroutine(doDeathEffect());
     }
 
@@ -109,7 +121,24 @@ public class boss : MonoBehaviour
         //TODO
         //do all the fancy death effects
 
-        yield return new WaitForSeconds(1f);
+        float startTime = Time.time;
+        float timeToTake = 1f;
+        Vector3 startingScale = gameObject.transform.localScale;
+
+        yield return new WaitUntil(delegate()
+        {
+            float timeRatio = (Time.time - startTime) / timeToTake;
+            if(timeRatio >= 1f)
+            {
+                gameObject.transform.localScale = Vector3.forward * startingScale.z;
+                return true;
+            }
+            else
+            {
+                gameObject.transform.localScale = new Vector3(1f,1f,0f) * (1f - timeRatio) + Vector3.forward * startingScale.z;
+                return false;
+            }
+        });
 
         Destroy(this.gameObject);
 
@@ -146,7 +175,12 @@ public class boss : MonoBehaviour
 
             for(int i = 0; i < hits; i++)
             {
-                bossHandler.Singleton.damageBoss();
+                try
+                {
+                    bossHandler.Singleton.damageBoss();
+                } 
+                catch(System.Exception e) { Debug.LogError("Could not damage boss, threw the following Exception: "+e); }
+
                 try
                 {
                     results[i].gameObject.GetComponent<bulletDestroyHandler>().destroy();

@@ -230,7 +230,7 @@ public class Enemy : MonoBehaviour
     void movementIsDone()
     {
         thisBody.velocity = Vector2.zero;
-        Debug.Log("Enemy Movement Finished");
+        //Debug.Log("Enemy Movement Finished");
         if(despawnAtMovementEnd)
         {
             StageHandler.Singleton.disableEnemy(spawnIndexId);

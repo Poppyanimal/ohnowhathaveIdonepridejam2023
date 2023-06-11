@@ -34,6 +34,8 @@ public class endScreen : MonoBehaviour
     public bool doOnStartupDebug = false;
     public int debugScore = 50;
 
+    public float timeToWaitBeforeTransition = 3f;
+
     void Start()
     {
         if(doOnStartupDebug)
@@ -111,6 +113,8 @@ public class endScreen : MonoBehaviour
 
     IEnumerator doEffect()
     {
+        yield return new WaitForSeconds(timeToWaitBeforeTransition);
+
         slideInBackDrop.transform.localPosition = bgslideStart;
         Vector3 slideDif = bgslideEnd - bgslideStart;
         float startTime = Time.time;

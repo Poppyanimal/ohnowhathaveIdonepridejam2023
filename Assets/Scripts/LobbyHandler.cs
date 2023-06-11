@@ -26,6 +26,7 @@ public class LobbyHandler : NetworkBehaviour
     float targetEasyHue = Mathf.PI * 2f;
     public float targetStandardHue;
     bool readyForDebug = false;
+    public sfxRotator menuClickSFX, countdownSFX;
 
 
     public string nextScene;
@@ -138,6 +139,7 @@ public class LobbyHandler : NetworkBehaviour
     {
         if(IsHost)
         {
+            menuClickSFX.playSFX();
             difficultyisStandard = !difficultyisStandard;
             updateDifficultyClientRpc(difficultyisStandard);
         }
@@ -147,6 +149,7 @@ public class LobbyHandler : NetworkBehaviour
     {
         if(IsHost)
         {
+            menuClickSFX.playSFX();
             playerOneIsYuki = !playerOneIsYuki;
             updatePlayerCharacterClientRpc(playerOneIsYuki);
         }
@@ -189,6 +192,7 @@ public class LobbyHandler : NetworkBehaviour
 
     public void readyUp()
     {
+        menuClickSFX.playSFX();
         readyButtonText.text = "Readied";
         if(NetworkManager.Singleton.IsHost)
         {
@@ -261,6 +265,8 @@ public class LobbyHandler : NetworkBehaviour
             float startTime = Time.time;
 
             //TODO: can play sfx each number, its okay for it to be a little late, but not early
+            if(countdownSFX != null)
+                countdownSFX.playSFX();
 
             yield return new WaitUntil(delegate()
             {
