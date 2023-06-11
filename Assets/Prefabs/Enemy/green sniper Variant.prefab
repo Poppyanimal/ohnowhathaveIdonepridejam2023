@@ -1,0 +1,416 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &156303776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 156303777}
+  - component: {fileID: 156303778}
+  m_Layer: 10
+  m_Name: slowest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &156303777
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156303776}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7918553979814500591}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &156303778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 156303776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 9ebc216e29cec9b429486a6313af4899, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.1
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 1}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &571325571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571325572}
+  - component: {fileID: 571325573}
+  m_Layer: 10
+  m_Name: 2nd f
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &571325572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571325571}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7918553979814500591}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &571325573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571325571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 9ebc216e29cec9b429486a6313af4899, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.1
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 4}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &1607565929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607565930}
+  - component: {fileID: 1607565931}
+  m_Layer: 10
+  m_Name: 3rd f
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1607565930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607565929}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7918553979814500591}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607565931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607565929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 9ebc216e29cec9b429486a6313af4899, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.1
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 0
+        angleOffset: 0
+        startingVelocity: {x: 0, y: 3}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1001 &3986101471270040775
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3639577656276462514, guid: 9ebc216e29cec9b429486a6313af4899, type: 3}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleOffset
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].bulletQuantity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].startingVelocity.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].angleBetweenBullets
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166479928247558, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_Name
+      value: normal pattern - tip
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 3639577656276462514, guid: 9ebc216e29cec9b429486a6313af4899, type: 3}
+    - target: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: patternDat.patternSettings.sPatternList.Array.data[0].startingVelocity.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166480202095038, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_Name
+      value: easy pattern - mid
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.92920995
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.054761916
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552297, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1796688701, guid: c2df8f9dfac596545aeba8ced709367e, type: 3}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: startLogicOverride
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: easyPattern.simultanousPatterns.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: easyPattern.simultanousPatterns.Array.data[0].bPattern
+      value: 
+      objectReference: {fileID: 7918553978869526979}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: easyPattern.simultanousPatterns.Array.data[1].bPattern
+      value: 
+      objectReference: {fileID: 7918553978595749243}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: easyPattern.simultanousPatterns.Array.data[1].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[1].bPattern
+      value: 
+      objectReference: {fileID: 7918553978595749243}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[2].bPattern
+      value: 
+      objectReference: {fileID: 156303778}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[3].bPattern
+      value: 
+      objectReference: {fileID: 571325573}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[4].bPattern
+      value: 
+      objectReference: {fileID: 1607565931}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[1].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[2].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[3].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552298, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: standardPattern.simultanousPatterns.Array.data[4].timesToShoot
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      propertyPath: m_Name
+      value: green sniper
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+--- !u!114 &7918553978595749243 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6536166480202095036, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+  m_PrefabInstance: {fileID: 3986101471270040775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7918553978869526979 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6536166479928247556, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+  m_PrefabInstance: {fileID: 3986101471270040775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7918553979814500591 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6536166481123552296, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+  m_PrefabInstance: {fileID: 3986101471270040775}
+  m_PrefabAsset: {fileID: 0}
