@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,343 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: yumeko_idle_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5689eba95f1c2354fa330e88881483be
+      internalID: 2064436711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0426f676c68c20e429c3a50cad7f6fb4
+      internalID: -2034821876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_2
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6a28124ce077d4c831fba979f2d2b1
+      internalID: 197632245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_3
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8262913b0986c47a38a39cc599f871
+      internalID: -1525852654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_4
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6336964146124747b42ea01f5d62ec7
+      internalID: 1457794163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_5
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6351466881b5e2847a53069f0f28c625
+      internalID: -561166779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_6
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a9f833ecc0448438feb0fd7ca91d8d
+      internalID: 416243821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_7
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a6e91994f1a8c7489a24b1f5725c9eb
+      internalID: 846153827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_8
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e1ad10fd52e3e84282f9819930323ae
+      internalID: -1735064602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_9
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 169c2565b2896944f84565dc866b3f32
+      internalID: 707508965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_10
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 645e116d015bf584381654ed46887bc3
+      internalID: 1708720677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_11
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ef68b29a023a549990eaa67a9e1db7
+      internalID: 1746694306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_12
+      rect:
+        serializedVersion: 2
+        x: 632
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a90f713586c2a9242acf6f5a20948146
+      internalID: 526182802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_13
+      rect:
+        serializedVersion: 2
+        x: 683
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c3ca844e0cfc1440b99073d44c18f2d
+      internalID: 1169852079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_14
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47c238481317e74d8dd039b520a693d
+      internalID: -1515907146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yumeko_idle_15
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 0
+        width: 53
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0edea20af383467479f197c0beac6de1
+      internalID: 558728479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +450,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      yumeko_idle_8: -1735064602
+      yumeko_idle_13: 1169852079
+      yumeko_idle_10: 1708720677
+      yumeko_idle_1: -2034821876
+      yumeko_idle_0: 2064436711
+      yumeko_idle_2: 197632245
+      yumeko_idle_5: -561166779
+      yumeko_idle_14: -1515907146
+      yumeko_idle_15: 558728479
+      yumeko_idle_3: -1525852654
+      yumeko_idle_7: 846153827
+      yumeko_idle_9: 707508965
+      yumeko_idle_6: 416243821
+      yumeko_idle_4: 1457794163
+      yumeko_idle_11: 1746694306
+      yumeko_idle_12: 526182802
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

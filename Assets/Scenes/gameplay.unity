@@ -1337,8 +1337,8 @@ MonoBehaviour:
     m_InternalValue: 0
   isBossActive: 0
   spawnedBossObject: {fileID: 0}
-  midBossPrefab: {fileID: 285550291077259822, guid: 28acf0e96484dc141b2fb6145ac06665, type: 3}
-  finalBossPrefab: {fileID: 285550291077259822, guid: 28acf0e96484dc141b2fb6145ac06665, type: 3}
+  midBossPrefab: {fileID: 285550291077259822, guid: 79f20025d922ccb429b0473665395c65, type: 3}
+  finalBossPrefab: {fileID: 285550291077259822, guid: ae724e7cdb33a2f479cfd39f1c0cefc5, type: 3}
   midBossSpawnPos: {x: 0, y: 11}
   finalBossSpawnPos: {x: 0, y: 11}
   syncEveryXDamage: 5
@@ -3951,6 +3951,7 @@ MonoBehaviour:
   newHighscoreText: {fileID: 1469190960}
   doOnStartupDebug: 0
   debugScore: 420
+  timeToWaitBeforeTransition: 3
 --- !u!1 &1112598831
 GameObject:
   m_ObjectHideFlags: 0
