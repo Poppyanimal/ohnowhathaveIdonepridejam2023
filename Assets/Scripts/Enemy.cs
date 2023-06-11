@@ -28,13 +28,25 @@ public class Enemy : MonoBehaviour
     [HideInInspector]
     public float rotateAmountPerCycle = 0f;
 
+    public float timeToShrinkAndDie = .2f; //for death effect
+    public bool debugDeathEffect = false;
+    public float timeBeforeDebugDeath = 1f;
+
 
     bool alreadyGaveScore = false;
 
     void Start()
     {
-        if(startLogicOverride)
+        if(debugDeathEffect)
+            StartCoroutine(debugDeath());
+        else if(startLogicOverride)
             startLogic();
+    }
+
+    IEnumerator debugDeath()
+    {
+        yield return new WaitForSeconds(timeBeforeDebugDeath);
+        doKillEffect();
     }
 
     public void startLogic()
@@ -66,7 +78,39 @@ public class Enemy : MonoBehaviour
     public void doKillEffect() //this should only be called from the stagehandler
     {
         StageHandler.Singleton.tryPlayingEnemyDeathSFX();
+        try
+        {
+            enemyDeathEffects.Singleton.doDeathAt(this.transform.position);
+        }
+        catch { Debug.LogError("Unable to do kill effect on enemy"); }
+        
+        this.gameObject.layer = LayerMask.NameToLayer("ignoreall");
         //TODO
+        StartCoroutine(shrinkThenDelete());
+    }
+
+    IEnumerator shrinkThenDelete()
+    {
+        Vector3 startingScale = gameObject.transform.localScale;
+
+        float startTime = Time.time;
+        yield return new WaitUntil(delegate()
+        {
+            float timeRatio = (Time.time - startTime) / timeToShrinkAndDie;
+            if(timeRatio >= 1f)
+            {
+                gameObject.transform.localScale = new Vector3(0f,0f,startingScale.z);
+                return true;
+            }
+            else
+            {
+                float sizeRatio = 1f - timeRatio;
+                gameObject.transform.localScale = new Vector3(sizeRatio * startingScale.x, sizeRatio * startingScale.y, startingScale.z);
+                return false;
+            }
+        });
+
+
         Destroy(this.gameObject);
     }
 
