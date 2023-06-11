@@ -5,7 +5,7 @@ using UnityEngine;
 public class stageSFXHandler : MonoBehaviour
 {
     public static stageSFXHandler Singleton;
-    public sfxRotator enemyDeath, enemyBullets, playerBullets, playerBomb, playerDeath, bossDeath;
+    public sfxRotator enemyDeath, enemyBullets, yukiBullets, maibullets, playerBomb, playerHit, bossDeath, graze, bells;
 
     void Start()
     {

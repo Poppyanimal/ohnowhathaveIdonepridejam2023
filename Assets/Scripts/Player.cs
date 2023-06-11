@@ -167,6 +167,12 @@ public class Player : NetworkBehaviour
         {
             if(isShooting.Value)
             {
+                if(thischar is character.Yuki)
+                    stageSFXHandler.Singleton.yukiBullets.playSFX();
+                else
+                    stageSFXHandler.Singleton.maibullets.playSFX();
+
+
                 if(isFocusing.Value)
                 {
                     updateLockonTarget();
@@ -216,12 +222,19 @@ public class Player : NetworkBehaviour
         {
             Collider2D[] possibles = new Collider2D[4];
             int hits = grazebox.OverlapCollider(KiroLib.getBulletFilter(), possibles);
+            bool grazedThisFrame = false;
             if(hits > 0)
             {
                 for(int i = 0; i < hits; i++)
                 {
                     if(!possibles[i].gameObject.tag.Equals("Grazed"))
                     {
+                        if(!grazedThisFrame)
+                        {
+                            grazedThisFrame = true;
+                            stageSFXHandler.Singleton.graze.playSFX();
+                        }
+
                         StageHandler.Singleton.gainScore(2); //grazing a bullet is worth 2 points
                         possibles[i].gameObject.tag = "Grazed";
                         StageHandler.Singleton.spawnScoreIndicator(20, (Vector2)possibles[i].gameObject.transform.position);
