@@ -1233,6 +1233,10 @@ MonoBehaviour:
   superDimmingAmount: 0.9
   timeToChangeDim: 1
   endingScreen: {fileID: 1095378353}
+  healthBombAnimTimePartOne: 0.1
+  healthBombAnimTimePartTwo: 0.15
+  healthBombOvershootSize: 1.2
+  healthBombRegularSize: 1
 --- !u!4 &380381164
 Transform:
   m_ObjectHideFlags: 0
@@ -7982,7 +7986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7293076143044878674, guid: 25511adf8ad3b794484770c7d52f7231, type: 3}
       propertyPath: bypassDamageDebug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7293076143044878684, guid: 25511adf8ad3b794484770c7d52f7231, type: 3}
       propertyPath: GlobalObjectIdHash

@@ -60,6 +60,15 @@ public class StageHandler : NetworkBehaviour
     public float timeToChangeDim = 1f;
     Coroutine changeDimmingCoro;
     public endScreen endingScreen;
+    public float healthBombAnimTimePartOne = .2f;
+    public float healthBombAnimTimePartTwo = .2f;
+    public float healthBombOvershootSize = 1.2f;
+    public float healthBombRegularSize = 1f;
+    Coroutine healthAnimCoro;
+    Coroutine bombAnimCoroDeepSelf, bombAnimCoroDeepPartner;
+    int healthAtLastAnim = 5;
+    int bombSelfAtLastAnim = 2;
+    int bombPartnerAtLastAnim = 2;
 
 
 
@@ -116,7 +125,450 @@ public class StageHandler : NetworkBehaviour
         }
     }
 
+    IEnumerator animateHealth()
+    {
+        int curHp = currentHealth;
+        int prevHp = healthAtLastAnim;
+        healthAtLastAnim = curHp;
 
+        for(int i = 0; i < healthIcons.Count; i++)
+        {
+            healthIcons[i].gameObject.transform.localScale = new Vector3(healthBombRegularSize, healthBombRegularSize, 1f);
+            if(prevHp > i)
+            {
+                healthIcons[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                healthIcons[i].gameObject.SetActive(false);
+            }
+        }
+
+        List<int> hpToChangeIndexes = new();
+        bool isGrowing = prevHp < curHp;
+        if(isGrowing)
+        {
+            for(int i = prevHp + 1; i <= curHp; i++)
+            {
+                hpToChangeIndexes.Add(i-1);
+            }
+        }
+        else
+        {
+            for(int i = prevHp; i > curHp; i--)
+            {
+                hpToChangeIndexes.Add(i-1);
+            }
+        }
+        String tochange = "";
+        foreach(int i in hpToChangeIndexes)
+            tochange += "," + i;
+        Debug.Log("isGrowing?: "+ isGrowing + "; Indexes to change: "+tochange);
+            
+
+        //now for the actual animations...
+        for(int i = 0; i < hpToChangeIndexes.Count; i++)
+        {
+            healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = (isGrowing ? 0f : healthBombRegularSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+            healthIcons[hpToChangeIndexes[i]].gameObject.SetActive(true);
+        }
+
+        if(isGrowing)
+        {
+            //overshoot growth part A
+            float startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / healthBombAnimTimePartOne;
+                if(timeRatio >= 1f)
+                {
+                    Vector3 newScale = healthBombOvershootSize * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    for(int i = 0; i < hpToChangeIndexes.Count; i++)
+                    {
+                        healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = newScale;
+                    }
+                    return true;
+                }
+                else
+                {
+                    Vector3 newScale = (timeRatio * healthBombOvershootSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    for(int i = 0; i < hpToChangeIndexes.Count; i++)
+                    {
+                        healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = newScale;
+                    }
+                    return false;
+                }
+            });
+            //shrink back to full size
+            float scaleDif = healthBombOvershootSize - healthBombRegularSize;
+            startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / healthBombAnimTimePartTwo;
+                if(timeRatio >= 1f)
+                {
+                    Vector3 newScale = healthBombRegularSize * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    for(int i = 0; i < hpToChangeIndexes.Count; i++)
+                    {
+                        healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = newScale;
+                    }
+                    return true;
+                }
+                else
+                {
+                    Vector3 newScale = ((1f - timeRatio) * scaleDif + healthBombRegularSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    for(int i = 0; i < hpToChangeIndexes.Count; i++)
+                    {
+                        healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = newScale;
+                    }
+                    return false;
+                }
+            });
+        }
+        else
+        {
+            //overshoot part A
+            float scaleDif = healthBombOvershootSize - healthBombRegularSize;
+            float startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / healthBombAnimTimePartOne;
+                if(timeRatio >= 1f)
+                {
+                    Vector3 newScale = healthBombOvershootSize * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    for(int i = 0; i < hpToChangeIndexes.Count; i++)
+                    {
+                        healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = newScale;
+                    }
+                    return true;
+                }
+                else
+                {
+                    Vector3 newScale = (timeRatio * scaleDif + healthBombRegularSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    for(int i = 0; i < hpToChangeIndexes.Count; i++)
+                    {
+                        healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = newScale;
+                    }
+                    return false;
+                }
+            });
+            //shrink to nothing part B
+            startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / healthBombAnimTimePartTwo;
+                if(timeRatio >= 1f)
+                {
+                    Vector3 newScale = new Vector3(0f,0f,1f);
+                    for(int i = 0; i < hpToChangeIndexes.Count; i++)
+                    {
+                        healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = newScale;
+                    }
+                    return true;
+                }
+                else
+                {
+                    Vector3 newScale = ((1f - timeRatio) * healthBombOvershootSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    for(int i = 0; i < hpToChangeIndexes.Count; i++)
+                    {
+                        healthIcons[hpToChangeIndexes[i]].gameObject.transform.localScale = newScale;
+                    }
+                    return false;
+                }
+            });
+        }
+    }
+
+    void animateBombs()
+    {   
+        int curBombsSelf = IsHost ? currentBombsPlayerOne : currentBombsPlayerTwo;
+        int curBombsPartner = IsHost ? currentBombsPlayerTwo : currentBombsPlayerOne;
+        int prevBombsSelf = bombSelfAtLastAnim;
+        int prevBombsPartner = bombPartnerAtLastAnim;
+
+        
+        if(prevBombsSelf == curBombsSelf && prevBombsPartner == curBombsPartner)
+            return;
+        
+        bombSelfAtLastAnim = curBombsSelf;
+        bombPartnerAtLastAnim = curBombsPartner;
+
+        for(int i = 0; i < ownBombs.Count; i++)
+        {
+            ownBombs[i].gameObject.transform.localScale = new Vector3(healthBombRegularSize, healthBombRegularSize, 1f);
+            if(prevBombsSelf > i)
+            {
+                ownBombs[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                ownBombs[i].gameObject.SetActive(false);
+            }
+        }
+        for(int i = 0; i < partnerBombs.Count; i++)
+        {
+            partnerBombs[i].gameObject.transform.localScale = new Vector3(healthBombRegularSize, healthBombRegularSize, 1f);
+            if(prevBombsPartner > i)
+            {
+                partnerBombs[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                partnerBombs[i].gameObject.SetActive(false);
+            }
+        }
+
+        List<int> bombToChangeIndexesSelf = new();
+        List<int> bombToChangeIndexesPartner = new();
+        bool isGrowingSelf = prevBombsSelf < curBombsSelf;
+        bool isGrowingPartner = prevBombsPartner < prevBombsSelf;
+        if(isGrowingSelf)
+        {
+            for(int i = prevBombsSelf + 1; i <= curBombsSelf; i++)
+            {
+                bombToChangeIndexesSelf.Add(i-1);
+            }
+        }
+        else
+        {
+            for(int i = prevBombsSelf; i > curBombsSelf; i--)
+            {
+                bombToChangeIndexesSelf.Add(i-1);
+            }
+        }
+        if(isGrowingPartner)
+        {
+            for(int i = prevBombsPartner + 1; i <= curBombsPartner; i++)
+            {
+                bombToChangeIndexesPartner.Add(i-1);
+            }
+        }
+        else
+        {
+            for(int i = prevBombsPartner; i > curBombsPartner; i--)
+            {
+                bombToChangeIndexesPartner.Add(i-1);
+            }
+        }
+        String tochange = "";
+        foreach(int i in bombToChangeIndexesSelf)
+            tochange += "," + i;
+        Debug.Log("SelfBombs: isGrowing?: "+ isGrowingSelf + "; old bombs: " +prevBombsSelf + "; new bombs: "+curBombsSelf+ "; Indexes to change: "+tochange);
+        tochange = "";
+        foreach(int i in bombToChangeIndexesPartner)
+            tochange += "," + i;
+        Debug.Log("PartnerBombs: isGrowing?: "+ isGrowingPartner + "; old bombs: " +prevBombsPartner + "; new bombs: "+curBombsPartner+ "; Indexes to change: "+tochange);
+            
+
+        //now for the actual animations...
+        for(int i = 0; i < bombToChangeIndexesSelf.Count; i++)
+        {
+            ownBombs[bombToChangeIndexesSelf[i]].gameObject.transform.localScale = (isGrowingSelf ? 0f : healthBombRegularSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+            ownBombs[bombToChangeIndexesSelf[i]].gameObject.SetActive(true);
+        }
+        for(int i = 0; i < bombToChangeIndexesPartner.Count; i++)
+        {
+            partnerBombs[bombToChangeIndexesPartner[i]].gameObject.transform.localScale = (isGrowingPartner ? 0f : healthBombRegularSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+            partnerBombs[bombToChangeIndexesPartner[i]].gameObject.SetActive(true);
+        }
+
+        if(bombAnimCoroDeepSelf != null)
+            StopCoroutine(bombAnimCoroDeepSelf);
+        if(bombAnimCoroDeepPartner != null)
+            StopCoroutine(bombAnimCoroDeepPartner);
+
+        bombAnimCoroDeepSelf = StartCoroutine(animBombs(true, isGrowingSelf, bombToChangeIndexesSelf));
+        bombAnimCoroDeepPartner = StartCoroutine(animBombs(false, isGrowingPartner, bombToChangeIndexesPartner));
+    }
+
+    IEnumerator animBombs(bool isOwnBombs, bool isGrowing, List<int> indexesToChange)
+    {
+        Debug.Log("anim bombs called");
+        if(isGrowing)
+        {
+            //overshoot growth part A
+            float startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / healthBombAnimTimePartOne;
+                if(timeRatio >= 1f)
+                {
+                    Vector3 newScale = healthBombOvershootSize * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    if(isOwnBombs)
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            ownBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            partnerBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    return true;
+                }
+                else
+                {
+                    Vector3 newScale = (timeRatio * healthBombOvershootSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    if(isOwnBombs)
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            ownBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            partnerBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    return false;
+                }
+            });
+            //shrink back to full size
+            float scaleDif = healthBombOvershootSize - healthBombRegularSize;
+            startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / healthBombAnimTimePartTwo;
+                if(timeRatio >= 1f)
+                {
+                    Vector3 newScale = healthBombRegularSize * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    if(isOwnBombs)
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            ownBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            partnerBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    return true;
+                }
+                else
+                {
+                    Vector3 newScale = ((1f - timeRatio) * scaleDif + healthBombRegularSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    if(isOwnBombs)
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            ownBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            partnerBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    return false;
+                }
+            });
+        }
+        else
+        {
+            //overshoot part A
+            float scaleDif = healthBombOvershootSize - healthBombRegularSize;
+            float startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / healthBombAnimTimePartOne;
+                if(timeRatio >= 1f)
+                {
+                    Vector3 newScale = healthBombOvershootSize * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    if(isOwnBombs)
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            ownBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            partnerBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    return true;
+                }
+                else
+                {
+                    Vector3 newScale = (timeRatio * scaleDif + healthBombRegularSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    if(isOwnBombs)
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            ownBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            partnerBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    return false;
+                }
+            });
+            //shrink to nothing part B
+            startTime = Time.time;
+            yield return new WaitUntil(delegate()
+            {
+                float timeRatio = (Time.time - startTime) / healthBombAnimTimePartTwo;
+                if(timeRatio >= 1f)
+                {
+                    Vector3 newScale = new Vector3(0f,0f,1f);
+                    if(isOwnBombs)
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            ownBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            partnerBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    return true;
+                }
+                else
+                {
+                    Vector3 newScale = ((1f - timeRatio) * healthBombOvershootSize) * new Vector3(1f,1f,0f) + new Vector3(0f,0f,1f);
+                    if(isOwnBombs)
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            ownBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    else
+                    {
+                        for(int i = 0; i < indexesToChange.Count; i++)
+                        {
+                            partnerBombs[indexesToChange[i]].gameObject.transform.localScale = newScale;
+                        }
+                    }
+                    return false;
+                }
+            });
+        }
+    }
 
     IEnumerator scrollTheBackground(float startHeight, float endHeight, float timeToTake)
     {
@@ -705,36 +1157,14 @@ public class StageHandler : NetworkBehaviour
 
     void updateBombUI()
     {
-        //TODO: actual visual effect when they change
-        int ownBombAmount = IsHost ? currentBombsPlayerOne : currentBombsPlayerTwo;
-        int partnerBombAmount = IsHost ? currentBombsPlayerTwo : currentBombsPlayerOne;
-        for(int i = 0; i < ownBombs.Count; i++)
-        {
-            if(i < ownBombAmount)
-                ownBombs[i].gameObject.SetActive(true);
-            else
-                ownBombs[i].gameObject.SetActive(false);
-        }
-        for(int i = 0; i < partnerBombs.Count; i++)
-        {
-            if(i < partnerBombAmount)
-                partnerBombs[i].gameObject.SetActive(true);
-            else
-                partnerBombs[i].gameObject.SetActive(false);
-        }
+        animateBombs();
     }
 
     void updateHealthUI()
     {
-        //TODO: actual visual effect where losing a heart makes it overgrow slightly real fast then shrink into nothing
-        //and if gain heart, grow, overshoot, and return to regular size
-        for(int i = 0; i < healthIcons.Count; i++)
-        {
-            if(currentHealth > i)
-                healthIcons[i].gameObject.SetActive(true);
-            else
-                healthIcons[i].gameObject.SetActive(false);
-        }
+        if(healthAnimCoro != null)
+            StopCoroutine(healthAnimCoro);
+        healthAnimCoro = StartCoroutine(animateHealth());
     }
 
     public void updateScore()
