@@ -54,7 +54,7 @@ MonoBehaviour:
       startingVelocity: {x: 0, y: 1}
     patternSettings:
       timeBetweenBullets: 0
-      activityDurationOffset: 0.1
+      activityDurationOffset: 0.2
       sPatternList:
       - bulletOverride: {fileID: 0}
         TrackingOverrideChoice: 0
@@ -132,7 +132,7 @@ MonoBehaviour:
       startingVelocity: {x: 0, y: 1}
     patternSettings:
       timeBetweenBullets: 0
-      activityDurationOffset: 0.1
+      activityDurationOffset: 0.2
       sPatternList:
       - bulletOverride: {fileID: 0}
         TrackingOverrideChoice: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   maxHealth: 25
   scoreForKill: 25
   standardPattern:
-    timeDelayAfterFinished: 2
+    timeDelayAfterFinished: 3
     simultanousPatterns:
     - timesToShoot: 1
       bPattern: {fileID: 6536166479928247556}
@@ -282,6 +282,9 @@ MonoBehaviour:
   additionalPatternRot: 0
   rotateAllPatternsBetweenCycles: 0
   rotateAmountPerCycle: 0
+  timeToShrinkAndDie: 0.2
+  debugDeathEffect: 0
+  timeBeforeDebugDeath: 1
 --- !u!50 &6536166481123552311
 Rigidbody2D:
   serializedVersion: 4

@@ -44,7 +44,7 @@ MonoBehaviour:
           amplitude: -0.3
           numOfPeaks: 1
       - timeToTake: 2
-        timeToWaitAfter: 1
+        timeToWaitAfter: 1.5
         xMovement:
           type: 2
           unitsMoved: -8
@@ -74,6 +74,7 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 1
       rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 0
     - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
       spawnLocation: {x: 4, y: 9}
       movements:
@@ -120,7 +121,152 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 0
       rotateAmountPerCycle: 24
-    delayTillNextGroup: 5
+      skipEnemySpawnOnEasy: 0
+    delayTillNextGroup: 2.5
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
   - enemySpawns:
     - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
       spawnLocation: {x: 4, y: 9}
@@ -168,7 +314,103 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 0
       rotateAmountPerCycle: 24
-    delayTillNextGroup: 5
+      skipEnemySpawnOnEasy: 0
+    - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
+      spawnLocation: {x: -4, y: 9}
+      movements:
+      - timeToTake: 3
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 1
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -4
+          amplitude: -0.5
+          numOfPeaks: 1
+      - timeToTake: 4
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -1
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 4
+          unitsMoved: -6
+          amplitude: -0.5
+          numOfPeaks: 1
+      - timeToTake: 2.7
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -6
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 4
+          unitsMoved: -3
+          amplitude: -6
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
   - enemySpawns:
     - enemyPrefab: {fileID: 2644359099763749434, guid: d256219ee7c182e47948964e2286c930, type: 3}
       spawnLocation: {x: 4, y: 9}
@@ -198,7 +440,7 @@ MonoBehaviour:
           amplitude: -0.3
           numOfPeaks: 1
       - timeToTake: 2
-        timeToWaitAfter: 1
+        timeToWaitAfter: 1.5
         xMovement:
           type: 2
           unitsMoved: 8
@@ -228,6 +470,7 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 1
       rotateAmountPerCycle: -24
+      skipEnemySpawnOnEasy: 0
     - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
       spawnLocation: {x: -4, y: 9}
       movements:
@@ -274,7 +517,56 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 0
       rotateAmountPerCycle: 24
-    delayTillNextGroup: 5
+      skipEnemySpawnOnEasy: 0
+    delayTillNextGroup: 2.5
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
   - enemySpawns:
     - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
       spawnLocation: {x: -4, y: 9}
@@ -322,7 +614,103 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 0
       rotateAmountPerCycle: 24
-    delayTillNextGroup: 5
+      skipEnemySpawnOnEasy: 0
+    - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
+      spawnLocation: {x: 4, y: 9}
+      movements:
+      - timeToTake: 3
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -1
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -4
+          amplitude: -0.5
+          numOfPeaks: 1
+      - timeToTake: 4
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 1
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 4
+          unitsMoved: -6
+          amplitude: -0.5
+          numOfPeaks: 1
+      - timeToTake: 2.7
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 6
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 4
+          unitsMoved: -3
+          amplitude: -6
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
   - enemySpawns:
     - enemyPrefab: {fileID: 2644359099763749434, guid: d256219ee7c182e47948964e2286c930, type: 3}
       spawnLocation: {x: -4, y: 9}
@@ -352,7 +740,7 @@ MonoBehaviour:
           amplitude: -0.3
           numOfPeaks: 1
       - timeToTake: 2
-        timeToWaitAfter: 1
+        timeToWaitAfter: 1.5
         xMovement:
           type: 2
           unitsMoved: -8
@@ -382,6 +770,7 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 1
       rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 0
     - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
       spawnLocation: {x: 4, y: 9}
       movements:
@@ -428,7 +817,56 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 0
       rotateAmountPerCycle: 24
-    delayTillNextGroup: 5
+      skipEnemySpawnOnEasy: 0
+    delayTillNextGroup: 2.5
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
   - enemySpawns:
     - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
       spawnLocation: {x: 4, y: 9}
@@ -476,7 +914,103 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 0
       rotateAmountPerCycle: 24
-    delayTillNextGroup: 5
+      skipEnemySpawnOnEasy: 0
+    - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
+      spawnLocation: {x: -4, y: 9}
+      movements:
+      - timeToTake: 3
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 1
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -4
+          amplitude: -0.5
+          numOfPeaks: 1
+      - timeToTake: 4
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -1
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 4
+          unitsMoved: -6
+          amplitude: -0.5
+          numOfPeaks: 1
+      - timeToTake: 2.7
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -6
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 4
+          unitsMoved: -3
+          amplitude: -6
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
+  - enemySpawns:
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: -6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: 15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    - enemyPrefab: {fileID: 6536166481123552299, guid: 823046cf71e97a94e96fb8db33f41b41, type: 3}
+      spawnLocation: {x: 6, y: 9}
+      movements:
+      - timeToTake: 8
+        timeToWaitAfter: 0
+        xMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: 2
+          numOfPeaks: 3
+        yMovement:
+          type: 1
+          unitsMoved: -15
+          amplitude: -0.5
+          numOfPeaks: 1
+      despawnAtMovementEnd: 1
+      overrideTimeBeforeShooting: 0
+      timeBeforeShooting: 1.6
+      rotateAllPatterns: 0
+      patternRotationAmount: 0
+      rotatePatternsBetweenCycles: 0
+      rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 1
+    delayTillNextGroup: 2.5
   - enemySpawns:
     - enemyPrefab: {fileID: 2644359099763749434, guid: d256219ee7c182e47948964e2286c930, type: 3}
       spawnLocation: {x: 4, y: 9}
@@ -506,7 +1040,7 @@ MonoBehaviour:
           amplitude: -0.3
           numOfPeaks: 1
       - timeToTake: 2
-        timeToWaitAfter: 1
+        timeToWaitAfter: 1.5
         xMovement:
           type: 2
           unitsMoved: 8
@@ -536,6 +1070,7 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 1
       rotateAmountPerCycle: -24
+      skipEnemySpawnOnEasy: 0
     - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
       spawnLocation: {x: -4, y: 9}
       movements:
@@ -582,52 +1117,5 @@ MonoBehaviour:
       patternRotationAmount: 0
       rotatePatternsBetweenCycles: 0
       rotateAmountPerCycle: 24
+      skipEnemySpawnOnEasy: 0
     delayTillNextGroup: 5
-  - enemySpawns:
-    - enemyPrefab: {fileID: 7512780751051739356, guid: 1ffbd278b682e6d4d8327eae03da4aca, type: 3}
-      spawnLocation: {x: -4, y: 9}
-      movements:
-      - timeToTake: 3
-        timeToWaitAfter: 0
-        xMovement:
-          type: 1
-          unitsMoved: 1
-          amplitude: 2
-          numOfPeaks: 3
-        yMovement:
-          type: 1
-          unitsMoved: -4
-          amplitude: -0.5
-          numOfPeaks: 1
-      - timeToTake: 4
-        timeToWaitAfter: 0
-        xMovement:
-          type: 1
-          unitsMoved: -1
-          amplitude: 2
-          numOfPeaks: 3
-        yMovement:
-          type: 4
-          unitsMoved: -6
-          amplitude: -0.5
-          numOfPeaks: 1
-      - timeToTake: 2.7
-        timeToWaitAfter: 0
-        xMovement:
-          type: 1
-          unitsMoved: -6
-          amplitude: 2
-          numOfPeaks: 3
-        yMovement:
-          type: 4
-          unitsMoved: -3
-          amplitude: -6
-          numOfPeaks: 1
-      despawnAtMovementEnd: 1
-      overrideTimeBeforeShooting: 0
-      timeBeforeShooting: 1.6
-      rotateAllPatterns: 0
-      patternRotationAmount: 0
-      rotatePatternsBetweenCycles: 0
-      rotateAmountPerCycle: 24
-    delayTillNextGroup: 7
