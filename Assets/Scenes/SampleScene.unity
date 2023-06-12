@@ -5317,6 +5317,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: sfx rotator - click
       objectReference: {fileID: 0}
+    - target: {fileID: 1585879675381873804, guid: 7313865742f147e4ba7158768017c514, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6827875336491678393, guid: 7313865742f147e4ba7158768017c514, type: 3}
       propertyPath: sfx
       value: 

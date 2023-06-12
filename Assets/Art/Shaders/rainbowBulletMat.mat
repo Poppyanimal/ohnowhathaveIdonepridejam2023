@@ -74,7 +74,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HueShift: 3.8636374
+    - _HueShift: 0.17694469
     - _Metallic: 0
     - _Mode: 3
     - _OcclusionStrength: 1

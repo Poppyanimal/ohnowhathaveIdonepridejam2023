@@ -9315,7 +9315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2407553242308490317, guid: 710370019bb6afb4ca254b7bc5da2313, type: 3}
       propertyPath: bypassDamageDebug
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2407553242308490318, guid: 710370019bb6afb4ca254b7bc5da2313, type: 3}
       propertyPath: m_RootOrder
