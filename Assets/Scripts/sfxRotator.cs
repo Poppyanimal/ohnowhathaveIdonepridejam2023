@@ -21,6 +21,9 @@ public class sfxRotator : MonoBehaviour
     
     public void playSFX()
     {
+        if(sfx == null)
+            return;
+
         if(onCooldown || (StageHandler.Singleton != null && stageSFXHandler.Singleton.stageFinished && !allowPlayAtStageEnd))
             return;
 

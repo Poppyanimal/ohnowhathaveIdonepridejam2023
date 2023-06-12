@@ -6355,7 +6355,7 @@ PrefabInstance:
     - target: {fileID: 6827875336491678393, guid: 7313865742f147e4ba7158768017c514, type: 3}
       propertyPath: sfx
       value: 
-      objectReference: {fileID: 8300000, guid: dca214544f8ad144aab1a1659dcdf322, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 6827875336491678393, guid: 7313865742f147e4ba7158768017c514, type: 3}
       propertyPath: cooldownBetweenSFX
       value: 0
