@@ -343,6 +343,14 @@ public class Player : NetworkBehaviour
         }
     }
 
+    public void doDeathExplosion()
+    {
+        //TODO
+        //
+        //
+        //player explodes and shrinks behind explosion
+    }
+
     public void updateScore(int oldScore, int newScore) { StageHandler.Singleton.updateScore(); }
     public enum character { Yuki, Mai }
 }

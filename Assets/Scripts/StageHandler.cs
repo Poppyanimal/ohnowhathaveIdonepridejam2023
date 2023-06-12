@@ -1122,13 +1122,25 @@ public class StageHandler : NetworkBehaviour
     {
         currentHealth = 0;
         updateHealthUI();
+        if(levelMusicHandler.Singleton != null)
+            levelMusicHandler.Singleton.stopStageMusic();
+
+        StartCoroutine(deathEffectAndLobbyReturn());
+    }
+
+
+    public float timeToLingerOnDeathScreen = 3f;
+    IEnumerator deathEffectAndLobbyReturn()
+    {
+        YukiBody.gameObject.GetComponent<Player>().doDeathExplosion();
+        MaiBody.gameObject.GetComponent<Player>().doDeathExplosion();
         //TODO:
-        //both players explode
         //slight fade into death screen
         //return to lobby screen
 
         //
-
+        yield return new WaitForSeconds(timeToLingerOnDeathScreen);
+        
         if(IsHost)
             NetworkManager.Singleton.SceneManager.LoadScene("lobby", UnityEngine.SceneManagement.LoadSceneMode.Single);
     }

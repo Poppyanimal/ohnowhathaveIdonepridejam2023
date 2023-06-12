@@ -17,6 +17,7 @@ public class makaiareatitle : MonoBehaviour
     public float holdTime = 1f;
     public float waitBeforeLineRetreats = .2f;
     public float delayBeforeBells = .35f;
+    public float delayAfterBellsBeforeStageMusic = .2f;
 
     Coroutine titleFade;
     Coroutine subTitleFade;
@@ -46,6 +47,13 @@ public class makaiareatitle : MonoBehaviour
         stageSFXHandler.Singleton.bells.playSFX();
     }
 
+    IEnumerator stageMusicDelay()
+    {
+        yield return new WaitForSeconds(delayBeforeBells + delayAfterBellsBeforeStageMusic);
+        if(levelMusicHandler.Singleton != null)
+            levelMusicHandler.Singleton.playStageMusic();
+    }
+
     IEnumerator doAnims()
     {
         yield return new WaitForSeconds(delayBeforeStart);
@@ -54,6 +62,7 @@ public class makaiareatitle : MonoBehaviour
         titleFade = StartCoroutine(titleFadeIn());
         subTitleFade = StartCoroutine(subTitleFadeIn());
         StartCoroutine(bellsOnDelay());
+        StartCoroutine(stageMusicDelay());
 
         Vector3 posDif = lineExtendedPos - lineRetractedPos;
         float startTime = Time.time;

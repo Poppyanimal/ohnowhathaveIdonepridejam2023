@@ -60,7 +60,10 @@ public class endScreen : MonoBehaviour
     public void startEndingScreen()
     {
         DisconnectKick.bypassDisconnectCheck = true;
-        stageSFXHandler.Singleton.stageFinished = true;
+        if(stageSFXHandler.Singleton != null)
+            stageSFXHandler.Singleton.stageFinished = true;
+        if(levelMusicHandler.Singleton != null)
+            levelMusicHandler.Singleton.stopStageMusic();
         fillLists();
         actualdifficultytext.text = GlobalVars.isDifficultyStandard ? "Standard" : "Approachable";
         actualscoretext.text = getScoreTextForInt(0);
