@@ -607,4 +607,4 @@ MonoBehaviour:
       rotatePatternsBetweenCycles: 0
       rotateAmountPerCycle: 0
       skipEnemySpawnOnEasy: 1
-    delayTillNextGroup: 5
+    delayTillNextGroup: 9
