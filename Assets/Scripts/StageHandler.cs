@@ -109,7 +109,7 @@ public class StageHandler : NetworkBehaviour
             if(backgroundScroll != null)
                 backgroundScrollCoro = StartCoroutine(scrollTheBackground(bgStartingHeight, bgMidbossHeight, getTimeTotalPreMidboss()));
 
-            if(bypassNetcodeChecks)
+            if(bypassNetcodeChecks && GlobalVars.isDevBuild)
             {
                 StartCoroutine(doLogicForSequence(flagToBypassTo));
             }
