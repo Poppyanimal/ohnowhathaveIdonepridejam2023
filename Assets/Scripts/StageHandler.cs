@@ -1129,16 +1129,60 @@ public class StageHandler : NetworkBehaviour
     }
 
 
+    public Image deathScreenImage;
+    public TMP_Text deathscreenText;
+    public TMP_Text deathscreenTextEnglish;
+    public float delayBeforeDeathScreen = 1f;
+    public float deathScreenFadeInTime = 1f;
     public float timeToLingerOnDeathScreen = 3f;
     IEnumerator deathEffectAndLobbyReturn()
     {
         YukiBody.gameObject.GetComponent<Player>().doDeathExplosion();
         MaiBody.gameObject.GetComponent<Player>().doDeathExplosion();
-        //TODO:
-        //slight fade into death screen
-        //return to lobby screen
 
-        //
+        yield return new WaitForSeconds(delayBeforeDeathScreen);
+
+        Color col = Color.white;
+        col.a = 0f;
+        Color colB = Color.black;
+        colB.a =0f;
+
+        deathScreenImage.color = colB;
+        deathscreenText.color = col;
+        deathscreenTextEnglish.color = col;
+        deathScreenImage.gameObject.SetActive(true);
+        deathscreenText.gameObject.SetActive(true);
+        deathscreenTextEnglish.gameObject.SetActive(true);
+
+        float startTime = Time.time;
+        yield return new WaitUntil(delegate()
+        {
+            float timeRatio = (Time.time - startTime) / deathScreenFadeInTime;
+            if(timeRatio >= 1f)
+            {
+                col.a = 1f;
+                colB.a = 1f;
+
+                deathScreenImage.color = colB;
+                deathscreenText.color = col;
+                deathscreenTextEnglish.color = col;
+
+                return true;
+            }
+            else
+            {
+                col.a = timeRatio;
+                colB.a = timeRatio;
+
+                deathScreenImage.color = colB;
+                deathscreenText.color = col;
+                deathscreenTextEnglish.color = col;
+
+                return false;
+            }
+
+        });
+
         yield return new WaitForSeconds(timeToLingerOnDeathScreen);
         
         if(IsHost)

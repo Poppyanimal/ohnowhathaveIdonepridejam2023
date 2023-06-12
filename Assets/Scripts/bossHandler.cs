@@ -46,7 +46,7 @@ public class bossHandler : NetworkBehaviour
     public void startFinalBoss()
     {
         currentbossPhase = 0;
-        spawnedBossObject = Instantiate(midBossPrefab, (Vector3)midBossSpawnPos + Vector3.forward * 5f, Quaternion.identity);
+        spawnedBossObject = Instantiate(finalBossPrefab, (Vector3)midBossSpawnPos + Vector3.forward * 5f, Quaternion.identity);
         boss b = spawnedBossObject.GetComponent<boss>();
         b.type = bossType.finalboss;
         isBossActive = true;

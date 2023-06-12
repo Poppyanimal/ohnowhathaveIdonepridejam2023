@@ -91,6 +91,19 @@ public class enemyDeathEffects : MonoBehaviour
         }
     }
 
+    //
+    // Player Effects
+    //
+
+    public void doPlayerDeathEffectAt(Vector3 position)
+    {
+        doDeathAt(position);
+        //TODO
+        //
+        //
+        //a special effect for the players?
+    }
+
     public void makePlayerTakeHitEffect(bool isYuki)
     {
         stageSFXHandler.Singleton.playerHit.playSFX();

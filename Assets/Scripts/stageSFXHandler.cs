@@ -6,7 +6,7 @@ public class stageSFXHandler : MonoBehaviour
 {
     public static stageSFXHandler Singleton;
     public bool stageFinished = false;
-    public sfxRotator enemyDeath, enemyBullets, yukiBullets, maibullets, playerBomb, playerHit, bossDeath, graze, bells;
+    public sfxRotator enemyDeath, enemyBullets, yukiBullets, maibullets, playerBomb, playerHit, bossDeath, graze, bells, playerDeath;
 
     void Start()
     {

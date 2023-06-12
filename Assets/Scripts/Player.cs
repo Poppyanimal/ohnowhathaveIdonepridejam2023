@@ -38,6 +38,8 @@ public class Player : NetworkBehaviour
     float bombCooldown = .5f;
     public NetworkVariable<int> score = new NetworkVariable<int>(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
+    bool isDead = false;
+
 
     void Start()
     {
@@ -95,14 +97,9 @@ public class Player : NetworkBehaviour
 
     void Update()
     {
-        if(IsOwner)
+        if(IsOwner && !isDead)
         {
             doInputStuff();
-        }
-        else
-        {
-            //TODO
-            //if shooting, do fake shots, also care about the focusing variable here for visuals and shots
         }
         
     }
@@ -345,10 +342,38 @@ public class Player : NetworkBehaviour
 
     public void doDeathExplosion()
     {
-        //TODO
-        //
-        //
-        //player explodes and shrinks behind explosion
+        isDead = true;
+        StopAllCoroutines();
+        thisBody.velocity = Vector2.zero;
+        iFrameRedFlash.SetActive(false);
+        iFrameWhiteFlash.SetActive(false);
+
+        enemyDeathEffects.Singleton.doPlayerDeathEffectAt(gameObject.transform.position);
+        if(stageSFXHandler.Singleton != null && stageSFXHandler.Singleton.playerDeath != null)
+            stageSFXHandler.Singleton.playerDeath.playSFX();
+            
+        StartCoroutine(shrinkIntoNothingDeath());
+    }
+
+    public float timeToShrinkIntoDeath = .2f;
+    IEnumerator shrinkIntoNothingDeath()
+    {
+        Vector3 oldScale = gameObject.transform.localScale;
+        float startTime = Time.time;
+        yield return new WaitUntil(delegate()
+        {
+            float timeRatio = (Time.time - startTime) / timeToShrinkIntoDeath;
+            if(timeRatio >= 1f)
+            {
+                gameObject.transform.localScale = Vector3.forward * oldScale.z;
+                return true;
+            }
+            else
+            {
+                gameObject.transform.localScale = new Vector3(oldScale.x, oldScale.y, 0f) * (1f - timeRatio) + Vector3.forward * oldScale.z;
+                return false;
+            }
+        });
     }
 
     public void updateScore(int oldScore, int newScore) { StageHandler.Singleton.updateScore(); }
