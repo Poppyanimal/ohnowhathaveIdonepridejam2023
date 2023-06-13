@@ -68,8 +68,14 @@ public class bossHandler : NetworkBehaviour
 
         currentbossPhase = index;
 
+        
+        if(index > 0)
+            StageHandler.Singleton.doBossBulletClearBombEffect();
+
+
         if(spawnedBossObject.GetComponent<boss>().type is bossType.midboss) //assume is midboss
         {
+
             if(index >= midBossDamageTable.Count) //all phases finished
             {
                 isBossActive = false;

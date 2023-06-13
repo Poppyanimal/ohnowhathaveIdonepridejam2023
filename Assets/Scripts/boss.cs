@@ -67,6 +67,7 @@ public class boss : MonoBehaviour
                     c.shootAllPatterns();
                     return c.isFinished();
                 });
+                yield return new WaitForSeconds(c.timeDelayAfterFinished);
             }
         }
     }
@@ -210,6 +211,7 @@ public class majorPhase
 
     public List<bossMovement> moveData;
     public bool loopMoveData = false;
+    public string name;
 }
 [System.Serializable]
 public class bossMovement

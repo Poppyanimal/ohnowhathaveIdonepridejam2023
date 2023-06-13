@@ -1236,6 +1236,11 @@ public class StageHandler : NetworkBehaviour
         }
     }
 
+    public void doBossBulletClearBombEffect()
+    {
+        doBombEffect(true);
+    }
+
     public float bombDimAppearTime = .1f;
     public float bombDimFadeTime = 1f;
     public float bombDimTargetAlpha = .5f;

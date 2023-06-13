@@ -5047,10 +5047,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: shinki boss
       objectReference: {fileID: 0}
-    - target: {fileID: 285550291077259822, guid: ae724e7cdb33a2f479cfd39f1c0cefc5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae724e7cdb33a2f479cfd39f1c0cefc5, type: 3}
 --- !u!1 &1226770889

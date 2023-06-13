@@ -505,6 +505,162 @@ MonoBehaviour:
           doAngleDrift: 0
           angleDrift: 5
   patternShootSFXs: []
+--- !u!1 &111455597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111455598}
+  - component: {fileID: 111455599}
+  m_Layer: 10
+  m_Name: <>actual burst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111455598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111455597}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 884716241}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111455599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111455597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 170700092075506666, guid: 17a44ec198a730a48b2cd46fe4d49cd7, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.033333335
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 12
+        angleBetweenBullets: 30
+        angleOffset: -2.5
+        startingVelocity: {x: 0, y: 4}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &114582864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 114582865}
+  - component: {fileID: 114582866}
+  m_Layer: 10
+  m_Name: <>actual burst - x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &114582865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114582864}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 884716241}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114582866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114582864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 170700092075506666, guid: 17a44ec198a730a48b2cd46fe4d49cd7, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.05
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 12
+        angleBetweenBullets: -30
+        angleOffset: 6
+        startingVelocity: {x: 0, y: 3.75}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 0.65
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: -2.3
+  patternShootSFXs: []
 --- !u!1 &115052630
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,6 +767,84 @@ MonoBehaviour:
             timeOffset: {x: 0, y: 0}
             amplitude: {x: 2, y: 2}
             period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &135780793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 135780794}
+  - component: {fileID: 135780795}
+  m_Layer: 10
+  m_Name: burst part 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &135780794
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135780793}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 222646991}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &135780795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 135780793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.05
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 3
+        angleBetweenBullets: -2.5
+        angleOffset: 2.5
+        startingVelocity: {x: 0, y: 4.25}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 0.65
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
@@ -849,6 +1083,76 @@ MonoBehaviour:
           doAngleDrift: 0
           angleDrift: 5
   patternShootSFXs: []
+--- !u!1 &222646990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 222646991}
+  m_Layer: 10
+  m_Name: target burst phase - target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &222646991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 222646990}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 721399568}
+  - {fileID: 135780794}
+  - {fileID: 782494433}
+  - {fileID: 1841850190}
+  m_Father: {fileID: 285550291077259811}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &238332075
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 238332076}
+  m_Layer: 10
+  m_Name: target burst phase - burst easy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &238332076
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238332075}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1269497924}
+  - {fileID: 1285155441}
+  - {fileID: 2111438990}
+  - {fileID: 1871006695}
+  m_Father: {fileID: 285550291077259811}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &243269823
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1690,41 @@ Transform:
   m_Father: {fileID: 886501402}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &433712415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 433712416}
+  m_Layer: 10
+  m_Name: target burst phase - target easy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &433712416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433712415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 556893192}
+  - {fileID: 782412360}
+  - {fileID: 611301618}
+  - {fileID: 2037916932}
+  m_Father: {fileID: 285550291077259811}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &450337278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +2099,84 @@ Transform:
   m_Father: {fileID: 476808222}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &556893191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 556893192}
+  - component: {fileID: 556893193}
+  m_Layer: 10
+  m_Name: burst part 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &556893192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556893191}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 433712416}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &556893193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556893191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.033333335
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 2.5
+        angleOffset: -2.5
+        startingVelocity: {x: 0, y: 4.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
 --- !u!1 &562472619
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,6 +2288,84 @@ MonoBehaviour:
             timeOffset: {x: 0, y: 0}
             amplitude: {x: 2, y: 2}
             period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &611301617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 611301618}
+  - component: {fileID: 611301619}
+  m_Layer: 10
+  m_Name: burst part 1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &611301618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611301617}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 433712416}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611301619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611301617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.041666668
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: 2.5
+        angleOffset: -2.5
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 0.22
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
@@ -2027,6 +2522,240 @@ MonoBehaviour:
             timeOffset: {x: 0, y: 0}
             amplitude: {x: 2, y: 2}
             period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &721399567
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 721399568}
+  - component: {fileID: 721399569}
+  m_Layer: 10
+  m_Name: burst part 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &721399568
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721399567}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 222646991}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &721399569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721399567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.033333335
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 3
+        angleBetweenBullets: 2.5
+        angleOffset: -2.5
+        startingVelocity: {x: 0, y: 4.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &782412359
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782412360}
+  - component: {fileID: 782412361}
+  m_Layer: 10
+  m_Name: burst part 1 (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782412360
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782412359}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 433712416}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782412361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782412359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.05
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: -2.5
+        angleOffset: 2.5
+        startingVelocity: {x: 0, y: 4.25}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 0.65
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &782494432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 782494433}
+  - component: {fileID: 782494434}
+  m_Layer: 10
+  m_Name: burst part 1 (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &782494433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782494432}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 222646991}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &782494434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782494432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.041666668
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 3
+        angleBetweenBullets: 2.5
+        angleOffset: -2.5
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 0.22
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
@@ -2499,6 +3228,41 @@ MonoBehaviour:
           doAngleDrift: 0
           angleDrift: 5
   patternShootSFXs: []
+--- !u!1 &884716240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884716241}
+  m_Layer: 10
+  m_Name: target burst phase - burst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884716241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884716240}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 111455598}
+  - {fileID: 114582865}
+  - {fileID: 1918615220}
+  - {fileID: 1836841676}
+  m_Father: {fileID: 285550291077259811}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &886501401
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,6 +3882,162 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &1269497923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1269497924}
+  - component: {fileID: 1269497925}
+  m_Layer: 10
+  m_Name: <>actual burst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1269497924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269497923}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 238332076}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1269497925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1269497923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 170700092075506666, guid: 17a44ec198a730a48b2cd46fe4d49cd7, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.033333335
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 3
+        angleBetweenBullets: 120
+        angleOffset: -32.5
+        startingVelocity: {x: 0, y: 4}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 35
+  patternShootSFXs: []
+--- !u!1 &1285155440
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1285155441}
+  - component: {fileID: 1285155442}
+  m_Layer: 10
+  m_Name: <>actual burst - x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1285155441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285155440}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 238332076}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1285155442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1285155440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 170700092075506666, guid: 17a44ec198a730a48b2cd46fe4d49cd7, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.05
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 3
+        angleBetweenBullets: -120
+        angleOffset: 46
+        startingVelocity: {x: 0, y: 3.75}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 0.65
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: -182.3
   patternShootSFXs: []
 --- !u!1 &1303337705
 GameObject:
@@ -4285,6 +5205,162 @@ MonoBehaviour:
           doAngleDrift: 0
           angleDrift: 5
   patternShootSFXs: []
+--- !u!1 &1836841675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1836841676}
+  - component: {fileID: 1836841677}
+  m_Layer: 10
+  m_Name: <>actual burst - x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836841676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836841675}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 884716241}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1836841677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836841675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 170700092075506666, guid: 8b47c8c9bcc843f42b189276e0611ceb, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.086667
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 12
+        angleBetweenBullets: -30
+        angleOffset: 9
+        startingVelocity: {x: 0, y: 3.1}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 3
+            period: 0.14
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.3}
+            period: {x: 0, y: 0.3}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: -4.112
+  patternShootSFXs: []
+--- !u!1 &1841850189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1841850190}
+  - component: {fileID: 1841850191}
+  m_Layer: 10
+  m_Name: burst part 1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1841850190
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841850189}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 222646991}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1841850191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841850189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.086667
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 3
+        angleBetweenBullets: -3
+        angleOffset: 3
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 3
+            period: 0.14
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.3}
+            period: {x: 0, y: 0.3}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
 --- !u!1 &1860644207
 GameObject:
   m_ObjectHideFlags: 0
@@ -4322,6 +5398,162 @@ Transform:
   m_Father: {fileID: 476808222}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1871006694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1871006695}
+  - component: {fileID: 1871006696}
+  m_Layer: 10
+  m_Name: <>actual burst - x
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1871006695
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871006694}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 238332076}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1871006696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871006694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 170700092075506666, guid: 8b47c8c9bcc843f42b189276e0611ceb, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.086667
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 3
+        angleBetweenBullets: -120
+        angleOffset: 189
+        startingVelocity: {x: 0, y: 3.1}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 3
+            period: 0.14
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.3}
+            period: {x: 0, y: 0.3}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: -44.112
+  patternShootSFXs: []
+--- !u!1 &1918615219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1918615220}
+  - component: {fileID: 1918615221}
+  m_Layer: 10
+  m_Name: <>actual burst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1918615220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918615219}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 884716241}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1918615221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918615219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 170700092075506666, guid: 8b47c8c9bcc843f42b189276e0611ceb, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.041666668
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 12
+        angleBetweenBullets: 30
+        angleOffset: -7
+        startingVelocity: {x: 0, y: 3}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 0.22
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 1.2
+  patternShootSFXs: []
 --- !u!1 &1928577883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4634,6 +5866,84 @@ MonoBehaviour:
           doAngleDrift: 0
           angleDrift: 5
   patternShootSFXs: []
+--- !u!1 &2037916931
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2037916932}
+  - component: {fileID: 2037916933}
+  m_Layer: 10
+  m_Name: burst part 1 (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2037916932
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037916931}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 433712416}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2037916933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037916931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: baa3d760a41a9a1428156e141e185709, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.086667
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 1
+        angleBetweenBullets: -3
+        angleOffset: 3
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 3
+            period: 0.14
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.3}
+            period: {x: 0, y: 0.3}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: 5
+  patternShootSFXs: []
 --- !u!1 &2052469579
 GameObject:
   m_ObjectHideFlags: 0
@@ -4711,6 +6021,84 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+  patternShootSFXs: []
+--- !u!1 &2111438989
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2111438990}
+  - component: {fileID: 2111438991}
+  m_Layer: 10
+  m_Name: <>actual burst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2111438990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111438989}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 238332076}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2111438991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111438989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 170700092075506666, guid: 8b47c8c9bcc843f42b189276e0611ceb, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.041666668
+      activityDurationOffset: 0.2
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 3
+        angleBetweenBullets: 120
+        angleOffset: -77
+        startingVelocity: {x: 0, y: 3}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 4
+            period: 0.22
+          SinVelocityInfo:
+            useSinVelocity: 2
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 0, y: 0.5}
+            period: {x: 0, y: 0.5}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 11.2
   patternShootSFXs: []
 --- !u!1 &285550290902802592
 GameObject:
@@ -4826,6 +6214,10 @@ Transform:
   - {fileID: 285550290902802594}
   - {fileID: 476808222}
   - {fileID: 886501402}
+  - {fileID: 222646991}
+  - {fileID: 433712416}
+  - {fileID: 884716241}
+  - {fileID: 238332076}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4894,6 +6286,91 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   majorPhases:
+  - easyPhases:
+    - timeDelayAfterFinished: 2
+      simultanousPatterns:
+      - timesToShoot: 5
+        bPattern: {fileID: 556893193}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 5
+        bPattern: {fileID: 782412361}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 5
+        bPattern: {fileID: 611301619}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 5
+        bPattern: {fileID: 2037916933}
+        resetDriftOnShotReset: 0
+    - timeDelayAfterFinished: 3.5
+      simultanousPatterns:
+      - timesToShoot: 10
+        bPattern: {fileID: 1269497925}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 10
+        bPattern: {fileID: 1285155442}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 10
+        bPattern: {fileID: 2111438991}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 10
+        bPattern: {fileID: 1871006696}
+        resetDriftOnShotReset: 0
+    standardPhases:
+    - timeDelayAfterFinished: 2
+      simultanousPatterns:
+      - timesToShoot: 5
+        bPattern: {fileID: 721399569}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 5
+        bPattern: {fileID: 135780795}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 5
+        bPattern: {fileID: 782494434}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 5
+        bPattern: {fileID: 1841850191}
+        resetDriftOnShotReset: 0
+    - timeDelayAfterFinished: 3.5
+      simultanousPatterns:
+      - timesToShoot: 10
+        bPattern: {fileID: 111455599}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 10
+        bPattern: {fileID: 114582866}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 10
+        bPattern: {fileID: 1918615221}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 10
+        bPattern: {fileID: 1836841677}
+        resetDriftOnShotReset: 0
+    hpThisPhase: 300
+    endPhaseEarlyIfTimeExpires: 0
+    timerLengthSeconds: 0
+    delayBeforePhaseStarts: 2
+    moveData:
+    - targetPosition: {x: 0, y: 3}
+      timeToArrive: 1.2
+    - targetPosition: {x: 0, y: 3}
+      timeToArrive: 0.1
+    - targetPosition: {x: -3, y: 1}
+      timeToArrive: 1.2
+    - targetPosition: {x: -3, y: 1}
+      timeToArrive: 2.01
+    - targetPosition: {x: -5, y: 4}
+      timeToArrive: 1.2
+    - targetPosition: {x: -5, y: 4}
+      timeToArrive: 2.01
+    - targetPosition: {x: 3, y: 1}
+      timeToArrive: 2.5
+    - targetPosition: {x: 3, y: 1}
+      timeToArrive: 2.01
+    - targetPosition: {x: 5, y: 4}
+      timeToArrive: 1.2
+    - targetPosition: {x: 5, y: 4}
+      timeToArrive: 1.01
+    loopMoveData: 1
+    name: target and burst
   - easyPhases:
     - timeDelayAfterFinished: 0
       simultanousPatterns:
@@ -5110,9 +6587,10 @@ MonoBehaviour:
     - targetPosition: {x: 0, y: 4.5}
       timeToArrive: 1
     loopMoveData: 0
+    name: finale
   type: 0
-  overrideStartForDebug: 0
-  phaseIndexToStartup: 1
+  overrideStartForDebug: 1
+  phaseIndexToStartup: 0
   debugKillOnLoad: 0
 --- !u!50 &-2252946312614396385
 Rigidbody2D:
