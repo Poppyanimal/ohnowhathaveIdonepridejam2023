@@ -33,6 +33,161 @@ Transform:
   m_Father: {fileID: 285550291077259811}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &72998868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 72998869}
+  m_Layer: 10
+  m_Name: pierce then burst - easy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &72998869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72998868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 753425116}
+  - {fileID: 293395332}
+  - {fileID: 111027123}
+  - {fileID: 579948828}
+  - {fileID: 1731940943}
+  m_Father: {fileID: 285550291077259811}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &111027122
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 111027123}
+  - component: {fileID: 111027124}
+  m_Layer: 10
+  m_Name: pierce burst pierce - burst (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &111027123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111027122}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 72998869}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111027124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111027122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 2521236b081c7224ab3f1afc9416d882, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.4
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 4
+        angleBetweenBullets: 90
+        angleOffset: -224
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 1.4
+            period: 0.88
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 98.412
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 1
+  delayBeforeShots: 0.1
+  patternShootSFXs: []
+--- !u!1 &150197940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150197941}
+  m_Layer: 10
+  m_Name: pierce then burst
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &150197941
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150197940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1206235028}
+  - {fileID: 1329874920}
+  - {fileID: 1666841542}
+  - {fileID: 1431594793}
+  - {fileID: 1194742944}
+  m_Father: {fileID: 285550291077259811}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &222861869
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +470,89 @@ MonoBehaviour:
           doSpawnOffset: 0
           offset: {x: 1, y: 0}
   doDelayBeforeShots: 1
+  delayBeforeShots: 0.1
+  patternShootSFXs: []
+--- !u!1 &293395331
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 293395332}
+  - component: {fileID: 293395333}
+  m_Layer: 10
+  m_Name: pierce burst pierce - burst (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &293395332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293395331}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 72998869}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &293395333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 293395331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 2521236b081c7224ab3f1afc9416d882, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.4
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 4
+        angleBetweenBullets: 90
+        angleOffset: -60
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 3.77
+            period: 0.477
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 24.7
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 0
   delayBeforeShots: 0.1
   patternShootSFXs: []
 --- !u!1 &295018295
@@ -815,6 +1053,89 @@ MonoBehaviour:
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
+--- !u!1 &579948827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 579948828}
+  - component: {fileID: 579948829}
+  m_Layer: 10
+  m_Name: pierce burst pierce - burst (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &579948828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579948827}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 72998869}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579948829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579948827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 2521236b081c7224ab3f1afc9416d882, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.4
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 4
+        angleBetweenBullets: 90
+        angleOffset: 3
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 8.222
+            period: 1.2
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 22.24
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 1
+  delayBeforeShots: 0.2
+  patternShootSFXs: []
 --- !u!1 &654957595
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,6 +1254,89 @@ Transform:
   m_Father: {fileID: 285550291077259811}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &753425115
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 753425116}
+  - component: {fileID: 753425117}
+  m_Layer: 10
+  m_Name: pierce burst pierce wave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &753425116
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753425115}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 72998869}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &753425117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 753425115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7453720088311791965, guid: 35e33835296fded40b0b3f1df72b0a75, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.1
+      activityDurationOffset: 2.5
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 5
+        angleBetweenBullets: 30
+        angleOffset: -60
+        startingVelocity: {x: 0, y: 5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: -5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 1
+  delayBeforeShots: 1.5
+  patternShootSFXs: []
 --- !u!1 &771671787
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,6 +1737,172 @@ MonoBehaviour:
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
+--- !u!1 &1194742942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1194742944}
+  - component: {fileID: 1194742943}
+  m_Layer: 10
+  m_Name: pierce burst pierce - burst (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1194742944
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194742942}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150197941}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1194742943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194742942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 2521236b081c7224ab3f1afc9416d882, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.4
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 8
+        angleBetweenBullets: 45
+        angleOffset: 76
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 18.22
+            period: 0.3
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 16.756
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 1
+  delayBeforeShots: 0.3
+  patternShootSFXs: []
+--- !u!1 &1206235026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1206235028}
+  - component: {fileID: 1206235027}
+  m_Layer: 10
+  m_Name: pierce burst pierce wave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1206235028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206235026}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150197941}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1206235027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1206235026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 7453720088311791965, guid: 35e33835296fded40b0b3f1df72b0a75, type: 3}
+  patternDat:
+    trackTarget: 3
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0.1
+      activityDurationOffset: 2.5
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 9
+        angleBetweenBullets: 15
+        angleOffset: -60
+        startingVelocity: {x: 0, y: 5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 0
+            timeOffset: 0
+            amplitude: 15
+            period: 1
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 0
+          angleDrift: -5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 1
+  delayBeforeShots: 1.5
+  patternShootSFXs: []
 --- !u!1 &1215997329
 GameObject:
   m_ObjectHideFlags: 0
@@ -1415,6 +1985,89 @@ MonoBehaviour:
           offset: {x: 1, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1.6
+  patternShootSFXs: []
+--- !u!1 &1329874918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1329874920}
+  - component: {fileID: 1329874919}
+  m_Layer: 10
+  m_Name: pierce burst pierce - burst (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1329874920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329874918}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150197941}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1329874919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329874918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 2521236b081c7224ab3f1afc9416d882, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.4
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 8
+        angleBetweenBullets: 45
+        angleOffset: -60
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 3.77
+            period: 0.477
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 24.7
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 0
+  delayBeforeShots: 0.1
   patternShootSFXs: []
 --- !u!1 &1402041683
 GameObject:
@@ -1532,6 +2185,89 @@ Transform:
   m_Father: {fileID: 285550291077259811}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1431594792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1431594793}
+  - component: {fileID: 1431594794}
+  m_Layer: 10
+  m_Name: pierce burst pierce - burst (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1431594793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431594792}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150197941}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1431594794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431594792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 2521236b081c7224ab3f1afc9416d882, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.4
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 8
+        angleBetweenBullets: 45
+        angleOffset: 3
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 8.222
+            period: 1.2
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 22.24
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 1
+  delayBeforeShots: 0.2
+  patternShootSFXs: []
 --- !u!1 &1499406437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,6 +2434,89 @@ MonoBehaviour:
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
+--- !u!1 &1666841541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666841542}
+  - component: {fileID: 1666841543}
+  m_Layer: 10
+  m_Name: pierce burst pierce - burst (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1666841542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666841541}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150197941}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1666841543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666841541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 2521236b081c7224ab3f1afc9416d882, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.4
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 8
+        angleBetweenBullets: 45
+        angleOffset: -224
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 1.4
+            period: 0.88
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 98.412
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 1
+  delayBeforeShots: 0.1
+  patternShootSFXs: []
 --- !u!1 &1709083139
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +2599,89 @@ MonoBehaviour:
           offset: {x: 1, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.2
+  patternShootSFXs: []
+--- !u!1 &1731940941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1731940943}
+  - component: {fileID: 1731940942}
+  m_Layer: 10
+  m_Name: pierce burst pierce - burst (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1731940943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731940941}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 72998869}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731940942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731940941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d7762b6ce6bb44e83c46b284914d49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 3639577656276462514, guid: 2521236b081c7224ab3f1afc9416d882, type: 3}
+  patternDat:
+    trackTarget: 0
+    customRigidbodyTarget: {fileID: 0}
+    autoSettings:
+      doAutoPattern: 0
+      bulletQuantity: 8
+      startingVelocity: {x: 0, y: 1}
+    patternSettings:
+      timeBetweenBullets: 0
+      activityDurationOffset: 0.4
+      sPatternList:
+      - bulletOverride: {fileID: 0}
+        TrackingOverrideChoice: 0
+        bulletQuantity: 4
+        angleBetweenBullets: 90
+        angleOffset: 76
+        startingVelocity: {x: 0, y: 3.5}
+        angularVelocity: 0
+        SinInfo:
+          SinAngleInfo:
+            useSinAngleOffset: 1
+            timeOffset: 0
+            amplitude: 18.22
+            period: 0.3
+          SinVelocityInfo:
+            useSinVelocity: 0
+            timeOffset: {x: 0, y: 0}
+            amplitude: {x: 2, y: 2}
+            period: {x: 1, y: 1}
+        driftInfo:
+          doAngleDrift: 1
+          angleDrift: 16.756
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 1, y: 0}
+  doDelayBeforeShots: 1
+  delayBeforeShots: 0.3
   patternShootSFXs: []
 --- !u!1 &1870466513
 GameObject:
@@ -2189,6 +3091,8 @@ Transform:
   - {fileID: 1426815181}
   - {fileID: 715063319}
   - {fileID: 817215721}
+  - {fileID: 150197941}
+  - {fileID: 72998869}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2260,32 +3164,42 @@ MonoBehaviour:
   - easyPhases:
     - timeDelayAfterFinished: 0
       simultanousPatterns:
-      - timesToShoot: 600
-        bPattern: {fileID: 771671789}
+      - timesToShoot: 1
+        bPattern: {fileID: 753425117}
         resetDriftOnShotReset: 0
-      - timesToShoot: 600
-        bPattern: {fileID: 393144455}
+    - timeDelayAfterFinished: 0
+      simultanousPatterns:
+      - timesToShoot: 7
+        bPattern: {fileID: 293395333}
         resetDriftOnShotReset: 0
-      - timesToShoot: 100
-        bPattern: {fileID: 939662216}
+      - timesToShoot: 7
+        bPattern: {fileID: 111027124}
         resetDriftOnShotReset: 0
-      - timesToShoot: 100
-        bPattern: {fileID: 1215997330}
+      - timesToShoot: 7
+        bPattern: {fileID: 579948829}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 7
+        bPattern: {fileID: 1731940942}
         resetDriftOnShotReset: 0
     standardPhases:
     - timeDelayAfterFinished: 0
       simultanousPatterns:
-      - timesToShoot: 750
-        bPattern: {fileID: 259268690}
+      - timesToShoot: 1
+        bPattern: {fileID: 1206235027}
         resetDriftOnShotReset: 0
-      - timesToShoot: 750
-        bPattern: {fileID: 1709083141}
+    - timeDelayAfterFinished: 0
+      simultanousPatterns:
+      - timesToShoot: 7
+        bPattern: {fileID: 1329874919}
         resetDriftOnShotReset: 0
-      - timesToShoot: 200
-        bPattern: {fileID: 284736243}
+      - timesToShoot: 7
+        bPattern: {fileID: 1666841543}
         resetDriftOnShotReset: 0
-      - timesToShoot: 200
-        bPattern: {fileID: 888288034}
+      - timesToShoot: 7
+        bPattern: {fileID: 1431594794}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 7
+        bPattern: {fileID: 1194742943}
         resetDriftOnShotReset: 0
     hpThisPhase: 1000
     endPhaseEarlyIfTimeExpires: 0
@@ -2293,9 +3207,19 @@ MonoBehaviour:
     delayBeforePhaseStarts: 1
     moveData:
     - targetPosition: {x: 0, y: 3}
+      timeToArrive: 1.5
+    - targetPosition: {x: -4, y: 1}
+      timeToArrive: 2
+    - targetPosition: {x: -3, y: 5}
       timeToArrive: 1
-    loopMoveData: 0
-    name: offset radial
+    - targetPosition: {x: 0, y: 3}
+      timeToArrive: 1.5
+    - targetPosition: {x: 4, y: 1}
+      timeToArrive: 2
+    - targetPosition: {x: 3, y: 5}
+      timeToArrive: 1
+    loopMoveData: 1
+    name: pierce then burst
   - easyPhases:
     - timeDelayAfterFinished: 0
       simultanousPatterns:
@@ -2375,8 +3299,47 @@ MonoBehaviour:
       timeToArrive: 1
     loopMoveData: 0
     name: quad burst with knives
+  - easyPhases:
+    - timeDelayAfterFinished: 0
+      simultanousPatterns:
+      - timesToShoot: 600
+        bPattern: {fileID: 771671789}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 600
+        bPattern: {fileID: 393144455}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 100
+        bPattern: {fileID: 939662216}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 100
+        bPattern: {fileID: 1215997330}
+        resetDriftOnShotReset: 0
+    standardPhases:
+    - timeDelayAfterFinished: 0
+      simultanousPatterns:
+      - timesToShoot: 750
+        bPattern: {fileID: 259268690}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 750
+        bPattern: {fileID: 1709083141}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 200
+        bPattern: {fileID: 284736243}
+        resetDriftOnShotReset: 0
+      - timesToShoot: 200
+        bPattern: {fileID: 888288034}
+        resetDriftOnShotReset: 0
+    hpThisPhase: 1000
+    endPhaseEarlyIfTimeExpires: 0
+    timerLengthSeconds: 0
+    delayBeforePhaseStarts: 1
+    moveData:
+    - targetPosition: {x: 0, y: 3}
+      timeToArrive: 1
+    loopMoveData: 0
+    name: offset radial
   type: 0
-  overrideStartForDebug: 1
+  overrideStartForDebug: 0
   phaseIndexToStartup: 0
   debugKillOnLoad: 0
 --- !u!50 &-2252946312614396385
