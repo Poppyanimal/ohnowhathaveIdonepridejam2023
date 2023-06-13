@@ -6589,7 +6589,7 @@ MonoBehaviour:
     loopMoveData: 0
     name: finale
   type: 0
-  overrideStartForDebug: 1
+  overrideStartForDebug: 0
   phaseIndexToStartup: 0
   debugKillOnLoad: 0
 --- !u!50 &-2252946312614396385
