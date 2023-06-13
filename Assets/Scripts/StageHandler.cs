@@ -1132,6 +1132,7 @@ public class StageHandler : NetworkBehaviour
     public Image deathScreenImage;
     public TMP_Text deathscreenText;
     public TMP_Text deathscreenTextEnglish;
+    public Image maidead, yukidead;
     public float delayBeforeDeathScreen = 1f;
     public float deathScreenFadeInTime = 1f;
     public float timeToLingerOnDeathScreen = 3f;
@@ -1150,9 +1151,13 @@ public class StageHandler : NetworkBehaviour
         deathScreenImage.color = colB;
         deathscreenText.color = col;
         deathscreenTextEnglish.color = col;
+        maidead.color = col;
+        yukidead.color = col;
         deathScreenImage.gameObject.SetActive(true);
         deathscreenText.gameObject.SetActive(true);
         deathscreenTextEnglish.gameObject.SetActive(true);
+        maidead.gameObject.SetActive(true);
+        yukidead.gameObject.SetActive(true);
 
         float startTime = Time.time;
         yield return new WaitUntil(delegate()
@@ -1166,6 +1171,8 @@ public class StageHandler : NetworkBehaviour
                 deathScreenImage.color = colB;
                 deathscreenText.color = col;
                 deathscreenTextEnglish.color = col;
+                maidead.color = col;
+                yukidead.color = col;
 
                 return true;
             }
@@ -1177,6 +1184,8 @@ public class StageHandler : NetworkBehaviour
                 deathScreenImage.color = colB;
                 deathscreenText.color = col;
                 deathscreenTextEnglish.color = col;
+                maidead.color = col;
+                yukidead.color = col;
 
                 return false;
             }
