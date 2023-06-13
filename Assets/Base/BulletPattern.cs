@@ -68,7 +68,7 @@ public class BulletPattern : MonoBehaviour
             float angleBetween = 360f/patternDat.autoSettings.bulletQuantity;
             for(int i = 0; i < patternDat.autoSettings.bulletQuantity; i++)
             {
-                createBullet(angleBetween*i + angleModifier, startingVelocity);
+                createBullet(angleBetween*i + angleModifier, startingVelocity, Vector2.zero);
             }
             StartCoroutine(activityDecay(0.5f));
         }
@@ -80,23 +80,24 @@ public class BulletPattern : MonoBehaviour
         }
     }
 
-    void createBullet(float angle, Vector2 vel, Rigidbody2D bulletToUse, float angularVelocity)
+    void createBullet(float angle, Vector2 vel, Rigidbody2D bulletToUse, float angularVelocity, Vector2 positionOffset)
     {
         Quaternion rotation = new Quaternion();
         rotation.eulerAngles = new Vector3(0,0,-angle);
+        Vector2 spawnedPosition = KiroLib.rotateVector2(angle, positionOffset);
         Rigidbody2D newBullet = Instantiate(bulletToUse, transform.position, rotation);
         newBullet.velocity = KiroLib.rotateVector2(angle, vel);
         newBullet.angularVelocity = angularVelocity;
     }
 
-    void createBullet(float angle, Vector2 vel)
+    void createBullet(float angle, Vector2 vel, Vector2 positionOffset)
     {
-        createBullet(angle, vel, bullet, 0f);
+        createBullet(angle, vel, bullet, 0f, positionOffset);
     }
 
-    void createBullet(float angle, Vector2 vel, float angularVelocity)
+    void createBullet(float angle, Vector2 vel, float angularVelocity, Vector2 positionOffset)
     {
-        createBullet(angle, vel, bullet, angularVelocity);
+        createBullet(angle, vel, bullet, angularVelocity, positionOffset);
     }
 
     IEnumerator activityDecay(float timeToWait)
@@ -222,10 +223,12 @@ public class BulletPattern : MonoBehaviour
 
             for(int i = 0; i < curPat.bulletQuantity; i++)
             {
+                Vector2 posOffset = curPat.posOffsetInfo.doSpawnOffset ? curPat.posOffsetInfo.offset : Vector2.zero;
+
                 if(curPat.bulletOverride == null)
-                    createBullet(angleModifier + curPat.angleBetweenBullets * i, startingVelocity, angularVelocityModifier);
+                    createBullet(angleModifier + curPat.angleBetweenBullets * i, startingVelocity, angularVelocityModifier, posOffset);
                 else
-                    createBullet(angleModifier + curPat.angleBetweenBullets * i, startingVelocity, curPat.bulletOverride, angularVelocityModifier);
+                    createBullet(angleModifier + curPat.angleBetweenBullets * i, startingVelocity, curPat.bulletOverride, angularVelocityModifier, posOffset);
             }
 
             if(patternShootSFXs.Count > 0)

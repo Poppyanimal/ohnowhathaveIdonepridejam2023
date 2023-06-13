@@ -83,6 +83,14 @@ public class simplePatternInfo
     public float angularVelocity = 0f;
     public SinPatternInfo SinInfo = new SinPatternInfo();
     public patternDrift driftInfo = new patternDrift();
+    public positionOffsetInfo posOffsetInfo = new positionOffsetInfo();
+}
+
+[System.Serializable]
+public class positionOffsetInfo
+{
+    public bool doSpawnOffset = false;
+    public Vector2 offset = Vector2.zero;
 }
 
 [System.Serializable]
