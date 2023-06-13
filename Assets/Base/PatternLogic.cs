@@ -219,11 +219,28 @@ public class ComplexPattern
         {
             if(simultanousPatterns[i].timesShot() < simultanousPatterns[i].timesToShoot && !simultanousPatterns[i].bPattern.isRunning())
             {
-                simultanousPatterns[i].bPattern.tryPattern();
-                simultanousPatterns[i].incTimesShot();
+                if(false) //simultanousPatterns[i].delayShots)
+                {
+                    /*if(StageHandler.Singleton != null)
+                    {
+                        StageHandler.Singleton.doDelayedShotsForCPattern(simultanousPatterns[i]);
+                    }
+                    else
+                    {
+                        Debug.LogError("could not shoot on delay because stagehandler is missing!");
+                        simultanousPatterns[i].bPattern.tryPattern();
+                        simultanousPatterns[i].incTimesShot();
+                    }*/
+                }
+                else
+                {
+                    simultanousPatterns[i].bPattern.tryPattern();
+                    simultanousPatterns[i].incTimesShot();
+                }
             }
         }
     }
+
 
     public bool isFinished()
     {
@@ -242,6 +259,8 @@ public class cPatternLoopInfo
     public int timesToShoot = 10;
     public BulletPattern bPattern;
     public bool resetDriftOnShotReset = false;
+    bool delayShots = false;
+    float timeToDelayShotsFor = .2f;
 
     int timesAlreadyShot = 0;
     public void resetTimesShot()

@@ -6,6 +6,8 @@ public class BulletPattern : MonoBehaviour
 {
     public Rigidbody2D bullet;
     public PatternData patternDat;
+    public bool doDelayBeforeShots = false;
+    public float delayBeforeShots;
     public List<AudioSource> patternShootSFXs;
     bool currentlyRunning = false;
     int curAudioSFXIndex = 0;
@@ -108,6 +110,9 @@ public class BulletPattern : MonoBehaviour
     {
         if(curPatID < settings.patternSettings.sPatternList.Count)
         {
+            if(doDelayBeforeShots)
+                yield return new WaitForSeconds(delayBeforeShots);
+
             simplePatternInfo curPat = settings.patternSettings.sPatternList[curPatID];
 
             float angleModifier = curPat.angleOffset;

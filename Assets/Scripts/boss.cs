@@ -119,6 +119,8 @@ public class boss : MonoBehaviour
 
     IEnumerator doDeathEffect()
     {
+        if(StageHandler.Singleton != null)
+            StageHandler.Singleton.changeBGDim(false);
         //TODO
         //do all the fancy death effects
 

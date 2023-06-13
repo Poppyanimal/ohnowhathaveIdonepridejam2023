@@ -41,6 +41,8 @@ public class bossHandler : NetworkBehaviour
         b.type = bossType.midboss;
         isBossActive = true;
         b.startPhase(currentbossPhase);
+        if(StageHandler.Singleton != null)
+            StageHandler.Singleton.changeBGDim(true);
     }
 
     public void startFinalBoss()
@@ -51,6 +53,8 @@ public class bossHandler : NetworkBehaviour
         b.type = bossType.finalboss;
         isBossActive = true;
         b.startPhase(currentbossPhase);
+        if(StageHandler.Singleton != null)
+            StageHandler.Singleton.changeBGDim(true);
     }
 
 

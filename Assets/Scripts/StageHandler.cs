@@ -599,6 +599,14 @@ public class StageHandler : NetworkBehaviour
         });
     }
 
+
+    Coroutine dimCoro;
+    public void changeBGDim(bool makeDarker)
+    {
+        if(dimCoro != null)
+            StopCoroutine(dimCoro);
+        dimCoro = StartCoroutine(changeDimming(makeDarker));
+    }
     IEnumerator changeDimming(bool makeDarker)
     {
         float startingAlpha = backgroundDimmer.color.a;
@@ -1307,6 +1315,19 @@ public class StageHandler : NetworkBehaviour
             StopCoroutine(healthAnimCoro);
         healthAnimCoro = StartCoroutine(animateHealth());
     }
+
+    /*public void doDelayedShotsForCPattern(cPatternLoopInfo cpatternLoop)
+    {
+        StartCoroutine(tryShotOnDelay(cpatternLoop));
+    }*/
+    
+    /*IEnumerator tryShotOnDelay(cPatternLoopInfo loopInfo)
+    {
+        yield return new WaitForSeconds(loopInfo.timeToDelayShotsFor);
+        loopInfo.bPattern.tryPattern();
+        loopInfo.incTimesShot();
+    }*/
+
 
     public void updateScore()
     {
