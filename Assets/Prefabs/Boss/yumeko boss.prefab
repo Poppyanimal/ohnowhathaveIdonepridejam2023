@@ -284,7 +284,7 @@ MonoBehaviour:
         bulletQuantity: 5
         angleBetweenBullets: 5
         angleOffset: 80
-        startingVelocity: {x: 0, y: 7.5}
+        startingVelocity: {x: 0, y: 5.5}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -609,14 +609,14 @@ MonoBehaviour:
       startingVelocity: {x: 0, y: 1}
     patternSettings:
       timeBetweenBullets: 0
-      activityDurationOffset: 2
+      activityDurationOffset: 4
       sPatternList:
       - bulletOverride: {fileID: 0}
         TrackingOverrideChoice: 0
-        bulletQuantity: 3
+        bulletQuantity: 0
         angleBetweenBullets: 5
         angleOffset: -5
-        startingVelocity: {x: 0, y: 5}
+        startingVelocity: {x: 0, y: 3}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -782,7 +782,7 @@ MonoBehaviour:
         bulletQuantity: 5
         angleBetweenBullets: 5
         angleOffset: 80
-        startingVelocity: {x: 0, y: 7.5}
+        startingVelocity: {x: 0, y: 5.5}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -948,7 +948,7 @@ MonoBehaviour:
         bulletQuantity: 5
         angleBetweenBullets: 5
         angleOffset: -100
-        startingVelocity: {x: 0, y: 7.5}
+        startingVelocity: {x: 0, y: 5.5}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -1024,14 +1024,14 @@ MonoBehaviour:
       startingVelocity: {x: 0, y: 1}
     patternSettings:
       timeBetweenBullets: 0
-      activityDurationOffset: 2
+      activityDurationOffset: 4
       sPatternList:
       - bulletOverride: {fileID: 0}
         TrackingOverrideChoice: 0
-        bulletQuantity: 1
+        bulletQuantity: 0
         angleBetweenBullets: 5
         angleOffset: 0
-        startingVelocity: {x: 0, y: 5}
+        startingVelocity: {x: 0, y: 3}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -1051,7 +1051,7 @@ MonoBehaviour:
           doSpawnOffset: 0
           offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
-  delayBeforeShots: 1
+  delayBeforeShots: 2
   patternShootSFXs: []
 --- !u!1 &579948827
 GameObject:
@@ -1197,7 +1197,7 @@ MonoBehaviour:
         bulletQuantity: 3
         angleBetweenBullets: 10
         angleOffset: -100
-        startingVelocity: {x: 0, y: 7.5}
+        startingVelocity: {x: 0, y: 5.5}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -2123,14 +2123,14 @@ MonoBehaviour:
       startingVelocity: {x: 0, y: 1}
     patternSettings:
       timeBetweenBullets: 0
-      activityDurationOffset: 2
+      activityDurationOffset: 4
       sPatternList:
       - bulletOverride: {fileID: 0}
         TrackingOverrideChoice: 0
-        bulletQuantity: 1
+        bulletQuantity: 0
         angleBetweenBullets: 5
         angleOffset: 0
-        startingVelocity: {x: 0, y: 5}
+        startingVelocity: {x: 0, y: 3}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -2322,14 +2322,14 @@ MonoBehaviour:
       startingVelocity: {x: 0, y: 1}
     patternSettings:
       timeBetweenBullets: 0
-      activityDurationOffset: 2
+      activityDurationOffset: 4
       sPatternList:
       - bulletOverride: {fileID: 0}
         TrackingOverrideChoice: 0
-        bulletQuantity: 3
+        bulletQuantity: 0
         angleBetweenBullets: 5
         angleOffset: -5
-        startingVelocity: {x: 0, y: 5}
+        startingVelocity: {x: 0, y: 3}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -2349,7 +2349,7 @@ MonoBehaviour:
           doSpawnOffset: 0
           offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
-  delayBeforeShots: 1
+  delayBeforeShots: 2
   patternShootSFXs: []
 --- !u!1 &1650849054
 GameObject:
@@ -2412,7 +2412,7 @@ MonoBehaviour:
         bulletQuantity: 5
         angleBetweenBullets: 5
         angleOffset: -100
-        startingVelocity: {x: 0, y: 7.5}
+        startingVelocity: {x: 0, y: 5.5}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -2744,7 +2744,7 @@ MonoBehaviour:
         bulletQuantity: 3
         angleBetweenBullets: 10
         angleOffset: 80
-        startingVelocity: {x: 0, y: 7.5}
+        startingVelocity: {x: 0, y: 5.5}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -2827,7 +2827,7 @@ MonoBehaviour:
         bulletQuantity: 3
         angleBetweenBullets: 10
         angleOffset: -100
-        startingVelocity: {x: 0, y: 7.5}
+        startingVelocity: {x: 0, y: 5.5}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -2945,7 +2945,7 @@ MonoBehaviour:
         bulletQuantity: 3
         angleBetweenBullets: 10
         angleOffset: 80
-        startingVelocity: {x: 0, y: 7.5}
+        startingVelocity: {x: 0, y: 5.5}
         angularVelocity: 0
         SinInfo:
           SinAngleInfo:
@@ -3249,10 +3249,10 @@ MonoBehaviour:
       - timesToShoot: 1500
         bPattern: {fileID: 1870466515}
         resetDriftOnShotReset: 0
-      - timesToShoot: 150
+      - timesToShoot: 75
         bPattern: {fileID: 1402041685}
         resetDriftOnShotReset: 0
-      - timesToShoot: 150
+      - timesToShoot: 75
         bPattern: {fileID: 511363271}
         resetDriftOnShotReset: 0
     standardPhases:
@@ -3284,10 +3284,10 @@ MonoBehaviour:
       - timesToShoot: 3000
         bPattern: {fileID: 248721814}
         resetDriftOnShotReset: 0
-      - timesToShoot: 150
+      - timesToShoot: 75
         bPattern: {fileID: 295018297}
         resetDriftOnShotReset: 0
-      - timesToShoot: 150
+      - timesToShoot: 75
         bPattern: {fileID: 1499406439}
         resetDriftOnShotReset: 0
     hpThisPhase: 1000
@@ -3340,7 +3340,7 @@ MonoBehaviour:
     name: offset radial
   type: 0
   overrideStartForDebug: 0
-  phaseIndexToStartup: 0
+  phaseIndexToStartup: 1
   debugKillOnLoad: 0
 --- !u!50 &-2252946312614396385
 Rigidbody2D:

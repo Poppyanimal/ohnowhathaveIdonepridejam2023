@@ -114,6 +114,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -231,6 +234,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -311,6 +317,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -381,7 +390,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: 7
+            amplitude: 6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -391,6 +400,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -471,6 +483,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -551,6 +566,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -631,6 +649,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -711,6 +732,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: -2.3
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -860,6 +884,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -940,6 +967,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1020,6 +1050,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1100,6 +1133,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1180,6 +1216,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 2.2
   patternShootSFXs: []
@@ -1260,6 +1299,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1447,6 +1489,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1527,6 +1572,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1607,6 +1655,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1687,6 +1738,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1767,6 +1821,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -1847,6 +1904,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.25
   patternShootSFXs: []
@@ -1927,6 +1987,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
@@ -2007,6 +2070,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -2087,6 +2153,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -2167,6 +2236,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -2247,6 +2319,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -2431,6 +2506,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -2544,6 +2622,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
@@ -2661,6 +2742,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 2.25
   patternShootSFXs: []
@@ -2741,6 +2825,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -2821,6 +2908,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -2971,6 +3061,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -3088,6 +3181,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -3168,6 +3264,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1.2
   patternShootSFXs: []
@@ -3248,6 +3347,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 2.2
   patternShootSFXs: []
@@ -3328,6 +3430,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -3408,6 +3513,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -3488,6 +3596,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -3568,6 +3679,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.5
   patternShootSFXs: []
@@ -3648,6 +3762,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
@@ -3728,6 +3845,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -3808,6 +3928,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -3888,6 +4011,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -3968,6 +4094,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4048,6 +4177,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4128,6 +4260,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4198,7 +4333,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: -7
+            amplitude: -6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -4208,6 +4343,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4288,6 +4426,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4368,6 +4509,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4448,6 +4592,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4518,7 +4665,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: -7
+            amplitude: -6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -4528,6 +4675,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4680,6 +4830,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.2
   patternShootSFXs: []
@@ -4760,6 +4913,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
@@ -4840,6 +4996,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -4920,6 +5079,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5000,6 +5162,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.25
   patternShootSFXs: []
@@ -5080,6 +5245,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.5
   patternShootSFXs: []
@@ -5150,7 +5318,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: -7
+            amplitude: -6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -5160,6 +5328,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5230,7 +5401,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: 7
+            amplitude: 6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -5240,6 +5411,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5320,6 +5494,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5437,6 +5614,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5517,6 +5697,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1.2
   patternShootSFXs: []
@@ -5597,6 +5780,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5677,6 +5863,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
@@ -5757,6 +5946,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5827,7 +6019,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: 7
+            amplitude: 6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -5837,6 +6029,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5917,6 +6112,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: 35
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -5997,6 +6195,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: -182.3
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -6077,6 +6278,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -6157,6 +6361,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -6237,6 +6444,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -6317,6 +6527,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 2.25
   patternShootSFXs: []
@@ -6387,7 +6600,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: 7
+            amplitude: 6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -6397,6 +6610,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -6551,6 +6767,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.5
   patternShootSFXs: []
@@ -6668,6 +6887,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.5
   patternShootSFXs: []
@@ -6748,6 +6970,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -6828,6 +7053,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -6908,6 +7136,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -6988,6 +7219,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
@@ -7068,6 +7302,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -7138,7 +7375,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: 7
+            amplitude: 6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -7148,6 +7385,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -7228,6 +7468,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -7308,6 +7551,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.5
   patternShootSFXs: []
@@ -7415,7 +7661,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: -7
+            amplitude: -6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -7425,6 +7671,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -7495,7 +7744,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: -7
+            amplitude: -6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -7505,6 +7754,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -7575,7 +7827,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: -7
+            amplitude: -6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -7585,6 +7837,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -7665,6 +7920,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -7735,7 +7993,7 @@ MonoBehaviour:
           SinAngleInfo:
             useSinAngleOffset: 1
             timeOffset: 0
-            amplitude: 7
+            amplitude: 6
             period: 1
           SinVelocityInfo:
             useSinVelocity: 0
@@ -7745,6 +8003,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -7825,6 +8086,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.5
   patternShootSFXs: []
@@ -7905,6 +8169,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1.2
   patternShootSFXs: []
@@ -7985,6 +8252,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: -4.112
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -8065,6 +8335,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -8182,6 +8455,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: -44.112
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -8299,6 +8575,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.5
   patternShootSFXs: []
@@ -8379,6 +8658,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: 1.2
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -8459,6 +8741,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -8539,6 +8824,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
@@ -8619,6 +8907,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.2
   patternShootSFXs: []
@@ -8699,6 +8990,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1.2
   patternShootSFXs: []
@@ -8779,6 +9073,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -8859,6 +9156,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -8939,6 +9239,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -9019,6 +9322,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -9099,6 +9405,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -9179,6 +9488,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 1
   patternShootSFXs: []
@@ -9259,6 +9571,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 0
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 1
   delayBeforeShots: 0.5
   patternShootSFXs: []
@@ -9339,6 +9654,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: 11.2
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
@@ -9419,6 +9737,9 @@ MonoBehaviour:
         driftInfo:
           doAngleDrift: 1
           angleDrift: 5
+        posOffsetInfo:
+          doSpawnOffset: 0
+          offset: {x: 0, y: 0}
   doDelayBeforeShots: 0
   delayBeforeShots: 0
   patternShootSFXs: []
