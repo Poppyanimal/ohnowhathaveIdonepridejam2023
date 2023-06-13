@@ -7,10 +7,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class GlobalVars
 {
     public const string gameName = "Touhou Adventure of Two (Pride Jam 2023)";
-    public const ushort majorVersion = 0;
-    public const ushort minorVersion = 10;
-    public const bool isDevBuild = true; //for release set to false
-    public const bool forceRemoveDebugInvul = false; //for release set to true
+    public const ushort majorVersion = 1;
+    public const ushort minorVersion = 0;
+    public const bool isDevBuild = false; //for release set to false
+    public const bool forceRemoveDebugInvul = true; //for release set to true
     public const string mainMenuName = "SampleScene";
 
     public static int getGameVersion()
